@@ -1,0 +1,28 @@
+{
+  "name": "sandbox",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc && vite build",
+    "preview": "vite preview",
+    "story:dev": "histoire dev",
+    "story:build": "histoire build",
+    "story:preview": "histoire preview"
+  },
+  "dependencies": {
+    "vue": "^3.3.4"
+  },
+  "devDependencies": {
+    "@histoire/plugin-vue": "^0.17.1",
+    "@mdi/font": "^7.2.96",
+    "@vitejs/plugin-vue": "^4.3.4",
+    "histoire": "^0.17.2",
+    "typescript": "^5.0.2",
+    "vite": "^4.4.5",
+    "vite-plugin-vuetify": "^1.0.2",
+    "vue-tsc": "^1.8.5",
+    "vuetify": "^3.3.17"
+  }
+}

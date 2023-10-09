@@ -1,2 +1,2 @@
 # histoire-vuetify-tokens
-Plugin for handling Vuetify Tokens in Histoire
+Plugin for handling Design System in Histoire

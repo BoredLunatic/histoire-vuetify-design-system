@@ -1,0 +1,42 @@
+{
+  "name": "histoire-vuetify-design-system",
+  "version": "0.0.1",
+  "description": "Histoire Design Systems default stories for Vuetify  - Framework and Controls",
+  "license": "MIT",
+  "author": "PlusTimeIT <kane@plustime.com.au> (https://plustime.com.au/)",
+  "repository": {
+    "url": "https://github.com/BoredLunatic/histoire-vuetify-tokens.git",
+    "type": "git"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "type": "module",
+  "exports": {
+    ".": "./dist/index.js",
+    "./*": "./*"
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "dev": "vite",
+    "build": "rimraf dist && vite build",
+    "watch": "tsc -d -w --sourceMap"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+    "@histoire/plugin-vue": "^0.17.1",
+    "histoire": "^0.17.2",
+    "rimraf": "^3.0.0",
+    "typescript": "^4.9.5",
+    "vue": "^3.3.4",
+    "vuetify": "^3.3.17"
+  },
+  "peerDependencies": {
+    "histoire": "^0.17.2",
+    "vue": "^3.3.4",
+    "vuetify": "^3.3.17"
+  }
+}

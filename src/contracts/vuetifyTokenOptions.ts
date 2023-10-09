@@ -3,31 +3,30 @@ import { VuetifyTemplates, defaultVariantTemplates } from './templates'
 import { VariantDivider } from './variants'
 
 interface DisplayOptions {
-  icon?: string
-  title?: string
   group?: string
+  icon?: string
   layout?: StoryLayout
   responsiveDisabled?: boolean
+  title?: string
 }
 
 export interface PlaygroundOptions {
-  title?: string
   classes?: string
   divider?: VariantDivider
+  title?: string
 }
 
 export interface VuetifyTokenOptions {
   configFile?: string
-  sample?: string
-  templates?: VuetifyTemplates
   display?: DisplayOptions
   playground?: PlaygroundOptions
+  sample?: string
+  templates?: VuetifyTemplates
 }
 
 const defaultOptions: VuetifyTokenOptions =  {
   configFile: '',
   sample: 'This is some sample text.',
-  
   playground:{
     title: "Playground",
     classes: "mb-2 text-h4 htw-text-gray-900 dark:htw-text-gray-100",

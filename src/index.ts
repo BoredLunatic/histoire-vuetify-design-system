@@ -5,7 +5,7 @@ import { generateStory } from './generator'
 import { toPascalCase } from './utils/helper'
 import { findUp } from 'histoire/src/node/util/find-up.js'
 
-export function vuetifyTokens (options: VuetifyTokenOptions = {}): Plugin {
+export function vuetifyDesignSystem (options: VuetifyTokenOptions = {}): Plugin {
   const finalOptions: VuetifyTokenOptions = defu(options, defaultOptions)
 
   // merge vuetify theme with histoire theme.

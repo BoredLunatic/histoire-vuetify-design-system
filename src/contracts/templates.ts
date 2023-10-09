@@ -83,7 +83,8 @@ const defaultVariantTemplates: VuetifyTemplates = {
   blueprint: {
     autoPropsDisabled: true,
     discriminator: 'display',
-    show: true,
+    // TODO: sort out blueprint / display variant.
+    show: false,
     order: 0,
     icon: 'mdi:fingerprint',
     classes: 'bg-grey-darken-4 pa-4 display-block rounded-lg',

@@ -57,7 +57,7 @@ const hasPlayground = computed(() => (props.controls?.filter((c) => c.playground
     </div>
     <variant-description
       v-if="props.description !== undefined"
-      :link="(props.description?.link as VariantLink) ?? []"
+      :link="(props.description?.link as VariantLink) ?? undefined"
       :text="props.description?.text ?? ''"
       :classes="props.description?.classes ?? ''"
       :divider="props.description?.divider ?? {show:false}"

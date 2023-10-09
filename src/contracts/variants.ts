@@ -106,20 +106,22 @@ interface BaseTemplate {
 export interface ComponentTemplate extends BaseTemplate {
   // puts all component variants into cascading containers
   containerized?: boolean
+  variants?: VariantComponent[]
 }
 
 // Variants using classes for styling
 export interface ClassTemplate extends BaseTemplate {
-
+  variants?: VariantClass[]
 }
 
 // Variants for displaying color blocks
 export interface ColorTemplate extends BaseTemplate {
-
+  variants?: VariantColors[]
 }
 
 // Variants displaying data blocks
 export interface DisplayTemplate extends BaseTemplate {
+  variants?: VariantDisplay[]
   variable: string
   link?: VariantLink
 }

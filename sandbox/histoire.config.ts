@@ -1,13 +1,13 @@
 import { defineConfig } from "histoire";
 import { HstVue } from "@histoire/plugin-vue";
-import { vuetifyTokens } from '../src'
+import { vuetifyDesignSystem } from '../src'
 
 export default defineConfig({
   outDir: './.histoire/dist',
   setupFile: 'src/histoire.setup.ts',
   plugins: [
     HstVue(), 
-    vuetifyTokens({
+    vuetifyDesignSystem({
       configFile: __dirname + '/src/vuetify/options.ts',
     })
   ],

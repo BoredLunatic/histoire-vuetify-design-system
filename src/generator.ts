@@ -122,8 +122,8 @@ export function generateStory(options: VuetifyTokenOptions, vuetifyConfig: any) 
       title="${options.display.title}"
       group="${options.display.group}"
       icon="${options.display.icon}"
-      :layout='${JSON.stringify(options.layout)}'
-      :responsiveDisabled='${JSON.stringify(options.responsiveDisabled)}'
+      :layout='${JSON.stringify(options.display.layout)}'
+      :responsiveDisabled='${JSON.stringify(options.display.responsiveDisabled)}'
     >
       ${allVariants.join(`\n`)}
     </Story>

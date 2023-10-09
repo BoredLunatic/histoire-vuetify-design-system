@@ -6,6 +6,8 @@ interface DisplayOptions {
   icon?: string
   title?: string
   group?: string
+  layout?: StoryLayout
+  responsiveDisabled?: boolean
 }
 
 export interface PlaygroundOptions {
@@ -16,8 +18,6 @@ export interface PlaygroundOptions {
 
 export interface VuetifyTokenOptions {
   configFile?: string
-  layout?: StoryLayout
-  responsiveDisabled?: boolean
   sample?: string
   templates?: VuetifyTemplates
   display?: DisplayOptions
@@ -27,8 +27,7 @@ export interface VuetifyTokenOptions {
 const defaultOptions: VuetifyTokenOptions =  {
   configFile: '',
   sample: 'This is some sample text.',
-  layout: {type: 'single', iframe: true},
-  responsiveDisabled: false,
+  
   playground:{
     title: "Playground",
     classes: "mb-2 text-h4 htw-text-gray-900 dark:htw-text-gray-100",
@@ -40,7 +39,9 @@ const defaultOptions: VuetifyTokenOptions =  {
   display: {
     icon: 'mdi:vuetify',
     title: 'Vuetify',
-    group: 'design-system'
+    group: 'design-system',
+    layout: {type: 'single', iframe: true},
+    responsiveDisabled: false,
   },
   templates: Object.fromEntries(
     Object.entries(defaultVariantTemplates).sort((a,b) => a[1].order - b[1].order).filter((v) => v[1].show)

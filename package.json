@@ -20,8 +20,7 @@
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
-    "dev": "vite",
-    "build": "rimraf dist && vite build",
+    "build": "rimraf dist && tsc -d",
     "watch": "tsc -d -w --sourceMap"
   },
   "dependencies": {

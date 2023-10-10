@@ -1,4 +1,4 @@
-import { ax as _export_sfc, ay as ref, az as resolveComponent, aA as openBlock, aB as createBlock, aC as withCtx, aD as logEvent, aE as createVNode, aF as createTextVNode, aG as toDisplayString, aH as VBtn } from "./vendor-3c4078ee.js";
+import { ax as _export_sfc, ay as ref, az as resolveComponent, aA as openBlock, aB as createBlock, aC as withCtx, aD as logEvent, aE as createVNode, aF as createTextVNode, aG as toDisplayString, aH as VBtn } from "./vendor-111ef619.js";
 const _sfc_main = {
   __name: "v-btn.story",
   setup(__props, { expose: __expose }) {
@@ -14,7 +14,7 @@ const _sfc_main = {
 function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_HstText = resolveComponent("HstText");
   const _component_Story = resolveComponent("Story");
-  return openBlock(), createBlock(_component_Story, null, {
+  return openBlock(), createBlock(_component_Story, { group: "design-system/vuetify" }, {
     controls: withCtx(() => [
       createVNode(_component_HstText, {
         modelValue: $setup.text,

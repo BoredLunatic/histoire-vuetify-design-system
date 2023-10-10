@@ -6,7 +6,7 @@ const text = ref('Click me!')
 <\/script>
 
 <template>
-  <Story>
+  <Story group="design-system/vuetify">
     <v-btn
       @click="logEvent('click', $event)"
     >

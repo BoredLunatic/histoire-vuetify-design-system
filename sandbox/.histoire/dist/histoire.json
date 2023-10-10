@@ -3,6 +3,7 @@
     {
       "id": "src-components-v-btn-story-vue",
       "title": "v-btn",
+      "group": "design-system/vuetify",
       "layout": {
         "type": "single",
         "iframe": true

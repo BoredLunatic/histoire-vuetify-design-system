@@ -14,30 +14,44 @@ const __resolved__virtual_storySource_vuetify = `
   const config = markRaw({
   "blueprint": {
     "defaults": {
-      "global": {
-        "rounded": "sm"
-      },
-      "VAvatar": {
-        "rounded": "circle"
+      "VAppBar": {
+        "flat": true
       },
       "VAutocomplete": {
-        "variant": "underlined"
+        "variant": "filled"
       },
       "VBanner": {
         "color": "primary"
       },
+      "VBottomSheet": {
+        "contentClass": "rounded-t-xl overflow-hidden"
+      },
       "VBtn": {
         "color": "primary",
-        "rounded": 0
+        "rounded": "xl"
+      },
+      "VBtnGroup": {
+        "rounded": "xl",
+        "VBtn": {
+          "rounded": null
+        }
+      },
+      "VCard": {
+        "rounded": "lg"
       },
       "VCheckbox": {
-        "color": "secondary"
+        "color": "secondary",
+        "inset": true
+      },
+      "VChip": {
+        "rounded": "sm"
       },
       "VCombobox": {
-        "variant": "underlined"
+        "variant": "filled"
       },
+      "VNavigationDrawer": {},
       "VSelect": {
-        "variant": "underlined"
+        "variant": "filled"
       },
       "VSlider": {
         "color": "primary"
@@ -46,10 +60,10 @@ const __resolved__virtual_storySource_vuetify = `
         "color": "primary"
       },
       "VTextarea": {
-        "variant": "underlined"
+        "variant": "filled"
       },
       "VTextField": {
-        "variant": "underlined"
+        "variant": "filled"
       },
       "VToolbar": {
         "VBtn": {
@@ -67,13 +81,11 @@ const __resolved__virtual_storySource_vuetify = `
       "themes": {
         "light": {
           "colors": {
-            "primary": "#3F51B5",
-            "primary-darken-1": "#303F9F",
-            "primary-lighten-1": "#C5CAE9",
-            "secondary": "#FF4081",
-            "secondary-darken-1": "#F50057",
-            "secondary-lighten-1": "#FF80AB",
-            "accent": "#009688"
+            "primary": "#6750a4",
+            "secondary": "#b4b0bb",
+            "tertiary": "#7d5260",
+            "error": "#b3261e",
+            "surface": "#fffbfe"
           }
         }
       }
@@ -389,7 +401,7 @@ marginSize: 2
       text="overflowSample"
       :title='{"classes":"mb-2 text-h4 htw-text-gray-900 dark:htw-text-gray-100","text":"Overflow"}'
       :inline="true"
-      :description='undefined'
+      :description='{"classes":"my-4 htw-text-gray-900 dark:htw-text-gray-100","divider":{"show":true,"classes":"my-4"},"text":"Configure how content overflows when it becomes out of container bounds.","link":{"url":"https://vuetifyjs.com/en/styles/overflow/","text":"More information","blank":true,"classes":"my-4 htw-text-gray-900 dark:htw-text-gray-100 font-weight-bold"}}'
       :controls='[{"component":"v-autocomplete","model":"overflow","label":"Overflow","itemsTitle":"title","itemsValue":"classes","playground":{"type":"class","sample":"overflowSample","classes":"bg-grey-darken-4 pa-4 rounded-lg display-square "}}]'
       :variants='[{"title":"Overflow Auto","classes":"overflow-auto"},{"title":"Overflow Hidden","classes":"overflow-hidden"},{"title":"Overflow Visible","classes":"overflow-visible"},{"title":"Overflow X Auto","classes":"overflow-x-auto force-nowrap"},{"title":"Overflow X Hidden","classes":"overflow-x-hidden force-nowrap"},{"title":"Overflow X Visible","classes":"overflow-x-visible force-nowrap"},{"title":"Overflow Y Auto","classes":"overflow-y-auto"},{"title":"Overflow Y Hidden","classes":"overflow-y-hidden"},{"title":"Overflow Y Visible","classes":"overflow-y-visible"}]'
       :playground='{"title":"Playground","classes":"mb-2 text-h4 htw-text-gray-900 dark:htw-text-gray-100","divider":{"show":true,"classes":"ma-4"}}'
@@ -420,7 +432,7 @@ marginSize: 2
       text="title"
       :title='{"classes":"mb-2 text-h4 htw-text-gray-900 dark:htw-text-gray-100","text":"Sizing"}'
       :inline="true"
-      :description='undefined'
+      :description='{"classes":"my-4 htw-text-gray-900 dark:htw-text-gray-100","divider":{"show":true,"classes":"my-4"},"text":"Sizing utility classes are used to modify the dimensions of an element.","link":{"url":"https://vuetifyjs.com/en/styles/sizing/","text":"More information","blank":true,"classes":"my-4 htw-text-gray-900 dark:htw-text-gray-100 font-weight-bold"}}'
       :controls='[{"component":"v-autocomplete","model":"sizing","label":"Sizing","itemsTitle":"title","itemsValue":"classes","playground":{"type":"class","sample":"sample","classes":"bg-grey-darken-4 pa-4 rounded-lg display-square "}}]'
       :variants='[{"title":"Height Auto","classes":"h-auto"},{"title":"Height Screen","classes":"h-screen"},{"title":"Height 0","classes":"h-0"},{"title":"Height 25","classes":"h-25"},{"title":"Height 50","classes":"h-50"},{"title":"Height 75","classes":"h-75"},{"title":"Height 100","classes":"h-100"},{"title":"Width Auto","classes":"w-auto"},{"title":"Width 0","classes":"w-0"},{"title":"Width 25","classes":"w-25"},{"title":"Width 50","classes":"w-50"},{"title":"Width 75","classes":"w-75"},{"title":"Width 100","classes":"w-100"}]'
       :playground='{"title":"Playground","classes":"mb-2 text-h4 htw-text-gray-900 dark:htw-text-gray-100","divider":{"show":true,"classes":"ma-4"}}'
@@ -481,7 +493,7 @@ marginSize: 2
       text="title"
       :title='{"classes":"mb-2 text-h4 htw-text-gray-900 dark:htw-text-gray-100","text":"Spacing"}'
       :inline="false"
-      :description='undefined'
+      :description='{"classes":"my-4 htw-text-gray-900 dark:htw-text-gray-100","divider":{"show":true,"classes":"my-4"},"text":"Update your layout without creating new classes.","link":{"url":"https://vuetifyjs.com/en/styles/spacing/","text":"More information","blank":true,"classes":"my-4 htw-text-gray-900 dark:htw-text-gray-100 font-weight-bold"}}'
       :controls='[{"component":"v-autocomplete","model":"padding","label":"Padding","items":"spacingDirections"},{"component":"v-autocomplete","model":"paddingSize","label":"Padding Size","items":"spacingDefaults"},{"component":"v-autocomplete","model":"margin","label":"Margin","items":"spacingDirections"},{"component":"v-autocomplete","model":"marginSize","label":"Margin Size","items":"spacingMarginAmounts"}]'
       :variants='[{"title":"Container","component":"div","states":["margin","marginSize"],"classes":"bg-orange-lighten-3 pa-0 ma-4 overflow-auto","children":[{"title":"Parent","component":"div","states":["margin","marginSize"],"builder":{"args":["direction","size"],"body":"return \`m\${direction}-\${size}\`"},"classes":"elevation-4","children":[{"title":"Child","component":"div","states":["padding","paddingSize"],"builder":{"args":["direction","size"],"body":"return \`p\${direction}-\${size}\`"},"classes":"bg-light-green-lighten-3 elevation-4","children":[{"title":"Content","component":"div","classes":"bg-white text-center py-6","content":"Use the controls on the right to try out the different spacing helpers."}]}]}]}]'
       :playground='{"title":"Playground","classes":"mb-2 text-h4 htw-text-gray-900 dark:htw-text-gray-100","divider":{"show":true,"classes":"ma-4"}}'

@@ -67,7 +67,6 @@ This will generate a Vuetify story and populate it with all the current default 
 
 Typically when setting up Vuetify you don't need to make your options object exportable, but for this package to be we need to setup vuetify a little bit different. There isn't much you need to change, but start with creating an options file where you would normally initilise your vuetify instance. It needs to export default so this package can import them dynamically.
 
-
 ````typescript
 /** plugins/vuetify/options.ts */
 import { VuetifyOptions } from 'vuetify'

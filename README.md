@@ -5,6 +5,12 @@ Plugin to display Vuetify Design System in [Histoire.](https://histoire.dev/).
 
 You can customise what is displayed and also add styling for almost all sections. It currently utilise vuetify styling and components.
 
+## Disclaimer
+
+This plugin is still in development.
+
+## Current List of Templates
+
 Below is a list of the default variant templates the plugin can currently show:
 
 |    Template Name    |   Has Playground   |
@@ -69,7 +75,6 @@ Example of default configuration (this is the same as doing above):
 
 ````typescript
 vuetifyDesignSystem({
-    /** Vuetify configuration file - this needs to be split and default exported */
     configFile: '',
     sample: 'This is some sample text.',
     playground:{
@@ -91,6 +96,36 @@ vuetifyDesignSystem({
         /** Complete list of Templates and Variants to load. */
     }
 })
+````
+
+Options interface:
+
+````typescript
+export interface VuetifyTokenOptions {
+    /** Vuetify configuration file - this needs to be split and default exported */
+  configFile?: string
+  /** Main display options for Story */
+  display?: DisplayOptions
+  /** Default Playground options */
+  playground?: PlaygroundOptions
+  /** Default sample text */
+  sample?: string
+  /** Template Variants top display */
+  templates?: VuetifyTemplates
+}
+````
+
+Playground Options interface:
+
+````typescript
+export interface PlaygroundOptions {
+    /** Playground container classes */
+  classes?: string
+   /** Divider options */
+  divider?: VariantDivider
+  /** Title text for playground */
+  title?: string
+}
 ````
 
 Templates interface:
@@ -118,9 +153,7 @@ There are currently 4 types of Templates:
 3. Component Template: Show 1 or more components
 4. Display Template: Show a piece of data or computed property.
 
-If you just want to update some basic styling or do something like hide a variant, the complete list below will be useless for you.
-
-Below is a few examples for hiding a variant, changing classes, and updating text. Even further down is a complete list of attributes that are shared and ones that are unique.
+If you just want to update some basic styling or do something like hide a variant, you can just look at the below examples. Even further down is a complete list of attributes that are shared and ones that are unique.
 
 ### Example 1: Hiding a Variant
 

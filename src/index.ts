@@ -3,22 +3,9 @@ import type { PluginApiBase, Plugin } from '@histoire/shared'
 import { VuetifyTokenOptions, defaultOptions } from './contracts/vuetifyTokenOptions'
 import { generateStory } from './generator'
 import { toPascalCase } from './utils/helper'
-import { findUp } from 'histoire/src/node/util/find-up.js'
 
 export function vuetifyDesignSystem (options: VuetifyTokenOptions = {}): Plugin {
   const finalOptions: VuetifyTokenOptions = defu(options, defaultOptions)
-
-  // merge vuetify theme with histoire theme.
-  const vuetifyConfigFile = finalOptions.configFile ?? findUp(process.cwd(), [
-    'vuetify.config.js',
-    'vuetify.config.cjs',
-    'vuetify.config.mjs',
-    'vuetify.config.ts',
-    'vuetify-config.js',
-    'vuetify-config.cjs',
-    'vuetify-config.mjs',
-    'vuetify-config.ts',
-  ])
 
   async function generate (api: PluginApiBase) {
     try {
@@ -26,7 +13,7 @@ export function vuetifyDesignSystem (options: VuetifyTokenOptions = {}): Plugin 
       await api.fs.emptyDir(api.pluginTempDir)
       api.moduleLoader.clearCache()
       await api.fs.writeFile(api.path.resolve(api.pluginTempDir, 'style.css'), css)
-      const { default: resolveConfig } = await import(vuetifyConfigFile)
+      const { default: resolveConfig } = await import(finalOptions.configFile)
       const storyFile = api.path.resolve(api.pluginTempDir, 'Vuetify.story.vue')
       await api.fs.writeFile(storyFile, generateStory(finalOptions, resolveConfig))
       api.addStoryFile(storyFile)
@@ -38,7 +25,7 @@ export function vuetifyDesignSystem (options: VuetifyTokenOptions = {}): Plugin 
   return {
     name: 'vuetify-tokens',
     config (config) {
-      if (vuetifyConfigFile) {
+      if (finalOptions.configFile) {
         // Add 'design-system' group
         if (!config.tree) {
           config.tree = {}
@@ -63,8 +50,8 @@ export function vuetifyDesignSystem (options: VuetifyTokenOptions = {}): Plugin 
     },
 
     onDev (api, onCleanup) {
-      if (vuetifyConfigFile) {
-        const watcher = api.watcher.watch(vuetifyConfigFile)
+      if (finalOptions.configFile) {
+        const watcher = api.watcher.watch(finalOptions.configFile)
           .on('change', () => generate(api))
           .on('add', () => generate(api))
 
@@ -75,7 +62,7 @@ export function vuetifyDesignSystem (options: VuetifyTokenOptions = {}): Plugin 
     },
 
     async onBuild (api) {
-      if (vuetifyConfigFile) {
+      if (finalOptions.configFile) {
         await generate(api)
       }
     },

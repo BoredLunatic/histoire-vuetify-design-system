@@ -63,6 +63,109 @@ export default defineConfig({
 
 This will generate a Vuetify story and populate it with all the current default variants.
 
+## Making Your Vuetify Options Exportable
+
+Typically when setting up Vuetify you don't need to make your options object exportable, but for this package to be we need to setup vuetify a little bit different. There isn't much you need to change, but start with creating an options file where you would normally initilise your vuetify instance. It needs to export default so this package can import them dynamically.
+
+
+````typescript
+/** plugins/vuetify/options.ts */
+import { VuetifyOptions } from 'vuetify'
+import { md3 } from 'vuetify/blueprints'
+import { ThemeDefinition } from 'vuetify'
+
+const vuetifyTheme: ThemeDefinition = {
+  dark: false,
+  colors: {
+    background: '#FFFFFF',
+    surface: '#FFFFFF',
+    primary: '#000000',
+    secondary: '#EEEEEE',
+    error: '#B00020',
+    info: '#2196F3',
+    success: '#4CAF50',
+    warning: '#GGGGGGG',
+  },
+}
+
+const Vuetify3Options: VuetifyOptions = {
+  blueprint: md3,
+  theme: {
+    defaultTheme: 'vuetifyTheme',
+    themes: {
+      vuetifyTheme
+    }
+  }
+}
+
+export default Vuetify3Options
+
+````
+
+Inside your vuetify index file, you can import your options and include any additional attributes. Then initialise vuetify how your normally would:
+
+````typescript
+/** plugins/vuetify/options.ts */
+
+import { createVuetify } from "vuetify";
+import * as labs from "vuetify/labs/components";
+import * as components from "vuetify/components";
+import * as directives from "vuetify/directives";
+import Vuetify3Options from './options'
+
+export default createVuetify({
+  components: {
+    ...components,
+    ...labs,
+  },
+  directives,
+  ...Vuetify3Options
+})
+
+````
+
+Building your Vue app as normal.
+
+````typescript
+/** main.ts */
+import { createApp } from 'vue'
+import vuetify from './vuetify'
+
+import App from './App.vue'
+
+createApp(App).use(vuetify).mount('#app')
+
+````
+
+## Histoire Setup File
+
+You'll also need to make sure you are importing your projects vuetify options (from above) and set these for histoire to display the correct options.
+
+````typescript
+/** histoire.setup.ts */
+import { defineSetupVue3 } from '@histoire/plugin-vue'
+import { createVuetify } from "vuetify";
+import * as labs from "vuetify/labs/components";
+import * as components from "vuetify/components";
+import * as directives from "vuetify/directives";
+import Vuetify3Options from './vuetify/options'
+// Icons and Vuetify Styles
+import '@mdi/font/css/materialdesignicons.css'
+import 'vuetify/styles'
+
+export const setupVue3 = defineSetupVue3(({ app }) => {
+  app.use(createVuetify({
+    components: {
+      ...components,
+      ...labs,
+    },
+    directives,
+    ...Vuetify3Options
+  }))
+})
+
+````
+
 ## Configuration
 
 The plugin is fully customisable and your provided configuration will will be merged with the defaults.

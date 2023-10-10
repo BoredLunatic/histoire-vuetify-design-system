@@ -1,5 +1,5 @@
 import { VuetifyOptions } from 'vuetify'
-import { md1 } from 'vuetify/blueprints'
+import { md3 } from 'vuetify/blueprints'
 import { ThemeDefinition } from 'vuetify'
 
 const vuetifyTheme: ThemeDefinition = {
@@ -8,18 +8,16 @@ const vuetifyTheme: ThemeDefinition = {
     background: '#FFFFFF',
     surface: '#FFFFFF',
     primary: '#000000',
-    'primary-darken-1': '#3700B3',
-    secondary: '#03DAC6',
-    'secondary-darken-1': '#018786',
+    secondary: '#EEEEEE',
     error: '#B00020',
     info: '#2196F3',
     success: '#4CAF50',
-    warning: '#FB8C00',
+    warning: '#GGGGGGG',
   },
 }
 
 const Vuetify3Options: VuetifyOptions = {
-  blueprint: md1,
+  blueprint: md3,
   theme: {
     defaultTheme: 'vuetifyTheme',
     themes: {

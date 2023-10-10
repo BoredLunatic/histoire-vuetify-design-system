@@ -573,6 +573,20 @@ const defaultVariantTemplates: VuetifyTemplates = {
   overflow: {
     autoPropsDisabled: true,
     discriminator: 'class',
+    description: {
+      classes: "my-4 htw-text-gray-900 dark:htw-text-gray-100",
+      divider: {
+        show: true,
+        classes: "my-4"
+      },
+      text: 'Configure how content overflows when it becomes out of container bounds.',
+      link: {
+        url: "https://vuetifyjs.com/en/styles/overflow/",
+        text: "More information",
+        blank: true,
+        classes: "my-4 htw-text-gray-900 dark:htw-text-gray-100 font-weight-bold"
+      }
+    },
     show: true,
     order: 8,
     icon: 'mdi:format-text-wrapping-overflow',
@@ -616,6 +630,20 @@ const defaultVariantTemplates: VuetifyTemplates = {
   sizing: {
     autoPropsDisabled: true,
     discriminator: 'class',
+    description: {
+      classes: "my-4 htw-text-gray-900 dark:htw-text-gray-100",
+      divider: {
+        show: true,
+        classes: "my-4"
+      },
+      text: 'Sizing utility classes are used to modify the dimensions of an element.',
+      link: {
+        url: "https://vuetifyjs.com/en/styles/sizing/",
+        text: "More information",
+        blank: true,
+        classes: "my-4 htw-text-gray-900 dark:htw-text-gray-100 font-weight-bold"
+      }
+    },
     show: true,
     order: 9,
     icon: 'mdi:image-size-select-small',
@@ -662,6 +690,20 @@ const defaultVariantTemplates: VuetifyTemplates = {
   spacing: {
     autoPropsDisabled: true,
     discriminator: 'component',
+    description: {
+      classes: "my-4 htw-text-gray-900 dark:htw-text-gray-100",
+      divider: {
+        show: true,
+        classes: "my-4"
+      },
+      text: 'Update your layout without creating new classes.',
+      link: {
+        url: "https://vuetifyjs.com/en/styles/spacing/",
+        text: "More information",
+        blank: true,
+        classes: "my-4 htw-text-gray-900 dark:htw-text-gray-100 font-weight-bold"
+      }
+    },
     show: true,
     order: 10,
     icon: 'mdi:space-invaders',

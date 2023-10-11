@@ -23,7 +23,7 @@ export function vuetifyDesignSystem (options: VuetifyDesignSystemOptions = {}): 
   }
 
   return {
-    name: 'vuetify-tokens',
+    name: 'vuetify-design-system',
     config (config) {
       if (finalOptions.configFile) {
         // Add 'design-system' group

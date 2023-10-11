@@ -1,6 +1,6 @@
 import { ClassTemplate, ColorTemplate, ComponentTemplate, DisplayTemplate, VariantControl} from './contracts/variants'
 import { VuetifyDesignSystemOptions, PlaygroundOptions } from './contracts/vuetifyDesignSystemOptions'
-import { toKebabCase, toPascalCase } from "./utils/helper"
+import { toPascalCase } from "./utils/helper"
 import path from 'node:path'
 
 function generateControls(variantName: string , controls: VariantControl[]): string {
@@ -97,7 +97,7 @@ export function generateStory(options: VuetifyDesignSystemOptions, vuetifyConfig
   import 'virtual:$histoire-theme.css'
   import './style.css'
   import { ref, markRaw, computed, reactive } from 'vue'
-  import VuetifyVariant from '${path.resolve(__dirname, 'components/VuetifyVariant.vue')}'
+  import VuetifyVariant from 'histoire-vuetify-design-system'
 
   // loaded imports
   ${allImports.join(`\n`)}

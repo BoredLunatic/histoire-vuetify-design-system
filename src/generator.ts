@@ -97,7 +97,6 @@ export function generateStory(options: VuetifyDesignSystemOptions, vuetifyConfig
   import 'virtual:$histoire-theme.css'
   import './style.css'
   import { ref, markRaw, computed, reactive } from 'vue'
-  import VuetifyVariant from 'histoire-vuetify-design-system'
 
   // loaded imports
   ${allImports.join(`\n`)}

@@ -1,6 +1,6 @@
 import { defineConfig } from "histoire";
 import { HstVue } from "@histoire/plugin-vue";
-import { vuetifyDesignSystem } from '../dist'
+import { vuetifyDesignSystem } from '../src'
 
 export default defineConfig({
   outDir: './.histoire/dist',

@@ -60,7 +60,6 @@ export function generateStory(options: VuetifyTokenOptions, vuetifyConfig: any) 
   // const finalVariants = options.variants.filter((variant) => variant.show)
   // check token options for which variants to show.
   for(const template in options.templates){
-    
   const name = toPascalCase(template).replaceAll(' ', '').replaceAll('-', '')
   const variant = options.templates[template]
 

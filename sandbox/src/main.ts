@@ -5,4 +5,7 @@ import HistoireVuetifyDS from '../../src/plugin'
 
 import App from './App.vue'
 
-createApp(App).use(vuetify).use(HistoireVuetifyDS).mount('#app')
+createApp(App)
+  .use(vuetify)
+  .use(HistoireVuetifyDS)
+  .mount('#app')

@@ -33,7 +33,7 @@ function generateVariant(name: string, playgroundOptions: PlaygroundOptions, var
     :autoPropsDisabled="${variant.autoPropsDisabled ?? false}"
   >
     ${variant.controls !== undefined ? generateControls(name, variant.controls) : ``}
-    <vuetify-variant
+    <VuetifyVariant
       discriminator="${variant.discriminator}"
       classes="${variant.classes}"
       text="${variant.text}"

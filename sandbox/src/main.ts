@@ -1,7 +1,7 @@
 import { createApp } from 'vue'
 import './style.css'
 import vuetify from './vuetify'
-import { HistoireVuetifyDS } from '../../src'
+import HistoireVuetifyDS from '../../src/plugin'
 
 import App from './App.vue'
 

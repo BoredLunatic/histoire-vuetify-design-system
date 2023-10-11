@@ -3,7 +3,6 @@ import type { PluginApiBase, Plugin } from '@histoire/shared'
 import { VuetifyDesignSystemOptions, defaultOptions } from './contracts/vuetifyDesignSystemOptions'
 import { generateStory } from './generator'
 import { toPascalCase } from './utils/helper'
-import { App, Plugin as VuePlugin } from "vue";
 
 export function vuetifyDesignSystem (options: VuetifyDesignSystemOptions = {}): Plugin {
   const finalOptions: VuetifyDesignSystemOptions = defu(options, defaultOptions)
@@ -67,15 +66,6 @@ export function vuetifyDesignSystem (options: VuetifyDesignSystemOptions = {}): 
         await generate(api)
       }
     },
-  }
-}
-
-import VuetifyVariant from './components/VuetifyVariant.vue'
-
-export const HistoireVuetifyDS: VuePlugin = {
-  install(app: App) {
-    // configure the app
-    app.component('VuetifyVariant', VuetifyVariant)
   }
 }
 

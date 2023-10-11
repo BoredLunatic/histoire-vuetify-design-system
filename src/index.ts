@@ -1,11 +1,11 @@
 import { defu } from 'defu'
 import type { PluginApiBase, Plugin } from '@histoire/shared'
-import { VuetifyTokenOptions, defaultOptions } from './contracts/vuetifyTokenOptions'
+import { VuetifyDesignSystemOptions, defaultOptions } from './contracts/vuetifyDesignSystemOptions'
 import { generateStory } from './generator'
 import { toPascalCase } from './utils/helper'
 
-export function vuetifyDesignSystem (options: VuetifyTokenOptions = {}): Plugin {
-  const finalOptions: VuetifyTokenOptions = defu(options, defaultOptions)
+export function vuetifyDesignSystem (options: VuetifyDesignSystemOptions = {}): Plugin {
+  const finalOptions: VuetifyDesignSystemOptions = defu(options, defaultOptions)
 
   async function generate (api: PluginApiBase) {
     try {

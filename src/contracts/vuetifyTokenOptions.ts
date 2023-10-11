@@ -16,7 +16,7 @@ export interface PlaygroundOptions {
   title?: string
 }
 
-export interface VuetifyTokenOptions {
+export interface VuetifyDesignSystemOptions {
   configFile?: string
   display?: DisplayOptions
   playground?: PlaygroundOptions
@@ -24,7 +24,7 @@ export interface VuetifyTokenOptions {
   templates?: VuetifyTemplates
 }
 
-const defaultOptions: VuetifyTokenOptions =  {
+const defaultOptions: VuetifyDesignSystemOptions =  {
   configFile: '',
   sample: 'This is some sample text.',
   playground:{

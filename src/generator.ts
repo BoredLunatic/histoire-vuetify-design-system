@@ -1,5 +1,5 @@
 import { ClassTemplate, ColorTemplate, ComponentTemplate, DisplayTemplate, VariantControl} from './contracts/variants'
-import { VuetifyTokenOptions, PlaygroundOptions } from './contracts/vuetifyTokenOptions'
+import { VuetifyDesignSystemOptions, PlaygroundOptions } from './contracts/vuetifyDesignSystemOptions'
 import { toKebabCase, toPascalCase } from "./utils/helper"
 import path from 'node:path'
 
@@ -51,7 +51,7 @@ function generateVariant(name: string, playgroundOptions: PlaygroundOptions, var
 
 //autoPropsDisabled="true"
 
-export function generateStory(options: VuetifyTokenOptions, vuetifyConfig: any) {
+export function generateStory(options: VuetifyDesignSystemOptions, vuetifyConfig: any) {
   let allStates = []
   let allImports = []
   let allVariables = []

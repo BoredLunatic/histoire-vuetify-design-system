@@ -8,7 +8,7 @@ import VariantDescription from './VariantDescription.vue'
 import { VariantControl, VariantClass, VariantColors, VariantDisplay, VariantComponent, VariantDescription as VariantDescriptionType, VariantLink, TemplateTitle } from '../contracts/variants';
 import type { VariantDiscriminator } from '../contracts/variants';
 import { computed, watchEffect, ref, Ref } from 'vue';
-import { PlaygroundOptions } from '../contracts/vuetifyTokenOptions';
+import { PlaygroundOptions } from '../contracts/vuetifyDesignSystemOptions';
 
 const props = defineProps<{
   discriminator: VariantDiscriminator

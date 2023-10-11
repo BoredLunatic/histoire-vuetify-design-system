@@ -203,7 +203,7 @@ vuetifyDesignSystem({
 Options interface:
 
 ````typescript
-export interface VuetifyTokenOptions {
+export interface VuetifyDesignSystemOptions {
     /** Vuetify configuration file - this needs to be split and default exported */
   configFile?: string
   /** Main display options for Story */

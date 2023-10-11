@@ -1,7 +1,8 @@
+import { App, Plugin } from "vue";
 import VuetifyVariant from './components/VuetifyVariant.vue'
 
-export default {
-  install(app) {
+export const HistoireVuetifyDS: Plugin = {
+  install(app: App) {
     // configure the app
     app.component('VuetifyVariant', VuetifyVariant)
   }

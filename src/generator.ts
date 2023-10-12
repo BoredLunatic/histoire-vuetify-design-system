@@ -1,7 +1,6 @@
 import { ClassTemplate, ColorTemplate, ComponentTemplate, DisplayTemplate, VariantControl} from './contracts/variants'
 import { VuetifyDesignSystemOptions, PlaygroundOptions } from './contracts/vuetifyDesignSystemOptions'
 import { toPascalCase } from "./utils/helper"
-import path from 'node:path'
 
 function generateControls(variantName: string , controls: VariantControl[]): string {
   let contents = `<template #controls>`

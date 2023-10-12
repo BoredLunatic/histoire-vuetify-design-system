@@ -1,29 +1,6 @@
 {
   "stories": [
     {
-      "id": "src-components-v-btn-story-vue",
-      "title": "v-btn",
-      "group": "design-system/vuetify",
-      "layout": {
-        "type": "single",
-        "iframe": true
-      },
-      "docsOnly": false,
-      "variants": [
-        {
-          "id": "_default",
-          "title": "default"
-        }
-      ],
-      "relativePath": "src/components/v-btn.story.vue",
-      "supportPluginId": "vue3",
-      "treePath": [
-        "v-btn"
-      ],
-      "virtual": false,
-      "markdownFile": null
-    },
-    {
       "id": "vuetify",
       "title": "Vuetify",
       "group": "design-system",
@@ -85,7 +62,7 @@
           "icon": "mdi:space-invaders"
         }
       ],
-      "relativePath": "/development/plustime/histoire-vuetify-tokens/sandbox/node_modules/.histoire/plugins/vuetify-tokens/Vuetify.story.vue",
+      "relativePath": "/development/plustime/histoire-vuetify-tokens/sandbox/node_modules/.histoire/plugins/vuetify-design-system/Vuetify.story.vue",
       "supportPluginId": "vue3",
       "treePath": [
         "Vuetify"

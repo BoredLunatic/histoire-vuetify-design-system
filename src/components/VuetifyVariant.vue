@@ -27,7 +27,7 @@ const props = defineProps<{
 const stateObj: Ref<object> = ref(props.state ?? {});
 watchEffect(() => (stateObj.value = props.state ?? {}));
 
-const hasPlayground = computed(() => (props.controls?.filter((c) => c.playground !== undefined)?.length ?? 0) > 0)
+const hasPlayground = computed(() => (props.controls?.filter((c) => c.playground !== undefined)?.length ?? 0) > 0);
 
 </script>
 

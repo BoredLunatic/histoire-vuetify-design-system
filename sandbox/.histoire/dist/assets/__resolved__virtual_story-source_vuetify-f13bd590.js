@@ -5,7 +5,6 @@ const __resolved__virtual_storySource_vuetify = `
   import 'virtual:$histoire-theme.css'
   import './style.css'
   import { ref, markRaw, computed, reactive } from 'vue'
-  import VuetifyVariant from '/development/plustime/histoire-vuetify-tokens/src/components/VuetifyVariant.vue'
 
   // loaded imports
   
@@ -188,13 +187,13 @@ marginSize: 2
     :autoPropsDisabled="true"
   >
     
-    <vuetify-variant
+    <VuetifyVariant
       discriminator="color"
       classes="pa-4 display-block"
       text="name"
       :title='{"classes":"mb-2 text-h4 htw-text-gray-900 dark:htw-text-gray-100","text":"Material Colors"}'
       :inline="true"
-      :description='{"classes":"my-4 htw-text-gray-900 dark:htw-text-gray-100","divider":{"show":true,"classes":"my-4"},"text":"Each color from the specification gets converted to a background and text variant for styling within your application through a class, e.g. <div class=\\"bg-red\\"> or <span class=\\"text-red\\">","link":{"url":"https://vuetifyjs.com/en/styles/colors/","text":"More information","blank":true,"classes":"my-4 htw-text-gray-900 dark:htw-text-gray-100 font-weight-bold"}}'
+      :description='{"classes":"my-4 htw-text-gray-900 dark:htw-text-gray-100","divider":{"show":true,"classes":"my-4"},"text":"Each color from the specification gets converted to a background and text variant for styling within your application through a class, e.g. bg-red or text-red","link":{"url":"https://vuetifyjs.com/en/styles/colors/","text":"More information","blank":true,"classes":"my-4 htw-text-gray-900 dark:htw-text-gray-100 font-weight-bold"}}'
       :controls='[]'
       :variants='[{"name":"primary","darken":1,"lighten":0,"accent":0},{"name":"secondary","darken":1,"lighten":0,"accent":0},{"name":"success","darken":0,"lighten":0,"accent":0},{"name":"error","darken":0,"lighten":0,"accent":0},{"name":"warning","darken":0,"lighten":0,"accent":0},{"name":"info","darken":0,"lighten":0,"accent":0},{"name":"red","darken":4,"lighten":5,"accent":4},{"name":"pink","darken":4,"lighten":5,"accent":4},{"name":"purple","darken":4,"lighten":5,"accent":4},{"name":"deep-purple","darken":4,"lighten":5,"accent":4},{"name":"indigo","darken":4,"lighten":5,"accent":4},{"name":"blue","darken":4,"lighten":5,"accent":4},{"name":"light-blue","darken":4,"lighten":5,"accent":4},{"name":"cyan","darken":4,"lighten":5,"accent":4},{"name":"teal","darken":4,"lighten":5,"accent":4},{"name":"green","darken":4,"lighten":5,"accent":4},{"name":"light-green","darken":4,"lighten":5,"accent":4},{"name":"lime","darken":4,"lighten":5,"accent":4},{"name":"yellow","darken":4,"lighten":5,"accent":4},{"name":"amber","darken":4,"lighten":5,"accent":4},{"name":"orange","darken":4,"lighten":5,"accent":4},{"name":"deep-orange","darken":4,"lighten":5,"accent":4},{"name":"brown","darken":4,"lighten":5,"accent":0},{"name":"blue-grey","darken":4,"lighten":5,"accent":0},{"name":"grey","darken":4,"lighten":5,"accent":0}]'
       :playground='{"title":"Playground","classes":"mb-2 text-h4 htw-text-gray-900 dark:htw-text-gray-100","divider":{"show":true,"classes":"ma-4"}}'
@@ -219,7 +218,7 @@ marginSize: 2
         />
       </div>
     </template>
-    <vuetify-variant
+    <VuetifyVariant
       discriminator="class"
       classes="bg-grey-darken-4 pa-4 display-block rounded-lg"
       text="title"
@@ -250,7 +249,7 @@ marginSize: 2
         />
       </div>
     </template>
-    <vuetify-variant
+    <VuetifyVariant
       discriminator="class"
       classes="bg-grey-darken-4 pa-4 display-square pt-10 text-center"
       text="title"
@@ -271,7 +270,7 @@ marginSize: 2
     :autoPropsDisabled="true"
   >
     
-    <vuetify-variant
+    <VuetifyVariant
       discriminator="component"
       classes="bg-grey-darken-4 pa-4 display-block rounded-lg"
       text=""
@@ -302,7 +301,7 @@ marginSize: 2
         />
       </div>
     </template>
-    <vuetify-variant
+    <VuetifyVariant
       discriminator="class"
       classes="bg-grey-darken-4 pa-4 display-square d-line-block rounded-lg text-center"
       text="item.title"
@@ -333,7 +332,7 @@ marginSize: 2
         />
       </div>
     </template>
-    <vuetify-variant
+    <VuetifyVariant
       discriminator="class"
       classes="bg-grey-darken-4 pa-4 display-square rounded-lg text-center"
       text="title"
@@ -364,7 +363,7 @@ marginSize: 2
         />
       </div>
     </template>
-    <vuetify-variant
+    <VuetifyVariant
       discriminator="class"
       classes="bg-grey-darken-4 pa-4 display-square rounded-lg text-center"
       text="item.title"
@@ -395,7 +394,7 @@ marginSize: 2
         />
       </div>
     </template>
-    <vuetify-variant
+    <VuetifyVariant
       discriminator="class"
       classes="bg-grey-darken-4 pa-4 display-square rounded-lg text-center"
       text="overflowSample"
@@ -426,7 +425,7 @@ marginSize: 2
         />
       </div>
     </template>
-    <vuetify-variant
+    <VuetifyVariant
       discriminator="class"
       classes="bg-grey-darken-4 pa-4 display-square rounded-lg text-center"
       text="title"
@@ -487,7 +486,7 @@ marginSize: 2
         />
       </div>
     </template>
-    <vuetify-variant
+    <VuetifyVariant
       discriminator="component"
       classes="bg-orange-lighten-3"
       text="title"

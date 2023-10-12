@@ -1,10 +1,8 @@
-import { a as useRoute, c as computed, d as defineComponent, u as useCssVars, g as unref, a5 as toRefs, r as ref, o as openBlock, b as createElementBlock, e as createVNode, w as withCtx, I as Icon, n as normalizeClass, f as createBaseVNode, t as toDisplayString, i as defineStore, j as useStorage, a6 as unindent, A as resolveDirective, B as withDirectives, a7 as useRouter, a8 as useResizeObserver, v as histoireConfig, l as resolveComponent, q as createBlock, a9 as nm, h as createCommentVNode, L as normalizeStyle, s as isDark, aa as withModifiers, E as pushScopeId, G as popScopeId, k as watch, ab as renderSlot, m as withKeys, D as createTextVNode, F as Fragment, p as renderList, N as onMounted, ac as vModelText, ad as onUnmounted, ae as VTooltip, af as createStaticVNode, y as useEventListener, W as SANDBOX_READY, ag as EVENT_SEND, S as STATE_SYNC, X as applyState, U as PREVIEW_SETTINGS_SYNC, ah as toRaw, a3 as mergeProps, ai as Dropdown, aj as clone, ak as omit, al as useTimeoutFn, am as onClickOutside, z as isRef, an as nextTick, ao as om, ap as Ug, aq as Yg, ar as Jg, a4 as resolveDynamicComponent, K as reactive, a2 as watchEffect, a1 as markRaw, as as shallowRef, at as getHighlighter, T as Transition, V as h, au as onBeforeUnmount } from "./vendor-111ef619.js";
-import { u as useStoryStore } from "./story-e819ca7a.js";
-import { u as useScrollOnActive, B as BaseListItemLink, _ as _export_sfc, i as isMobile, b as BaseSplitPane, a as _sfc_main$y } from "./MobileOverlay.vue2-1d1b9cb4.js";
-import { B as BaseEmpty } from "./BaseEmpty.vue-70bf3421.js";
-import { g as getContrastColor, _ as _sfc_main$x, t as toRawDeep } from "./state-d9237e49.js";
-import { c as clientSupportPlugins, b as base } from "./GenericMountStory.vue2-25a265bb.js";
-import { useEventsStore } from "./events-f17e9831.js";
+import { a as useRoute, c as computed, d as defineComponent, u as useCssVars, g as unref, $ as toRefs, r as ref, o as openBlock, b as createElementBlock, e as createVNode, w as withCtx, I as Icon, n as normalizeClass, f as createBaseVNode, t as toDisplayString, i as defineStore, j as useStorage, a0 as unindent, x as resolveDirective, y as withDirectives, a1 as useRouter, a2 as useResizeObserver, l as resolveComponent, q as createBlock, a3 as nm, h as createCommentVNode, G as normalizeStyle, a4 as withModifiers, A as pushScopeId, B as popScopeId, k as watch, a5 as renderSlot, m as withKeys, z as createTextVNode, F as Fragment, p as renderList, J as onMounted, a6 as vModelText, a7 as onUnmounted, a8 as VTooltip, a9 as createStaticVNode, s as useEventListener, E as reactive, P as applyState, aa as toRaw, Z as mergeProps, ab as Dropdown, ac as clone, ad as omit, ae as useTimeoutFn, af as onClickOutside, v as isRef, ag as nextTick, ah as om, ai as Ug, aj as Yg, ak as Jg, _ as resolveDynamicComponent, Y as watchEffect, X as markRaw, al as shallowRef, am as getHighlighter, T as Transition, O as h, an as onBeforeUnmount } from "./vendor-3673f981.js";
+import { u as useScrollOnActive, B as BaseListItemLink, _ as _export_sfc, a as useStoryStore, i as isMobile, c as BaseSplitPane, b as _sfc_main$y } from "./MobileOverlay.vue2-2e392a24.js";
+import { B as BaseEmpty } from "./BaseEmpty.vue-b186e8a7.js";
+import { g as getContrastColor, _ as _sfc_main$x, b as SANDBOX_READY, E as EVENT_SEND, S as STATE_SYNC, t as toRawDeep, P as PREVIEW_SETTINGS_SYNC } from "./state-1d776901.js";
+import { d as clientSupportPlugins, e as base, h as histoireConfig, i as isDark } from "./GenericMountStory.vue2-6bb86ef0.js";
 function useCurrentVariantRoute(variant) {
   const route = useRoute();
   const isActive = computed(() => route.query.variantId === variant.value.id);
@@ -1026,6 +1024,31 @@ const _sfc_main$k = /* @__PURE__ */ defineComponent({
       }, 8, ["variant"]);
     };
   }
+});
+const useEventsStore = defineStore("events", () => {
+  const storyStore = useStoryStore();
+  const events = reactive([]);
+  const unseen = ref(0);
+  function addEvent(event) {
+    events.push(event);
+    unseen.value++;
+  }
+  function reset() {
+    events.length = 0;
+    unseen.value = 0;
+  }
+  watch(() => {
+    var _a;
+    return (_a = storyStore.currentVariant) == null ? void 0 : _a.id;
+  }, () => {
+    reset();
+  });
+  return {
+    addEvent,
+    reset,
+    events,
+    unseen
+  };
 });
 const _hoisted_1$h = ["src"];
 const _sfc_main$j = /* @__PURE__ */ defineComponent({

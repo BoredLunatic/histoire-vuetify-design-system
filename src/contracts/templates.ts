@@ -130,7 +130,7 @@ const defaultVariantTemplates: VuetifyTemplates = {
         show: true,
         classes: "my-4"
       },
-      text: 'Each color from the specification gets converted to a background and text variant for styling within your application through a class, e.g. <div class="bg-red"> or <span class="text-red">',
+      text: 'Each color from the specification gets converted to a background and text variant for styling within your application through a class, e.g. bg-red or text-red',
       link: {
         url: "https://vuetifyjs.com/en/styles/colors/",
         text: "More information",

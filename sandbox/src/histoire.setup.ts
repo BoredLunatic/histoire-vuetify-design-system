@@ -4,6 +4,7 @@ import * as labs from "vuetify/labs/components";
 import * as components from "vuetify/components";
 import * as directives from "vuetify/directives";
 import Vuetify3Options from './vuetify/options'
+import HistoireVuetifyDS from '../../dist'
 // Styles
 import '@mdi/font/css/materialdesignicons.css'
 import 'vuetify/styles'
@@ -17,4 +18,6 @@ export const setupVue3 = defineSetupVue3(({ app }) => {
     directives,
     ...Vuetify3Options
   }))
+  
+  app.use(HistoireVuetifyDS)
 })

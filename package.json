@@ -1,6 +1,6 @@
 {
   "name": "histoire-vuetify-design-system",
-  "version": "0.0.18",
+  "version": "0.0.19",
   "description": "Histoire Design Systems default stories for Vuetify  - Framework and Controls",
   "license": "MIT",
   "author": "PlusTimeIT <kane@plustime.com.au> (https://plustime.com.au/)",
@@ -18,6 +18,16 @@
   "exports": {
     ".": "./dist/index.js",
     "./design": "./dist/design.js"
+  },
+  "typesVersions": {
+    "*": {
+      "index": [
+        "dist/index.d.ts"
+      ],
+      "design": [
+        "dist/design.d.ts"
+      ]
+    }
   },
   "types": "./dist/index.d.ts",
   "scripts": {

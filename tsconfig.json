@@ -5,6 +5,8 @@
       "module": "ESNext",
       "moduleResolution": "node",
       "outDir": "dist",
+      "composite": false,
+      "declarationMap": true,
       "allowSyntheticDefaultImports": true,
       "esModuleInterop": true,
       "removeComments": true,
@@ -30,13 +32,14 @@
         "src/**/*.d.ts",
         "src/**/*.tsx", 
         "src/**/*.vue", 
-        "*.config.ts", 
         "*.d.ts"
     ],
     "exclude": [
       "node_modules",
       "dist",
       "sandbox",
-      "src/**/*.spec.ts"
+      "src/**/*.spec.ts",
+      "*.build-dts.json",
+      "*.config.ts"
     ]
   }

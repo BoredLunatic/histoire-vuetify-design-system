@@ -1,4 +1,11 @@
 {
 	"extends": "./tsconfig.json",
-	"exclude": ["**/*.test.ts", "**/*.spec.ts", "vite.config.d.ts"],
+	"exclude": [
+        "node_modules",
+        "dist",
+        "sandbox",
+        "src/**/*.spec.ts",
+        "*.build-dts.json",
+        "*.config.ts"
+    ],
 }

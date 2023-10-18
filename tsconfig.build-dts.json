@@ -5,7 +5,6 @@
         "dist",
         "sandbox",
         "src/**/*.spec.ts",
-        "*.build-dts.json",
         "*.config.ts"
     ],
 }

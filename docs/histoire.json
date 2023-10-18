@@ -1,0 +1,348 @@
+{
+  "stories": [
+    {
+      "id": "src-docs-introduction-story-js",
+      "title": "Introduction",
+      "group": "top",
+      "layout": {
+        "type": "single",
+        "iframe": true
+      },
+      "icon": "carbon:monster",
+      "docsOnly": true,
+      "variants": [],
+      "relativePath": "src/docs/Introduction.story.js",
+      "supportPluginId": "vanilla",
+      "treePath": [
+        "Introduction"
+      ],
+      "virtual": true,
+      "markdownFile": {
+        "id": "src-docs-introduction-story-md",
+        "relativePath": "src/docs/Introduction.story.md",
+        "isRelatedToStory": false,
+        "frontmatter": {
+          "group": "top",
+          "icon": "carbon:monster",
+          "title": "Introduction"
+        }
+      }
+    },
+    {
+      "id": "src-docs-templatelist-story-js",
+      "title": "List of Templates",
+      "group": "top",
+      "layout": {
+        "type": "single",
+        "iframe": true
+      },
+      "icon": "carbon:list-boxes",
+      "docsOnly": true,
+      "variants": [],
+      "relativePath": "src/docs/TemplateList.story.js",
+      "supportPluginId": "vanilla",
+      "treePath": [
+        "List of Templates"
+      ],
+      "virtual": true,
+      "markdownFile": {
+        "id": "src-docs-templatelist-story-md",
+        "relativePath": "src/docs/TemplateList.story.md",
+        "isRelatedToStory": false,
+        "frontmatter": {
+          "group": "top",
+          "icon": "carbon:list-boxes",
+          "title": "List of Templates"
+        }
+      }
+    },
+    {
+      "id": "src-docs-examples-hidingvariant-story-js",
+      "title": "Hiding A Variant",
+      "group": "examples",
+      "layout": {
+        "type": "single",
+        "iframe": true
+      },
+      "icon": "carbon:incomplete-cancel",
+      "docsOnly": true,
+      "variants": [],
+      "relativePath": "src/docs/Examples/HidingVariant.story.js",
+      "supportPluginId": "vanilla",
+      "treePath": [
+        "Hiding A Variant"
+      ],
+      "virtual": true,
+      "markdownFile": {
+        "id": "src-docs-examples-hidingvariant-story-md",
+        "relativePath": "src/docs/Examples/HidingVariant.story.md",
+        "isRelatedToStory": false,
+        "frontmatter": {
+          "group": "examples",
+          "icon": "carbon:incomplete-cancel",
+          "title": "Hiding A Variant"
+        }
+      }
+    },
+    {
+      "id": "src-docs-examples-updatingplayground-story-js",
+      "title": "Updating Playground",
+      "group": "examples",
+      "layout": {
+        "type": "single",
+        "iframe": true
+      },
+      "icon": "carbon:game-wireless",
+      "docsOnly": true,
+      "variants": [],
+      "relativePath": "src/docs/Examples/UpdatingPlayground.story.js",
+      "supportPluginId": "vanilla",
+      "treePath": [
+        "Updating Playground"
+      ],
+      "virtual": true,
+      "markdownFile": {
+        "id": "src-docs-examples-updatingplayground-story-md",
+        "relativePath": "src/docs/Examples/UpdatingPlayground.story.md",
+        "isRelatedToStory": false,
+        "frontmatter": {
+          "group": "examples",
+          "icon": "carbon:game-wireless",
+          "title": "Updating Playground"
+        }
+      }
+    },
+    {
+      "id": "src-docs-examples-updatingplaygroundtext-story-js",
+      "title": "Updating Playground Text",
+      "group": "examples",
+      "layout": {
+        "type": "single",
+        "iframe": true
+      },
+      "icon": "carbon:game-console",
+      "docsOnly": true,
+      "variants": [],
+      "relativePath": "src/docs/Examples/UpdatingPlaygroundText.story.js",
+      "supportPluginId": "vanilla",
+      "treePath": [
+        "Updating Playground Text"
+      ],
+      "virtual": true,
+      "markdownFile": {
+        "id": "src-docs-examples-updatingplaygroundtext-story-md",
+        "relativePath": "src/docs/Examples/UpdatingPlaygroundText.story.md",
+        "isRelatedToStory": false,
+        "frontmatter": {
+          "group": "examples",
+          "icon": "carbon:game-console",
+          "title": "Updating Playground Text"
+        }
+      }
+    },
+    {
+      "id": "src-docs-gettingstarted-installation-story-js",
+      "title": "Installation",
+      "group": "getting-started",
+      "layout": {
+        "type": "single",
+        "iframe": true
+      },
+      "icon": "carbon:insert-syntax",
+      "docsOnly": true,
+      "variants": [],
+      "relativePath": "src/docs/GettingStarted/Installation.story.js",
+      "supportPluginId": "vanilla",
+      "treePath": [
+        "Installation"
+      ],
+      "virtual": true,
+      "markdownFile": {
+        "id": "src-docs-gettingstarted-installation-story-md",
+        "relativePath": "src/docs/GettingStarted/Installation.story.md",
+        "isRelatedToStory": false,
+        "frontmatter": {
+          "group": "getting-started",
+          "icon": "carbon:insert-syntax",
+          "title": "Installation"
+        }
+      }
+    },
+    {
+      "id": "src-docs-gettingstarted-interfaces-story-js",
+      "title": "Options Interfaces",
+      "group": "getting-started",
+      "layout": {
+        "type": "single",
+        "iframe": true
+      },
+      "icon": "carbon:floorplan",
+      "docsOnly": true,
+      "variants": [],
+      "relativePath": "src/docs/GettingStarted/Interfaces.story.js",
+      "supportPluginId": "vanilla",
+      "treePath": [
+        "Options Interfaces"
+      ],
+      "virtual": true,
+      "markdownFile": {
+        "id": "src-docs-gettingstarted-interfaces-story-md",
+        "relativePath": "src/docs/GettingStarted/Interfaces.story.md",
+        "isRelatedToStory": false,
+        "frontmatter": {
+          "group": "getting-started",
+          "icon": "carbon:floorplan",
+          "title": "Options Interfaces"
+        }
+      }
+    },
+    {
+      "id": "src-docs-gettingstarted-templates-story-js",
+      "title": "Templates",
+      "group": "getting-started",
+      "layout": {
+        "type": "single",
+        "iframe": true
+      },
+      "icon": "carbon:template",
+      "docsOnly": true,
+      "variants": [],
+      "relativePath": "src/docs/GettingStarted/Templates.story.js",
+      "supportPluginId": "vanilla",
+      "treePath": [
+        "Templates"
+      ],
+      "virtual": true,
+      "markdownFile": {
+        "id": "src-docs-gettingstarted-templates-story-md",
+        "relativePath": "src/docs/GettingStarted/Templates.story.md",
+        "isRelatedToStory": false,
+        "frontmatter": {
+          "group": "getting-started",
+          "icon": "carbon:template",
+          "title": "Templates"
+        }
+      }
+    },
+    {
+      "id": "src-docs-gettingstarted-variants-story-js",
+      "title": "Variants",
+      "group": "getting-started",
+      "layout": {
+        "type": "single",
+        "iframe": true
+      },
+      "icon": "carbon:settings-adjust",
+      "docsOnly": true,
+      "variants": [],
+      "relativePath": "src/docs/GettingStarted/Variants.story.js",
+      "supportPluginId": "vanilla",
+      "treePath": [
+        "Variants"
+      ],
+      "virtual": true,
+      "markdownFile": {
+        "id": "src-docs-gettingstarted-variants-story-md",
+        "relativePath": "src/docs/GettingStarted/Variants.story.md",
+        "isRelatedToStory": false,
+        "frontmatter": {
+          "group": "getting-started",
+          "icon": "carbon:settings-adjust",
+          "title": "Variants"
+        }
+      }
+    }
+  ],
+  "markdownFiles": [
+    {
+      "id": "src-docs-introduction-story-md",
+      "relativePath": "src/docs/Introduction.story.md",
+      "isRelatedToStory": false,
+      "frontmatter": {
+        "group": "top",
+        "icon": "carbon:monster",
+        "title": "Introduction"
+      }
+    },
+    {
+      "id": "src-docs-templatelist-story-md",
+      "relativePath": "src/docs/TemplateList.story.md",
+      "isRelatedToStory": false,
+      "frontmatter": {
+        "group": "top",
+        "icon": "carbon:list-boxes",
+        "title": "List of Templates"
+      }
+    },
+    {
+      "id": "src-docs-examples-hidingvariant-story-md",
+      "relativePath": "src/docs/Examples/HidingVariant.story.md",
+      "isRelatedToStory": false,
+      "frontmatter": {
+        "group": "examples",
+        "icon": "carbon:incomplete-cancel",
+        "title": "Hiding A Variant"
+      }
+    },
+    {
+      "id": "src-docs-examples-updatingplayground-story-md",
+      "relativePath": "src/docs/Examples/UpdatingPlayground.story.md",
+      "isRelatedToStory": false,
+      "frontmatter": {
+        "group": "examples",
+        "icon": "carbon:game-wireless",
+        "title": "Updating Playground"
+      }
+    },
+    {
+      "id": "src-docs-examples-updatingplaygroundtext-story-md",
+      "relativePath": "src/docs/Examples/UpdatingPlaygroundText.story.md",
+      "isRelatedToStory": false,
+      "frontmatter": {
+        "group": "examples",
+        "icon": "carbon:game-console",
+        "title": "Updating Playground Text"
+      }
+    },
+    {
+      "id": "src-docs-gettingstarted-installation-story-md",
+      "relativePath": "src/docs/GettingStarted/Installation.story.md",
+      "isRelatedToStory": false,
+      "frontmatter": {
+        "group": "getting-started",
+        "icon": "carbon:insert-syntax",
+        "title": "Installation"
+      }
+    },
+    {
+      "id": "src-docs-gettingstarted-interfaces-story-md",
+      "relativePath": "src/docs/GettingStarted/Interfaces.story.md",
+      "isRelatedToStory": false,
+      "frontmatter": {
+        "group": "getting-started",
+        "icon": "carbon:floorplan",
+        "title": "Options Interfaces"
+      }
+    },
+    {
+      "id": "src-docs-gettingstarted-templates-story-md",
+      "relativePath": "src/docs/GettingStarted/Templates.story.md",
+      "isRelatedToStory": false,
+      "frontmatter": {
+        "group": "getting-started",
+        "icon": "carbon:template",
+        "title": "Templates"
+      }
+    },
+    {
+      "id": "src-docs-gettingstarted-variants-story-md",
+      "relativePath": "src/docs/GettingStarted/Variants.story.md",
+      "isRelatedToStory": false,
+      "frontmatter": {
+        "group": "getting-started",
+        "icon": "carbon:settings-adjust",
+        "title": "Variants"
+      }
+    }
+  ]
+}

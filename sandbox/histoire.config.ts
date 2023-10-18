@@ -10,6 +10,6 @@ export default defineConfig({
     vuetifyDesignSystem({
       configFile: __dirname + '/src/vuetify/options.ts',
     })
-  ],
+  ],  
 });
   

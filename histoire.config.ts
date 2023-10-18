@@ -11,11 +11,7 @@ export default defineConfig({
     HstVue(), 
   ],
   vite: {
-    base: "",
-    server: {
-      watch: {
-      }
-    }
+    base: "./"
   },
   tree: {
     groups: [

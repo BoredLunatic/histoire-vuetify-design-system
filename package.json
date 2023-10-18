@@ -31,7 +31,7 @@
   },
   "types": "./dist/index.d.ts",
   "scripts": {
-    "build": "rimraf dist && vite build && vue-tsc --declaration --emitDeclarationOnly -p tsconfig.build-dts.json",
+    "build": "rimraf dist && vite build && vue-tsc --declaration --emitDeclarationOnly -p tsconfig.build-dts.json && npm run story:build",
     "build:types": "vue-tsc --declaration --emitDeclarationOnly",
     "watch": "vue-tsc -d -w --sourceMap",
     "story:dev": "histoire dev",

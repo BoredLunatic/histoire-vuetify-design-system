@@ -2,4 +2,4 @@
 
 [Demo]()
 
-[Documentation]()
+[Documentation](https://boredlunatic.github.io/histoire-vuetify-design-system/)

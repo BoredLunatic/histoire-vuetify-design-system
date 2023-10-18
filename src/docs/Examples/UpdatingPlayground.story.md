@@ -10,9 +10,9 @@ Updating Overflow Variant Container Classes
 
 ````typescript
 vuetifyDesignSystem({
-    templates: {
-       overflow: {
-        classes: 'text--primary'
+    playground: {
+       title: {
+        text: 'Sandbox Area'
        }
     }
 })

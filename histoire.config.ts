@@ -13,6 +13,14 @@ export default defineConfig({
   vite: {
     base: "./"
   },
+  theme: {
+    title: "Histoire Vuetify Design System Documentation",
+    logo: {
+      square: './src/docs/histoirefy-transparent-background.svg',
+      light: './src/docs/histoirefy-transparent-background.svg',
+      dark: './src/docs/histoirefy-transparent-background.svg'
+    },
+  },
   tree: {
     groups: [
       {

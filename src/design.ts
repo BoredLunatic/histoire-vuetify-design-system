@@ -1,4 +1,5 @@
 import { defu } from 'defu'
+import fs from 'fs'
 import type { PluginApiBase, Plugin } from '@histoire/shared'
 import { VuetifyDesignSystemOptions, defaultOptions } from './contracts/vuetifyDesignSystemOptions'
 import { generateStory } from './generator'
@@ -13,6 +14,9 @@ export function vuetifyDesignSystem (options: VuetifyDesignSystemOptions = {}): 
       await api.fs.emptyDir(api.pluginTempDir)
       api.moduleLoader.clearCache()
       await api.fs.writeFile(api.path.resolve(api.pluginTempDir, 'style.css'), css)
+      if(fs.existsSync(finalOptions.configFile)){
+        console.log('CONFIG FILE FOUND YO!');
+      }
       const { default: resolveConfig } = await import(finalOptions.configFile)
       const storyFile = api.path.resolve(api.pluginTempDir, 'Vuetify.story.vue')
       await api.fs.writeFile(storyFile, generateStory(finalOptions, resolveConfig))

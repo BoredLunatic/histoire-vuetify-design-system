@@ -6,18 +6,16 @@ import { generateStory } from './generator'
 import { toPascalCase } from './utils/helper'
 
 export function vuetifyDesignSystem(options: VuetifyDesignSystemOptions = {}): Plugin {
-  
   const finalOptions: VuetifyDesignSystemOptions = defu(options, defaultOptions)
-  
+
   async function generate(api: PluginApiBase) {
     try {
-      
       await api.fs.ensureDir(api.pluginTempDir)
       await api.fs.emptyDir(api.pluginTempDir)
       api.moduleLoader.clearCache()
       await api.fs.writeFile(api.path.resolve(api.pluginTempDir, 'style.css'), css)
       let resolveConfig = {}
-      
+
       if (finalOptions.configFile !== '' && fs.existsSync(finalOptions.configFile)) {
         resolveConfig = await import(finalOptions.configFile)
       }

@@ -169,7 +169,35 @@
       }
     },
     {
-      "id": "src-docs-getting-started-interfaces-story-js",
+      "id": "src-docs-getting-started-optionsdefaults-story-js",
+      "title": "Option Defaults",
+      "group": "getting-started",
+      "layout": {
+        "type": "single",
+        "iframe": true
+      },
+      "icon": "carbon:floorplan",
+      "docsOnly": true,
+      "variants": [],
+      "relativePath": "src/docs/getting-started/OptionsDefaults.story.js",
+      "supportPluginId": "vanilla",
+      "treePath": [
+        "Option Defaults"
+      ],
+      "virtual": true,
+      "markdownFile": {
+        "id": "src-docs-getting-started-optionsdefaults-story-md",
+        "relativePath": "src/docs/getting-started/OptionsDefaults.story.md",
+        "isRelatedToStory": false,
+        "frontmatter": {
+          "group": "getting-started",
+          "icon": "carbon:floorplan",
+          "title": "Option Defaults"
+        }
+      }
+    },
+    {
+      "id": "src-docs-getting-started-optionsinterfaces-story-js",
       "title": "Options Interfaces",
       "group": "getting-started",
       "layout": {
@@ -179,15 +207,15 @@
       "icon": "carbon:floorplan",
       "docsOnly": true,
       "variants": [],
-      "relativePath": "src/docs/getting-started/Interfaces.story.js",
+      "relativePath": "src/docs/getting-started/OptionsInterfaces.story.js",
       "supportPluginId": "vanilla",
       "treePath": [
         "Options Interfaces"
       ],
       "virtual": true,
       "markdownFile": {
-        "id": "src-docs-getting-started-interfaces-story-md",
-        "relativePath": "src/docs/getting-started/Interfaces.story.md",
+        "id": "src-docs-getting-started-optionsinterfaces-story-md",
+        "relativePath": "src/docs/getting-started/OptionsInterfaces.story.md",
         "isRelatedToStory": false,
         "frontmatter": {
           "group": "getting-started",
@@ -385,8 +413,18 @@
       }
     },
     {
-      "id": "src-docs-getting-started-interfaces-story-md",
-      "relativePath": "src/docs/getting-started/Interfaces.story.md",
+      "id": "src-docs-getting-started-optionsdefaults-story-md",
+      "relativePath": "src/docs/getting-started/OptionsDefaults.story.md",
+      "isRelatedToStory": false,
+      "frontmatter": {
+        "group": "getting-started",
+        "icon": "carbon:floorplan",
+        "title": "Option Defaults"
+      }
+    },
+    {
+      "id": "src-docs-getting-started-optionsinterfaces-story-md",
+      "relativePath": "src/docs/getting-started/OptionsInterfaces.story.md",
       "isRelatedToStory": false,
       "frontmatter": {
         "group": "getting-started",

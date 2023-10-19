@@ -6,14 +6,12 @@ title: 'Updating Playground Text'
 
 ## Example 3: Updating Playground Text
 
-Updating Playground Text
+Updating playground title text
 
 ```typescript
 vuetifyDesignSystem({
   playground: {
-    title: {
-      text: 'Sandbox Area'
-    }
+    title: 'Sandbox Area'
   }
 })
 ```

@@ -141,7 +141,7 @@ eg. Vuetify -&gt; Material Colors -&gt; Primary, Secondary etc.</p>
 <hr>
 `;
 const frontmatter = { "group": "getting-started", "icon": "carbon:insert-syntax", "title": "Installation" };
-const relativePath = "src/docs/GettingStarted/Installation.story.md";
+const relativePath = "src/docs/getting-started/Installation.story.md";
 export {
   frontmatter,
   html,

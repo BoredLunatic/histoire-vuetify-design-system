@@ -8,6 +8,12 @@ html {
   font-family: 'Montserrat', sans-serif;
 }
 
+#app {
+  .histoire-app-logo {
+    min-height: 60px !important;
+  }
+}
+
 .htw-prose {
   hr {
     border-top-width: 5px;

@@ -67,7 +67,7 @@
       "icon": "carbon:incomplete-cancel",
       "docsOnly": true,
       "variants": [],
-      "relativePath": "src/docs/Examples/HidingVariant.story.js",
+      "relativePath": "src/docs/examples/HidingVariant.story.js",
       "supportPluginId": "vanilla",
       "treePath": [
         "Hiding A Variant"
@@ -75,7 +75,7 @@
       "virtual": true,
       "markdownFile": {
         "id": "src-docs-examples-hidingvariant-story-md",
-        "relativePath": "src/docs/Examples/HidingVariant.story.md",
+        "relativePath": "src/docs/examples/HidingVariant.story.md",
         "isRelatedToStory": false,
         "frontmatter": {
           "group": "examples",
@@ -95,7 +95,7 @@
       "icon": "carbon:game-wireless",
       "docsOnly": true,
       "variants": [],
-      "relativePath": "src/docs/Examples/UpdatingPlayground.story.js",
+      "relativePath": "src/docs/examples/UpdatingPlayground.story.js",
       "supportPluginId": "vanilla",
       "treePath": [
         "Updating Playground"
@@ -103,7 +103,7 @@
       "virtual": true,
       "markdownFile": {
         "id": "src-docs-examples-updatingplayground-story-md",
-        "relativePath": "src/docs/Examples/UpdatingPlayground.story.md",
+        "relativePath": "src/docs/examples/UpdatingPlayground.story.md",
         "isRelatedToStory": false,
         "frontmatter": {
           "group": "examples",
@@ -123,7 +123,7 @@
       "icon": "carbon:game-console",
       "docsOnly": true,
       "variants": [],
-      "relativePath": "src/docs/Examples/UpdatingPlaygroundText.story.js",
+      "relativePath": "src/docs/examples/UpdatingPlaygroundText.story.js",
       "supportPluginId": "vanilla",
       "treePath": [
         "Updating Playground Text"
@@ -131,7 +131,7 @@
       "virtual": true,
       "markdownFile": {
         "id": "src-docs-examples-updatingplaygroundtext-story-md",
-        "relativePath": "src/docs/Examples/UpdatingPlaygroundText.story.md",
+        "relativePath": "src/docs/examples/UpdatingPlaygroundText.story.md",
         "isRelatedToStory": false,
         "frontmatter": {
           "group": "examples",
@@ -141,7 +141,7 @@
       }
     },
     {
-      "id": "src-docs-gettingstarted-installation-story-js",
+      "id": "src-docs-getting-started-installation-story-js",
       "title": "Installation",
       "group": "getting-started",
       "layout": {
@@ -151,15 +151,15 @@
       "icon": "carbon:insert-syntax",
       "docsOnly": true,
       "variants": [],
-      "relativePath": "src/docs/GettingStarted/Installation.story.js",
+      "relativePath": "src/docs/getting-started/Installation.story.js",
       "supportPluginId": "vanilla",
       "treePath": [
         "Installation"
       ],
       "virtual": true,
       "markdownFile": {
-        "id": "src-docs-gettingstarted-installation-story-md",
-        "relativePath": "src/docs/GettingStarted/Installation.story.md",
+        "id": "src-docs-getting-started-installation-story-md",
+        "relativePath": "src/docs/getting-started/Installation.story.md",
         "isRelatedToStory": false,
         "frontmatter": {
           "group": "getting-started",
@@ -169,7 +169,7 @@
       }
     },
     {
-      "id": "src-docs-gettingstarted-interfaces-story-js",
+      "id": "src-docs-getting-started-interfaces-story-js",
       "title": "Options Interfaces",
       "group": "getting-started",
       "layout": {
@@ -179,15 +179,15 @@
       "icon": "carbon:floorplan",
       "docsOnly": true,
       "variants": [],
-      "relativePath": "src/docs/GettingStarted/Interfaces.story.js",
+      "relativePath": "src/docs/getting-started/Interfaces.story.js",
       "supportPluginId": "vanilla",
       "treePath": [
         "Options Interfaces"
       ],
       "virtual": true,
       "markdownFile": {
-        "id": "src-docs-gettingstarted-interfaces-story-md",
-        "relativePath": "src/docs/GettingStarted/Interfaces.story.md",
+        "id": "src-docs-getting-started-interfaces-story-md",
+        "relativePath": "src/docs/getting-started/Interfaces.story.md",
         "isRelatedToStory": false,
         "frontmatter": {
           "group": "getting-started",
@@ -197,7 +197,7 @@
       }
     },
     {
-      "id": "src-docs-gettingstarted-templates-story-js",
+      "id": "src-docs-getting-started-templates-story-js",
       "title": "Templates",
       "group": "getting-started",
       "layout": {
@@ -207,15 +207,15 @@
       "icon": "carbon:template",
       "docsOnly": true,
       "variants": [],
-      "relativePath": "src/docs/GettingStarted/Templates.story.js",
+      "relativePath": "src/docs/getting-started/Templates.story.js",
       "supportPluginId": "vanilla",
       "treePath": [
         "Templates"
       ],
       "virtual": true,
       "markdownFile": {
-        "id": "src-docs-gettingstarted-templates-story-md",
-        "relativePath": "src/docs/GettingStarted/Templates.story.md",
+        "id": "src-docs-getting-started-templates-story-md",
+        "relativePath": "src/docs/getting-started/Templates.story.md",
         "isRelatedToStory": false,
         "frontmatter": {
           "group": "getting-started",
@@ -225,7 +225,7 @@
       }
     },
     {
-      "id": "src-docs-gettingstarted-variants-story-js",
+      "id": "src-docs-getting-started-variants-story-js",
       "title": "Variants",
       "group": "getting-started",
       "layout": {
@@ -235,15 +235,15 @@
       "icon": "carbon:settings-adjust",
       "docsOnly": true,
       "variants": [],
-      "relativePath": "src/docs/GettingStarted/Variants.story.js",
+      "relativePath": "src/docs/getting-started/Variants.story.js",
       "supportPluginId": "vanilla",
       "treePath": [
         "Variants"
       ],
       "virtual": true,
       "markdownFile": {
-        "id": "src-docs-gettingstarted-variants-story-md",
-        "relativePath": "src/docs/GettingStarted/Variants.story.md",
+        "id": "src-docs-getting-started-variants-story-md",
+        "relativePath": "src/docs/getting-started/Variants.story.md",
         "isRelatedToStory": false,
         "frontmatter": {
           "group": "getting-started",
@@ -276,7 +276,7 @@
     },
     {
       "id": "src-docs-examples-hidingvariant-story-md",
-      "relativePath": "src/docs/Examples/HidingVariant.story.md",
+      "relativePath": "src/docs/examples/HidingVariant.story.md",
       "isRelatedToStory": false,
       "frontmatter": {
         "group": "examples",
@@ -286,7 +286,7 @@
     },
     {
       "id": "src-docs-examples-updatingplayground-story-md",
-      "relativePath": "src/docs/Examples/UpdatingPlayground.story.md",
+      "relativePath": "src/docs/examples/UpdatingPlayground.story.md",
       "isRelatedToStory": false,
       "frontmatter": {
         "group": "examples",
@@ -296,7 +296,7 @@
     },
     {
       "id": "src-docs-examples-updatingplaygroundtext-story-md",
-      "relativePath": "src/docs/Examples/UpdatingPlaygroundText.story.md",
+      "relativePath": "src/docs/examples/UpdatingPlaygroundText.story.md",
       "isRelatedToStory": false,
       "frontmatter": {
         "group": "examples",
@@ -305,8 +305,8 @@
       }
     },
     {
-      "id": "src-docs-gettingstarted-installation-story-md",
-      "relativePath": "src/docs/GettingStarted/Installation.story.md",
+      "id": "src-docs-getting-started-installation-story-md",
+      "relativePath": "src/docs/getting-started/Installation.story.md",
       "isRelatedToStory": false,
       "frontmatter": {
         "group": "getting-started",
@@ -315,8 +315,8 @@
       }
     },
     {
-      "id": "src-docs-gettingstarted-interfaces-story-md",
-      "relativePath": "src/docs/GettingStarted/Interfaces.story.md",
+      "id": "src-docs-getting-started-interfaces-story-md",
+      "relativePath": "src/docs/getting-started/Interfaces.story.md",
       "isRelatedToStory": false,
       "frontmatter": {
         "group": "getting-started",
@@ -325,8 +325,8 @@
       }
     },
     {
-      "id": "src-docs-gettingstarted-templates-story-md",
-      "relativePath": "src/docs/GettingStarted/Templates.story.md",
+      "id": "src-docs-getting-started-templates-story-md",
+      "relativePath": "src/docs/getting-started/Templates.story.md",
       "isRelatedToStory": false,
       "frontmatter": {
         "group": "getting-started",
@@ -335,8 +335,8 @@
       }
     },
     {
-      "id": "src-docs-gettingstarted-variants-story-md",
-      "relativePath": "src/docs/GettingStarted/Variants.story.md",
+      "id": "src-docs-getting-started-variants-story-md",
+      "relativePath": "src/docs/getting-started/Variants.story.md",
       "isRelatedToStory": false,
       "frontmatter": {
         "group": "getting-started",

@@ -151,7 +151,7 @@ const html = `<h2 id="templates" tabindex="-1">Templates <a class="header-anchor
 <span class="line"></span></code></pre></div></code></pre>
 `;
 const frontmatter = { "group": "getting-started", "icon": "carbon:template", "title": "Templates" };
-const relativePath = "src/docs/GettingStarted/Templates.story.md";
+const relativePath = "src/docs/getting-started/Templates.story.md";
 export {
   frontmatter,
   html,

@@ -1,6 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
 html {
   font-family: 'Montserrat', sans-serif;
+}
+
+#app .histoire-app-logo {
+  min-height: 60px !important;
 }
 
 .htw-prose hr {

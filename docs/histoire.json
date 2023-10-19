@@ -254,8 +254,8 @@
     },
     {
       "id": "vuetify",
-      "title": "Demo",
-      "group": "design-system",
+      "title": "Vuetify",
+      "group": "demo",
       "layout": {
         "type": "single",
         "iframe": true
@@ -317,7 +317,7 @@
       "relativePath": "/development/plustime/histoire-vuetify-tokens/node_modules/.histoire/plugins/vuetify-design-system/Vuetify.story.vue",
       "supportPluginId": "vue3",
       "treePath": [
-        "Demo"
+        "Vuetify"
       ],
       "virtual": false,
       "markdownFile": null

@@ -13,7 +13,7 @@ export default defineConfig({
     vuetifyDesignSystem({
       configFile: __dirname + '/src/plugins/vuetify/options.ts',
       display:{
-        title: "Demo"
+        group: "demo"
       }
     }),
   ],

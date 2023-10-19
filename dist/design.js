@@ -1,31 +1,31 @@
 import { a as d } from "./helper-3cde6550.js";
-function r(s) {
-  return s !== null && typeof s == "object";
+function r(l) {
+  return l !== null && typeof l == "object";
 }
-function c(s, a, t = ".", e) {
+function c(l, a, t = ".", e) {
   if (!r(a))
-    return c(s, {}, t, e);
-  const l = Object.assign({}, a);
-  for (const i in s) {
+    return c(l, {}, t, e);
+  const s = Object.assign({}, a);
+  for (const i in l) {
     if (i === "__proto__" || i === "constructor")
       continue;
-    const o = s[i];
-    o != null && (e && e(l, i, o, t) || (Array.isArray(o) && Array.isArray(l[i]) ? l[i] = [...o, ...l[i]] : r(o) && r(l[i]) ? l[i] = c(
+    const o = l[i];
+    o != null && (e && e(s, i, o, t) || (Array.isArray(o) && Array.isArray(s[i]) ? s[i] = [...o, ...s[i]] : r(o) && r(s[i]) ? s[i] = c(
       o,
-      l[i],
+      s[i],
       (t ? `${t}.` : "") + i.toString(),
       e
-    ) : l[i] = o));
+    ) : s[i] = o));
   }
-  return l;
+  return s;
 }
-function m(s) {
+function m(l) {
   return (...a) => (
     // eslint-disable-next-line unicorn/no-array-reduce
-    a.reduce((t, e) => c(t, e, "", s), {})
+    a.reduce((t, e) => c(t, e, "", l), {})
   );
 }
-const p = m(), y = {}, h = {
+const p = m(), y = {
   blueprint: {
     autoPropsDisabled: !0,
     discriminator: "display",
@@ -731,7 +731,7 @@ const p = m(), y = {}, h = {
       }
     ]
   }
-}, f = {
+}, h = {
   configFile: "",
   sample: "This is some sample text.",
   playground: {
@@ -750,10 +750,10 @@ const p = m(), y = {}, h = {
     responsiveDisabled: !1
   },
   templates: Object.fromEntries(
-    Object.entries(h).sort((s, a) => s[1].order - a[1].order).filter((s) => s[1].show)
+    Object.entries(y).sort((l, a) => l[1].order - a[1].order).filter((l) => l[1].show)
   )
 };
-function x(s, a) {
+function f(l, a) {
   let t = "<template #controls>";
   for (const e of a)
     t += `
@@ -761,7 +761,7 @@ function x(s, a) {
         <${e.component} 
           v-model="state.${e.model}" 
           label="${e.label}"
-          :items='${e.items !== void 0 ? e.items : `${s}Data`}'
+          :items='${e.items !== void 0 ? e.items : `${l}Data`}'
           ${e.itemsTitle !== void 0 ? `item-title="${e.itemsTitle}"` : ""}
           ${e.itemsValue !== void 0 ? `item-value="${e.itemsValue}"` : ""}
         />
@@ -769,7 +769,7 @@ function x(s, a) {
     `;
   return t += "</template>", t;
 }
-function w(s, a, t) {
+function x(l, a, t) {
   const e = d(t.title.text);
   return `
   <Variant
@@ -777,7 +777,7 @@ function w(s, a, t) {
     title="${e}"
     :autoPropsDisabled="${t.autoPropsDisabled ?? !1}"
   >
-    ${t.controls !== void 0 ? x(s, t.controls) : ""}
+    ${t.controls !== void 0 ? f(l, t.controls) : ""}
     <VuetifyVariant
       discriminator="${t.discriminator}"
       classes="${t.classes}"
@@ -793,22 +793,22 @@ function w(s, a, t) {
     />
   </Variant>`;
 }
-function v(s, a) {
-  let t = [], e = [], l = [];
+function w(l, a) {
+  let t = [], e = [], s = [];
   const i = [];
-  for (const o in s.templates) {
-    const g = d(o).replaceAll(" ", "").replaceAll("-", ""), n = s.templates[o];
+  for (const o in l.templates) {
+    const g = d(o).replaceAll(" ", "").replaceAll("-", ""), n = l.templates[o];
     if (!(n === void 0 || !n.show)) {
       if (n.variants !== void 0) {
         const u = `
       const ${g}Data = markRaw(${JSON.stringify(n.variants)})
       `;
-        l.push(u);
+        s.push(u);
       }
-      e = [...e, ...n.imports ?? []], l = [...l, ...n.variables ?? []], t = [...t, ...n.state ?? []], i.push(w(g, s.playground, n));
+      e = [...e, ...n.imports ?? []], s = [...s, ...n.variables ?? []], t = [...t, ...n.state ?? []], i.push(x(g, l.playground, n));
     }
   }
-  return e = [...new Set(e)], l = [...new Set(l)], t = [...new Set(t)], `
+  return e = [...new Set(e)], s = [...new Set(s)], t = [...new Set(t)], `
   <script setup lang="ts">
   // default imports
   import '@histoire/app/dist/style.css'
@@ -824,13 +824,13 @@ function v(s, a) {
   const config = markRaw(${JSON.stringify(a, null, 2)})
   
   const state = reactive({
-    sample: '${s.sample}',
+    sample: '${l.sample}',
     ${t.join(`,
 `)}
   })
 
   // loaded variables
-  ${l.join(`
+  ${s.join(`
 `)}
 
   <\/script>
@@ -838,44 +838,46 @@ function v(s, a) {
   <template>
     <Story 
       id="vuetify"
-      title="${s.display.title}"
-      group="${s.display.group}"
-      icon="${s.display.icon}"
-      :layout='${JSON.stringify(s.display.layout)}'
-      :responsiveDisabled='${JSON.stringify(s.display.responsiveDisabled)}'
+      title="${l.display.title}"
+      group="${l.display.group}"
+      icon="${l.display.icon}"
+      :layout='${JSON.stringify(l.display.layout)}'
+      :responsiveDisabled='${JSON.stringify(l.display.responsiveDisabled)}'
     >
       ${i.join(`
 `)}
     </Story>
   </template>`;
 }
-function D(s = {}) {
-  const a = p(s, f);
+function k(l = {}) {
+  const a = p(l, h);
   async function t(e) {
     try {
-      await e.fs.ensureDir(e.pluginTempDir), await e.fs.emptyDir(e.pluginTempDir), e.moduleLoader.clearCache(), await e.fs.writeFile(e.path.resolve(e.pluginTempDir, "style.css"), b), y.existsSync(a.configFile) && console.log("CONFIG FILE FOUND YO!");
-      const { default: l } = await import(a.configFile), i = e.path.resolve(e.pluginTempDir, "Vuetify.story.vue");
-      await e.fs.writeFile(i, v(a, l)), e.addStoryFile(i);
-    } catch (l) {
-      e.error(l.stack ?? l.message);
+      await e.fs.ensureDir(e.pluginTempDir), await e.fs.emptyDir(e.pluginTempDir), e.moduleLoader.clearCache(), await e.fs.writeFile(e.path.resolve(e.pluginTempDir, "style.css"), v);
+      let s = {};
+      e.fs.existsSync(a.configFile) ? s = await import(a.configFile) : console.log("No Config Provided");
+      const i = e.path.resolve(e.pluginTempDir, "Vuetify.story.vue");
+      await e.fs.writeFile(i, w(a, s)), e.addStoryFile(i);
+    } catch (s) {
+      e.error(s.stack ?? s.message);
     }
   }
   return {
     name: "vuetify-design-system",
     config(e) {
-      if (a.configFile && (e.tree || (e.tree = {}), e.tree.groups || (e.tree.groups = []), !e.tree.groups.some((l) => l.id === a.display.group))) {
-        let l = 0;
+      if (a.configFile && (e.tree || (e.tree = {}), e.tree.groups || (e.tree.groups = []), !e.tree.groups.some((s) => s.id === a.display.group))) {
+        let s = 0;
         const i = e.tree.groups.findIndex((o) => o.id === "top");
-        i > -1 && (l = i + 1), e.tree.groups.splice(l, 0, {
+        i > -1 && (s = i + 1), e.tree.groups.splice(s, 0, {
           id: a.display.group,
           title: d(a.display.group.replaceAll("-", " "))
         });
       }
     },
-    onDev(e, l) {
+    onDev(e, s) {
       if (a.configFile) {
         const i = e.watcher.watch(a.configFile).on("change", () => t(e)).on("add", () => t(e));
-        l(() => {
+        s(() => {
           i.close();
         });
       }
@@ -885,7 +887,7 @@ function D(s = {}) {
     }
   };
 }
-const b = `
+const v = `
 .display-block{
   min-height: 50px;
 }
@@ -906,5 +908,5 @@ const b = `
 }
 `;
 export {
-  D as vuetifyDesignSystem
+  k as vuetifyDesignSystem
 };

@@ -27429,90 +27429,92 @@ const _sfc_main$a = /* @__PURE__ */ defineComponent$1({
   setup(__props, { expose: __expose }) {
     __expose();
     const config2 = markRaw({
-      "blueprint": {
-        "defaults": {
-          "VAppBar": {
-            "flat": true
-          },
-          "VAutocomplete": {
-            "variant": "filled"
-          },
-          "VBanner": {
-            "color": "primary"
-          },
-          "VBottomSheet": {
-            "contentClass": "rounded-t-xl overflow-hidden"
-          },
-          "VBtn": {
-            "color": "primary",
-            "rounded": "xl"
-          },
-          "VBtnGroup": {
-            "rounded": "xl",
+      "default": {
+        "blueprint": {
+          "defaults": {
+            "VAppBar": {
+              "flat": true
+            },
+            "VAutocomplete": {
+              "variant": "filled"
+            },
+            "VBanner": {
+              "color": "primary"
+            },
+            "VBottomSheet": {
+              "contentClass": "rounded-t-xl overflow-hidden"
+            },
             "VBtn": {
-              "rounded": null
+              "color": "primary",
+              "rounded": "xl"
+            },
+            "VBtnGroup": {
+              "rounded": "xl",
+              "VBtn": {
+                "rounded": null
+              }
+            },
+            "VCard": {
+              "rounded": "lg"
+            },
+            "VCheckbox": {
+              "color": "secondary",
+              "inset": true
+            },
+            "VChip": {
+              "rounded": "sm"
+            },
+            "VCombobox": {
+              "variant": "filled"
+            },
+            "VNavigationDrawer": {},
+            "VSelect": {
+              "variant": "filled"
+            },
+            "VSlider": {
+              "color": "primary"
+            },
+            "VTabs": {
+              "color": "primary"
+            },
+            "VTextarea": {
+              "variant": "filled"
+            },
+            "VTextField": {
+              "variant": "filled"
+            },
+            "VToolbar": {
+              "VBtn": {
+                "color": null
+              }
             }
           },
-          "VCard": {
-            "rounded": "lg"
-          },
-          "VCheckbox": {
-            "color": "secondary",
-            "inset": true
-          },
-          "VChip": {
-            "rounded": "sm"
-          },
-          "VCombobox": {
-            "variant": "filled"
-          },
-          "VNavigationDrawer": {},
-          "VSelect": {
-            "variant": "filled"
-          },
-          "VSlider": {
-            "color": "primary"
-          },
-          "VTabs": {
-            "color": "primary"
-          },
-          "VTextarea": {
-            "variant": "filled"
-          },
-          "VTextField": {
-            "variant": "filled"
-          },
-          "VToolbar": {
-            "VBtn": {
-              "color": null
+          "icons": {
+            "defaultSet": "mdi",
+            "sets": {
+              "mdi": {}
             }
-          }
-        },
-        "icons": {
-          "defaultSet": "mdi",
-          "sets": {
-            "mdi": {}
-          }
-        },
-        "theme": {
-          "themes": {
-            "light": {
-              "colors": {
-                "primary": "#6750a4",
-                "secondary": "#b4b0bb",
-                "tertiary": "#7d5260",
-                "error": "#b3261e",
-                "surface": "#fffbfe"
+          },
+          "theme": {
+            "themes": {
+              "light": {
+                "colors": {
+                  "primary": "#6750a4",
+                  "secondary": "#b4b0bb",
+                  "tertiary": "#7d5260",
+                  "error": "#b3261e",
+                  "surface": "#fffbfe"
+                }
               }
             }
           }
-        }
-      },
-      "theme": {
-        "defaultTheme": "vuetifyTheme",
-        "themes": {
-          "vuetifyTheme": {
-            "dark": false
+        },
+        "theme": {
+          "defaultTheme": "vuetifyTheme",
+          "themes": {
+            "vuetifyTheme": {
+              "dark": false
+            }
           }
         }
       }
@@ -27561,8 +27563,8 @@ function _sfc_render$a(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_Story = resolveComponent("Story");
   return openBlock(), createBlock(_component_Story, {
     id: "vuetify",
-    title: "Demo",
-    group: "design-system",
+    title: "Vuetify",
+    group: "demo",
     icon: "mdi:vuetify",
     layout: { "type": "single", "iframe": true },
     responsiveDisabled: false

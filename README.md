@@ -1,6 +1,6 @@
 # Histoire Vuetify Design System
 
-![Histoirefy](/src/docs/histoirefy-transparent-background.svg "Histoirefy")
+![Histoirefy](/src/docs/logos/histoirefy-logo-large-transparent-bg.png "Histoirefy")
 
 [Demo]()
 

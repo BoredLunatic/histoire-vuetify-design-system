@@ -1,5 +1,5 @@
 import { ClassTemplate, ColorTemplate, ComponentTemplate, DisplayTemplate } from './variants'
-import { Blueprints } from './blueprint'
+// import { Blueprints } from './blueprint'
 
 export interface VuetifyTemplates {
   blueprint?: DisplayTemplate

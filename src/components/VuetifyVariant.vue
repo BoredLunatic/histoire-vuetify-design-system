@@ -48,7 +48,8 @@ const hasPlayground = computed(
     </div>
 
     <variant-control-playground
-      v-for="control of controls"
+      v-for="(control, i) of controls"
+      :key="i"
       v-show="control.playground ?? false"
       :type="control?.playground?.type ?? ''"
       :sample="stateObj[control?.playground?.sample ?? 'sample']"

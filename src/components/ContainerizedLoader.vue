@@ -42,7 +42,8 @@ const classString = computed(() => {
   <component :is="component.component" :class="classString">
     <template v-if="component.children && component.children.length > 0">
       <containerized-loader
-        v-for="container in component.children"
+        v-for="(container, i) in component.children"
+        :key="i"
         :component="container"
         :states="container.states ?? []"
         :builder="container.builder"

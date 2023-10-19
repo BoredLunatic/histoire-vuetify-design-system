@@ -1,5 +1,3 @@
-import { VuetifyOptions } from 'vuetify'
-
 const defaultThemeOptions = {
   defaultTheme: 'light',
   variations: { colors: [], lighten: 0, darken: 0 },
@@ -78,3 +76,5 @@ const defaultThemeOptions = {
     }
   }
 }
+
+export { defaultThemeOptions }

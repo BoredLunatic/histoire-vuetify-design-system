@@ -12,13 +12,13 @@ const props = defineProps<{
 <template>
   <div :class="classes">
     <variant-link
-      v-if="link !== undefined"
-      :text="link.text"
-      :url="link.url"
-      :blank="link.blank ?? false"
-      :classes="link.classes ?? ''"
+      v-if="props.link !== undefined"
+      :text="props.link.text"
+      :url="props.link.url"
+      :blank="props.link.blank ?? false"
+      :classes="props.link.classes ?? ''"
     />
-    <div v-for="variant in variants" class="mt-2 info">
+    <div v-for="(variant, i) in props.variants" :key="i" class="mt-2 info">
       {{ variant }}
     </div>
   </div>

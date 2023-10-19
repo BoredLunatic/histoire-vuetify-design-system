@@ -16,9 +16,9 @@ export default defineConfig({
   theme: {
     title: "Histoire Vuetify Design System Documentation",
     logo: {
-      square: './src/docs/histoirefy-transparent-background.svg',
-      light: './src/docs/histoirefy-transparent-background.svg',
-      dark: './src/docs/histoirefy-transparent-background.svg'
+      square: './src/docs/histoirefy-logo.svg',
+      light: './src/docs/histoirefy-logo.svg',
+      dark: './src/docs/histoirefy-logo.svg'
     },
   },
   tree: {

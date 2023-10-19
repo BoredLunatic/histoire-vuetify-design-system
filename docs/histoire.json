@@ -197,34 +197,6 @@
       }
     },
     {
-      "id": "src-docs-gettingstarted-variants-story-js",
-      "title": "Variants",
-      "group": "getting-started",
-      "layout": {
-        "type": "single",
-        "iframe": true
-      },
-      "icon": "carbon:settings-adjust",
-      "docsOnly": true,
-      "variants": [],
-      "relativePath": "src/docs/GettingStarted/Variants.story.js",
-      "supportPluginId": "vanilla",
-      "treePath": [
-        "Variants"
-      ],
-      "virtual": true,
-      "markdownFile": {
-        "id": "src-docs-gettingstarted-variants-story-md",
-        "relativePath": "src/docs/GettingStarted/Variants.story.md",
-        "isRelatedToStory": false,
-        "frontmatter": {
-          "group": "getting-started",
-          "icon": "carbon:settings-adjust",
-          "title": "Variants"
-        }
-      }
-    },
-    {
       "id": "src-docs-gettingstarted-templates-story-js",
       "title": "Templates",
       "group": "getting-started",
@@ -249,6 +221,34 @@
           "group": "getting-started",
           "icon": "carbon:template",
           "title": "Templates"
+        }
+      }
+    },
+    {
+      "id": "src-docs-gettingstarted-variants-story-js",
+      "title": "Variants",
+      "group": "getting-started",
+      "layout": {
+        "type": "single",
+        "iframe": true
+      },
+      "icon": "carbon:settings-adjust",
+      "docsOnly": true,
+      "variants": [],
+      "relativePath": "src/docs/GettingStarted/Variants.story.js",
+      "supportPluginId": "vanilla",
+      "treePath": [
+        "Variants"
+      ],
+      "virtual": true,
+      "markdownFile": {
+        "id": "src-docs-gettingstarted-variants-story-md",
+        "relativePath": "src/docs/GettingStarted/Variants.story.md",
+        "isRelatedToStory": false,
+        "frontmatter": {
+          "group": "getting-started",
+          "icon": "carbon:settings-adjust",
+          "title": "Variants"
         }
       }
     }
@@ -325,16 +325,6 @@
       }
     },
     {
-      "id": "src-docs-gettingstarted-variants-story-md",
-      "relativePath": "src/docs/GettingStarted/Variants.story.md",
-      "isRelatedToStory": false,
-      "frontmatter": {
-        "group": "getting-started",
-        "icon": "carbon:settings-adjust",
-        "title": "Variants"
-      }
-    },
-    {
       "id": "src-docs-gettingstarted-templates-story-md",
       "relativePath": "src/docs/GettingStarted/Templates.story.md",
       "isRelatedToStory": false,
@@ -342,6 +332,16 @@
         "group": "getting-started",
         "icon": "carbon:template",
         "title": "Templates"
+      }
+    },
+    {
+      "id": "src-docs-gettingstarted-variants-story-md",
+      "relativePath": "src/docs/GettingStarted/Variants.story.md",
+      "isRelatedToStory": false,
+      "frontmatter": {
+        "group": "getting-started",
+        "icon": "carbon:settings-adjust",
+        "title": "Variants"
       }
     }
   ]

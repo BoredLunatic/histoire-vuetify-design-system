@@ -16,7 +16,7 @@ export default defineConfig({
       name: 'Histoire Vuetify Design System',
     },
     rollupOptions: {
-      external: ['vue'],
+      external: ['vue', 'fs'],
       output: {
         globals: {
           vue: 'Vue',

@@ -1,3 +1,4 @@
+import m from "fs";
 import { a as d } from "./helper-3cde6550.js";
 function r(l) {
   return l !== null && typeof l == "object";
@@ -19,13 +20,13 @@ function c(l, i, t = ".", e) {
   }
   return s;
 }
-function m(l) {
+function p(l) {
   return (...i) => (
     // eslint-disable-next-line unicorn/no-array-reduce
     i.reduce((t, e) => c(t, e, "", l), {})
   );
 }
-const p = m(), y = {}, h = {
+const y = p(), h = {
   blueprint: {
     autoPropsDisabled: !0,
     discriminator: "display",
@@ -603,19 +604,19 @@ const p = m(), y = {}, h = {
       text: "Sizing"
     },
     variants: [
-      { title: "Height Auto", classes: "h-auto" },
-      { title: "Height Screen", classes: "h-screen" },
-      { title: "Height 0", classes: "h-0" },
-      { title: "Height 25", classes: "h-25" },
-      { title: "Height 50", classes: "h-50" },
-      { title: "Height 75", classes: "h-75" },
-      { title: "Height 100", classes: "h-100" },
       { title: "Width Auto", classes: "w-auto" },
       { title: "Width 0", classes: "w-0" },
       { title: "Width 25", classes: "w-25" },
       { title: "Width 50", classes: "w-50" },
       { title: "Width 75", classes: "w-75" },
-      { title: "Width 100", classes: "w-100" }
+      { title: "Width 100", classes: "w-100" },
+      { title: "Height Auto", classes: "h-auto" },
+      { title: "Height 0", classes: "h-0" },
+      { title: "Height 25", classes: "h-25" },
+      { title: "Height 50", classes: "h-50" },
+      { title: "Height 75", classes: "h-75" },
+      { title: "Height 100", classes: "h-100" },
+      { title: "Height Screen", classes: "h-screen" }
     ],
     controls: [
       {
@@ -849,13 +850,13 @@ function v(l, i) {
     </Story>
   </template>`;
 }
-function D(l = {}) {
-  const i = p(l, f);
+function S(l = {}) {
+  const i = y(l, f);
   async function t(e) {
     try {
       await e.fs.ensureDir(e.pluginTempDir), await e.fs.emptyDir(e.pluginTempDir), e.moduleLoader.clearCache(), await e.fs.writeFile(e.path.resolve(e.pluginTempDir, "style.css"), b);
       let s = {};
-      i.configFile !== "" && y.existsSync(i.configFile) && (s = await import(i.configFile));
+      i.configFile !== "" && m.existsSync(i.configFile) && (s = await import(i.configFile));
       const a = e.path.resolve(e.pluginTempDir, "Vuetify.story.vue");
       await e.fs.writeFile(a, v(i, s)), e.addStoryFile(a);
     } catch (s) {
@@ -906,5 +907,5 @@ const b = `
 }
 `;
 export {
-  D as vuetifyDesignSystem
+  S as vuetifyDesignSystem
 };

@@ -658,19 +658,19 @@ const defaultVariantTemplates: VuetifyTemplates = {
       text: 'Sizing'
     },
     variants: [
-      { title: 'Height Auto', classes: 'h-auto' },
-      { title: 'Height Screen', classes: 'h-screen' },
-      { title: 'Height 0', classes: 'h-0' },
-      { title: 'Height 25', classes: 'h-25' },
-      { title: 'Height 50', classes: 'h-50' },
-      { title: 'Height 75', classes: 'h-75' },
-      { title: 'Height 100', classes: 'h-100' },
       { title: 'Width Auto', classes: 'w-auto' },
       { title: 'Width 0', classes: 'w-0' },
       { title: 'Width 25', classes: 'w-25' },
       { title: 'Width 50', classes: 'w-50' },
       { title: 'Width 75', classes: 'w-75' },
-      { title: 'Width 100', classes: 'w-100' }
+      { title: 'Width 100', classes: 'w-100' },
+      { title: 'Height Auto', classes: 'h-auto' },
+      { title: 'Height 0', classes: 'h-0' },
+      { title: 'Height 25', classes: 'h-25' },
+      { title: 'Height 50', classes: 'h-50' },
+      { title: 'Height 75', classes: 'h-75' },
+      { title: 'Height 100', classes: 'h-100' },
+      { title: 'Height Screen', classes: 'h-screen' }
     ],
     controls: [
       {

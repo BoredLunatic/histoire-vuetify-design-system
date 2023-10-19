@@ -8,7 +8,7 @@ title: 'Variants'
 
 Creating different variants for each template.
 
-````typescript
+```typescript
 export interface VariantClass {
   /** Class that styles variant */
   classes: string
@@ -48,25 +48,25 @@ export interface VariantComponent {
   /** Component name for variant */
   component: string
   /** Content inside container */
-  content?: string  
+  content?: string
   /** Array of states needed */
   states?: string[]
   /** Title of variant */
   title: string
 }
-````
+```
 
-----
+---
 
 ### Building class values for component variants
 
-````typescript
+```typescript
 export interface BuilderFunction {
   /** Function arguments */
   args: string[]
   /** Function Body */
   body: string
 }
-````
+```
 
-----
+---

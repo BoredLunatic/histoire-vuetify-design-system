@@ -1,11 +1,20 @@
-import { ClassTemplate, ColorTemplate, ComponentTemplate, DisplayTemplate, VariantControl} from './contracts/variants'
-import { VuetifyDesignSystemOptions, PlaygroundOptions } from './contracts/vuetifyDesignSystemOptions'
-import { toPascalCase } from "./utils/helper"
+import {
+  ClassTemplate,
+  ColorTemplate,
+  ComponentTemplate,
+  DisplayTemplate,
+  VariantControl
+} from './contracts/variants'
+import {
+  VuetifyDesignSystemOptions,
+  PlaygroundOptions
+} from './contracts/vuetifyDesignSystemOptions'
+import { toPascalCase } from './utils/helper'
 
-function generateControls(variantName: string , controls: VariantControl[]): string {
+function generateControls(variantName: string, controls: VariantControl[]): string {
   let contents = `<template #controls>`
   // loop controls
-  for(let control of controls){
+  for (const control of controls) {
     contents += `
       <div>
         <${control.component} 
@@ -23,7 +32,11 @@ function generateControls(variantName: string , controls: VariantControl[]): str
 }
 
 // used to create variant templates
-function generateVariant(name: string, playgroundOptions: PlaygroundOptions, variant: DisplayTemplate | ComponentTemplate | ClassTemplate | ColorTemplate): string {
+function generateVariant(
+  name: string,
+  playgroundOptions: PlaygroundOptions,
+  variant: DisplayTemplate | ComponentTemplate | ClassTemplate | ColorTemplate
+): string {
   const title = toPascalCase(variant.title.text)
   return `
   <Variant
@@ -43,7 +56,11 @@ function generateVariant(name: string, playgroundOptions: PlaygroundOptions, var
       :variants='${JSON.stringify(variant.variants ?? [])}'
       :playground='${JSON.stringify(playgroundOptions ?? [])}'
       :state="state"
-      :containerized="${variant.discriminator === 'component' && (variant as ComponentTemplate).containerized ? `true` : `false`}"
+      :containerized="${
+        variant.discriminator === 'component' && (variant as ComponentTemplate).containerized
+          ? `true`
+          : `false`
+      }"
     />
   </Variant>`
 }
@@ -54,23 +71,22 @@ export function generateStory(options: VuetifyDesignSystemOptions, vuetifyConfig
   let allStates = []
   let allImports = []
   let allVariables = []
-  let allVariants = []
+  const allVariants = []
 
   // const finalVariants = options.variants.filter((variant) => variant.show)
   // check token options for which variants to show.
-  for(const template in options.templates){
-  const name = toPascalCase(template).replaceAll(' ', '').replaceAll('-', '')
-  const variant = options.templates[template]
+  for (const template in options.templates) {
+    const name = toPascalCase(template).replaceAll(' ', '').replaceAll('-', '')
+    const variant = options.templates[template]
 
     // see if default data is present for variant.
-    if(variant === undefined || !variant.show){
+    if (variant === undefined || !variant.show) {
       // not found continue
       continue
     }
 
-    if(variant.variants !== undefined){
-      const variantData =
-      `
+    if (variant.variants !== undefined) {
+      const variantData = `
       const ${name}Data = markRaw(${JSON.stringify(variant.variants)})
       `
       allVariables.push(variantData)

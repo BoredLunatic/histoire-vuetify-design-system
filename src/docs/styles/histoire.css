@@ -1,6 +1,6 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 html {
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .htw-prose hr {
@@ -12,7 +12,11 @@ html {
   border-image-slice: 1;
   border-right: 0;
   border-bottom: 0;
-  border-image-source: linear-gradient(to right, rgb(var(--_histoire-color-primary-500)), rgb(var(--_histoire-color-primary-900)));
+  border-image-source: linear-gradient(
+    to right,
+    rgb(var(--_histoire-color-primary-500)),
+    rgb(var(--_histoire-color-primary-900))
+  );
 }
 
 .alert {
@@ -60,7 +64,11 @@ html {
   text-align: left;
 }
 .data-table thead {
-  background: linear-gradient(to right, rgb(var(--_histoire-color-primary-500)), rgb(var(--_histoire-color-primary-900)));
+  background: linear-gradient(
+    to right,
+    rgb(var(--_histoire-color-primary-500)),
+    rgb(var(--_histoire-color-primary-900))
+  );
 }
 .data-table tbody tr:hover {
   background-color: rgb(var(--_histoire-color-primary-900));
@@ -69,7 +77,7 @@ html {
   position: relative;
 }
 .data-table tbody td:hover:before {
-  content: "";
+  content: '';
   position: absolute;
   left: 0;
   right: 0;
@@ -77,4 +85,4 @@ html {
   bottom: -9999px;
   background-color: rgb(var(--_histoire-color-primary-900));
   z-index: -1;
-}/*# sourceMappingURL=histoire.css.map */
+} /*# sourceMappingURL=histoire.css.map */

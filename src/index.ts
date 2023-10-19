@@ -1,4 +1,4 @@
-import { App, Plugin } from "vue";
+import { App, Plugin } from 'vue'
 import VuetifyVariant from './components/VuetifyVariant.vue'
 
 const HistoireVuetifyDS: Plugin = {
@@ -8,4 +8,4 @@ const HistoireVuetifyDS: Plugin = {
   }
 }
 
-export default HistoireVuetifyDS;
+export default HistoireVuetifyDS

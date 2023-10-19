@@ -2,9 +2,9 @@ export type VariantDiscriminator = 'class' | 'display' | 'color' | 'component'
 
 export interface VariantLink {
   url: string
-  text: string 
-  classes?: string 
-  blank?: boolean 
+  text: string
+  classes?: string
+  blank?: boolean
 }
 
 export interface DisplayVariants {
@@ -70,7 +70,7 @@ export interface VariantControl {
   component: string
   model: string
   label: string
-  // variable name for how to pull items. 
+  // variable name for how to pull items.
   items?: string
   // object attribute to display text
   itemsTitle?: string

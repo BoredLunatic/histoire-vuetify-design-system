@@ -1,4 +1,4 @@
-import { VariantDisplay } from "./variants"
+import { VariantDisplay } from './variants'
 
 export interface Blueprints {
   md1: VariantDisplay

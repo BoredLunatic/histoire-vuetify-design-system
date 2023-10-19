@@ -52,7 +52,7 @@ const html = `<h2 id="templates" tabindex="-1">Templates <a class="header-anchor
 <span class="line"><span style="color: #C9D1D9">  </span><span style="color: #FFA657">inline</span><span style="color: #FF7B72">?:</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">boolean</span></span>
 <span class="line"><span style="color: #C9D1D9">  </span><span style="color: #8B949E">/** Testing. */</span></span>
 <span class="line"><span style="color: #C9D1D9">  </span><span style="color: #FFA657">autoPropsDisabled</span><span style="color: #FF7B72">?:</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">boolean</span></span>
-<span class="line"><span style="color: #C9D1D9">   </span><span style="color: #8B949E">/** Included variants that should be included and shown for this template */</span></span>
+<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #8B949E">/** Included variants that should be included and shown for this template */</span></span>
 <span class="line"><span style="color: #C9D1D9">  </span><span style="color: #FFA657">variants</span><span style="color: #FF7B72">?:</span><span style="color: #C9D1D9"> </span><span style="color: #FFA657">VariantClass</span><span style="color: #C9D1D9">[] </span><span style="color: #FF7B72">|</span><span style="color: #C9D1D9"> </span><span style="color: #FFA657">VariantColors</span><span style="color: #C9D1D9">[] </span><span style="color: #FF7B72">|</span><span style="color: #C9D1D9"> </span><span style="color: #FFA657">VariantDisplay</span><span style="color: #C9D1D9">[] </span><span style="color: #FF7B72">|</span><span style="color: #C9D1D9"> </span><span style="color: #FFA657">VariantComponent</span><span style="color: #C9D1D9">[]</span></span>
 <span class="line"><span style="color: #C9D1D9">}</span></span>
 <span class="line"></span></code></pre></div></code></pre>
@@ -87,13 +87,13 @@ const html = `<h2 id="templates" tabindex="-1">Templates <a class="header-anchor
 <hr>
 <h3 id="variantcontrol" tabindex="-1">VariantControl <a class="header-anchor" href="#variantcontrol" aria-hidden="true">#</a></h3>
 <pre><code class="language-typescript"><div class="htw-relative htw-not-prose __histoire-code"><div class="htw-absolute htw-top-0 htw-right-0 htw-text-xs htw-text-white/40">typescript</div><pre class="shiki github-dark" style="background-color: #0d1117"><code><span class="line"><span style="color: #FF7B72">export</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">interface</span><span style="color: #C9D1D9"> </span><span style="color: #FFA657">VariantControl</span><span style="color: #C9D1D9"> {</span></span>
-<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #8B949E">/** Component to be used as control */</span></span>
+<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #8B949E">/** Component to be used as control */</span></span>
 <span class="line"><span style="color: #C9D1D9">  </span><span style="color: #FFA657">component</span><span style="color: #FF7B72">:</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">string</span></span>
 <span class="line"><span style="color: #C9D1D9">  </span><span style="color: #8B949E">/** Which state variable should be used as it&#39;s model */</span></span>
 <span class="line"><span style="color: #C9D1D9">  </span><span style="color: #FFA657">model</span><span style="color: #FF7B72">:</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">string</span></span>
-<span class="line"><span style="color: #C9D1D9">   </span><span style="color: #8B949E">/** Label to display on component */</span></span>
+<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #8B949E">/** Label to display on component */</span></span>
 <span class="line"><span style="color: #C9D1D9">  </span><span style="color: #FFA657">label</span><span style="color: #FF7B72">:</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">string</span></span>
-<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #8B949E">/** Variable name for how to pull items. If not found in state, will check variants array from the template */</span><span style="color: #C9D1D9"> </span></span>
+<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #8B949E">/** Variable name for how to pull items. If not found in state, will check variants array from the template */</span></span>
 <span class="line"><span style="color: #C9D1D9">  </span><span style="color: #FFA657">items</span><span style="color: #FF7B72">?:</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">string</span></span>
 <span class="line"><span style="color: #C9D1D9">  </span><span style="color: #8B949E">/** Items attribute for displaying text  */</span></span>
 <span class="line"><span style="color: #C9D1D9">  </span><span style="color: #FFA657">itemsTitle</span><span style="color: #FF7B72">?:</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">string</span></span>
@@ -106,31 +106,31 @@ const html = `<h2 id="templates" tabindex="-1">Templates <a class="header-anchor
 <hr>
 <h3 id="variantcontrolplayground" tabindex="-1">VariantControlPlayground <a class="header-anchor" href="#variantcontrolplayground" aria-hidden="true">#</a></h3>
 <pre><code class="language-typescript"><div class="htw-relative htw-not-prose __histoire-code"><div class="htw-absolute htw-top-0 htw-right-0 htw-text-xs htw-text-white/40">typescript</div><pre class="shiki github-dark" style="background-color: #0d1117"><code><span class="line"><span style="color: #FF7B72">export</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">interface</span><span style="color: #C9D1D9"> </span><span style="color: #FFA657">VariantControlPlayground</span><span style="color: #C9D1D9"> {</span></span>
-<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #8B949E">/** Just a placeholder for now. */</span></span>
+<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #8B949E">/** Just a placeholder for now. */</span></span>
 <span class="line"><span style="color: #C9D1D9">  </span><span style="color: #FFA657">type</span><span style="color: #FF7B72">:</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">string</span></span>
-<span class="line"><span style="color: #C9D1D9">   </span><span style="color: #8B949E">/** Where to pull sample text from for playground */</span></span>
+<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #8B949E">/** Where to pull sample text from for playground */</span></span>
 <span class="line"><span style="color: #C9D1D9">  </span><span style="color: #FFA657">sample</span><span style="color: #FF7B72">?:</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">string</span></span>
-<span class="line"><span style="color: #C9D1D9">   </span><span style="color: #8B949E">/** Additional styling for Playground */</span></span>
+<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #8B949E">/** Additional styling for Playground */</span></span>
 <span class="line"><span style="color: #C9D1D9">  </span><span style="color: #FFA657">classes</span><span style="color: #FF7B72">?:</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">string</span></span>
 <span class="line"><span style="color: #C9D1D9">}</span></span>
 <span class="line"></span></code></pre></div></code></pre>
 <hr>
 <h3 id="variantlink" tabindex="-1">VariantLink <a class="header-anchor" href="#variantlink" aria-hidden="true">#</a></h3>
 <pre><code class="language-typescript"><div class="htw-relative htw-not-prose __histoire-code"><div class="htw-absolute htw-top-0 htw-right-0 htw-text-xs htw-text-white/40">typescript</div><pre class="shiki github-dark" style="background-color: #0d1117"><code><span class="line"><span style="color: #FF7B72">export</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">interface</span><span style="color: #C9D1D9"> </span><span style="color: #FFA657">VariantLink</span><span style="color: #C9D1D9"> {</span></span>
-<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #8B949E">/** Link url */</span></span>
+<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #8B949E">/** Link url */</span></span>
 <span class="line"><span style="color: #C9D1D9">  </span><span style="color: #FFA657">url</span><span style="color: #FF7B72">:</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">string</span></span>
 <span class="line"><span style="color: #C9D1D9">  </span><span style="color: #8B949E">/** Display text */</span></span>
-<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #FFA657">text</span><span style="color: #FF7B72">:</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">string</span><span style="color: #C9D1D9"> </span></span>
+<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #FFA657">text</span><span style="color: #FF7B72">:</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">string</span></span>
 <span class="line"><span style="color: #C9D1D9">  </span><span style="color: #8B949E">/** Classes to style link */</span></span>
-<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #FFA657">classes</span><span style="color: #FF7B72">?:</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">string</span><span style="color: #C9D1D9"> </span></span>
+<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #FFA657">classes</span><span style="color: #FF7B72">?:</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">string</span></span>
 <span class="line"><span style="color: #C9D1D9">  </span><span style="color: #8B949E">/** Set target to blank for new tab on click */</span></span>
-<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #FFA657">blank</span><span style="color: #FF7B72">?:</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">boolean</span><span style="color: #C9D1D9"> </span></span>
+<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #FFA657">blank</span><span style="color: #FF7B72">?:</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">boolean</span></span>
 <span class="line"><span style="color: #C9D1D9">}</span></span>
 <span class="line"></span></code></pre></div></code></pre>
 <hr>
 <h3 id="variantdescription" tabindex="-1">VariantDescription <a class="header-anchor" href="#variantdescription" aria-hidden="true">#</a></h3>
 <pre><code class="language-typescript"><div class="htw-relative htw-not-prose __histoire-code"><div class="htw-absolute htw-top-0 htw-right-0 htw-text-xs htw-text-white/40">typescript</div><pre class="shiki github-dark" style="background-color: #0d1117"><code><span class="line"><span style="color: #FF7B72">export</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">interface</span><span style="color: #C9D1D9"> </span><span style="color: #FFA657">VariantDescription</span><span style="color: #C9D1D9"> {</span></span>
-<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #8B949E">/** Text to be displayed in the description area */</span></span>
+<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #8B949E">/** Text to be displayed in the description area */</span></span>
 <span class="line"><span style="color: #C9D1D9">  </span><span style="color: #FFA657">text</span><span style="color: #FF7B72">?:</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">string</span></span>
 <span class="line"><span style="color: #C9D1D9">  </span><span style="color: #8B949E">/** Provide a link underneath the description */</span></span>
 <span class="line"><span style="color: #C9D1D9">  </span><span style="color: #FFA657">link</span><span style="color: #FF7B72">?:</span><span style="color: #C9D1D9"> </span><span style="color: #FFA657">VariantLink</span></span>
@@ -143,7 +143,7 @@ const html = `<h2 id="templates" tabindex="-1">Templates <a class="header-anchor
 <hr>
 <h3 id="variantdivider" tabindex="-1">VariantDivider <a class="header-anchor" href="#variantdivider" aria-hidden="true">#</a></h3>
 <pre><code class="language-typescript"><div class="htw-relative htw-not-prose __histoire-code"><div class="htw-absolute htw-top-0 htw-right-0 htw-text-xs htw-text-white/40">typescript</div><pre class="shiki github-dark" style="background-color: #0d1117"><code><span class="line"><span style="color: #FF7B72">export</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">interface</span><span style="color: #C9D1D9"> </span><span style="color: #FFA657">VariantDivider</span><span style="color: #C9D1D9"> {</span></span>
-<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #8B949E">/** Styling classes for the divider */</span></span>
+<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #8B949E">/** Styling classes for the divider */</span></span>
 <span class="line"><span style="color: #C9D1D9">  </span><span style="color: #FFA657">classes</span><span style="color: #FF7B72">?:</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">string</span></span>
 <span class="line"><span style="color: #C9D1D9">  </span><span style="color: #8B949E">/** Should the divider be shown */</span></span>
 <span class="line"><span style="color: #C9D1D9">  </span><span style="color: #FFA657">show</span><span style="color: #FF7B72">?:</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">boolean</span></span>

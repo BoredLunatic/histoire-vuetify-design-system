@@ -8,12 +8,12 @@ title: 'Updating Playground'
 
 Updating Overflow Variant Container Classes
 
-````typescript
+```typescript
 vuetifyDesignSystem({
-    playground: {
-       title: {
-        text: 'Sandbox Area'
-       }
+  playground: {
+    title: {
+      text: 'Sandbox Area'
     }
+  }
 })
-````
+```

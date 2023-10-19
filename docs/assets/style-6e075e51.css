@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Display&display=swap');.bottom-sheet-transition-enter-from {
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Display&display=swap');.bottom-sheet-transition-enter-from {
   transform: translateY(100%);
 }
 .bottom-sheet-transition-leave-to {
@@ -8359,7 +8359,7 @@ textarea.v-field__input::placeholder {
   transition-duration: 75ms;
 }
 html {
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 .htw-prose hr {
   border-top-width: 5px;
@@ -8370,7 +8370,11 @@ html {
   border-image-slice: 1;
   border-right: 0;
   border-bottom: 0;
-  border-image-source: linear-gradient(to right, rgb(var(--_histoire-color-primary-500)), rgb(var(--_histoire-color-primary-900)));
+  border-image-source: linear-gradient(
+    to right,
+    rgb(var(--_histoire-color-primary-500)),
+    rgb(var(--_histoire-color-primary-900))
+  );
 }
 .alert {
   width: 100%;
@@ -8416,7 +8420,11 @@ html {
   text-align: left;
 }
 .data-table thead {
-  background: linear-gradient(to right, rgb(var(--_histoire-color-primary-500)), rgb(var(--_histoire-color-primary-900)));
+  background: linear-gradient(
+    to right,
+    rgb(var(--_histoire-color-primary-500)),
+    rgb(var(--_histoire-color-primary-900))
+  );
 }
 .data-table tbody tr:hover {
   background-color: rgb(var(--_histoire-color-primary-900));
@@ -8425,7 +8433,7 @@ html {
   position: relative;
 }
 .data-table tbody td:hover:before {
-  content: "";
+  content: '';
   position: absolute;
   left: 0;
   right: 0;
@@ -8434,6 +8442,7 @@ html {
   background-color: rgb(var(--_histoire-color-primary-900));
   z-index: -1;
 }
+
 /*# sourceMappingURL=histoire.css.map */
 
 .resize-observer[data-v-b329ee4c]{

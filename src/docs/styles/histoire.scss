@@ -1,25 +1,25 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
 $primary: rgb(var(--_histoire-color-primary-500));
 $secondary: rgb(var(--_histoire-color-primary-900));
 $grey: #787878;
 
 html {
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
-.htw-prose{
-    hr {
-        border-top-width: 5px;
-        width: 100%;
-        margin: 5px 5px;
-        background: none;
-        font-size: 1rem;
-        border-image-slice: 1;
-        border-right: 0;
-        border-bottom: 0;
-        border-image-source: linear-gradient(to right, $primary, $secondary);
-    }
+.htw-prose {
+  hr {
+    border-top-width: 5px;
+    width: 100%;
+    margin: 5px 5px;
+    background: none;
+    font-size: 1rem;
+    border-image-slice: 1;
+    border-right: 0;
+    border-bottom: 0;
+    border-image-source: linear-gradient(to right, $primary, $secondary);
+  }
 }
 
 .alert {
@@ -85,7 +85,7 @@ html {
       position: relative;
       &:hover {
         &:before {
-          content: "";
+          content: '';
           position: absolute;
           left: 0;
           right: 0;

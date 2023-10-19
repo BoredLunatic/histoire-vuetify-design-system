@@ -8,12 +8,12 @@ title: 'Updating Playground Text'
 
 Updating Playground Text
 
-````typescript
+```typescript
 vuetifyDesignSystem({
-    playground: {
-       title: {
-        text: 'Sandbox Area'
-       }
+  playground: {
+    title: {
+      text: 'Sandbox Area'
     }
+  }
 })
-````
+```

@@ -8,12 +8,12 @@ title: 'Hiding A Variant'
 
 Hiding Overflow Variant
 
-````typescript
+```typescript
 vuetifyDesignSystem({
-    templates: {
-       overflow: {
-        show: false
-       }
+  templates: {
+    overflow: {
+      show: false
     }
+  }
 })
-````
+```

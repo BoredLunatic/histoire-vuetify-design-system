@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { VariantLink as VariantLinkType, VariantDivider } from '../contracts/variants';
-import VariantLink from './VariantLink.vue';
+import { VariantLink as VariantLinkType, VariantDivider } from '../contracts/variants'
+import VariantLink from './VariantLink.vue'
 
 const props = defineProps<{
   text: string
@@ -8,17 +8,11 @@ const props = defineProps<{
   divider: VariantDivider
   link: VariantLinkType
 }>()
-
 </script>
 
 <template>
-  <div 
-    v-if="props.text !== '' || props.link !== undefined"
-  >
-    <div
-      v-if="props.text"
-      :class="props.classes"
-    >
+  <div v-if="props.text !== '' || props.link !== undefined">
+    <div v-if="props.text" :class="props.classes">
       {{ props.text }}
     </div>
     <variant-link
@@ -27,7 +21,6 @@ const props = defineProps<{
       :blank="props.link.blank ?? false"
       :classes="props.link.classes ?? ''"
     />
-    <v-divider v-if="props.divider.show" :class="props.divider.classes"/>
+    <v-divider v-if="props.divider.show" :class="props.divider.classes" />
   </div>
-
 </template>

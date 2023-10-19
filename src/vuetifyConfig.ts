@@ -19,13 +19,13 @@ const defaultThemeOptions = {
         error: '#B00020',
         info: '#2196F3',
         success: '#4CAF50',
-        warning: '#FB8C00',
+        warning: '#FB8C00'
       },
       variables: {
         'border-color': '#000000',
         'border-opacity': 0.12,
         'high-emphasis-opacity': 0.87,
-        'medium-emphasis-opacity': 0.60,
+        'medium-emphasis-opacity': 0.6,
         'disabled-opacity': 0.38,
         'idle-opacity': 0.04,
         'hover-opacity': 0.04,
@@ -37,8 +37,8 @@ const defaultThemeOptions = {
         'theme-kbd': '#212529',
         'theme-on-kbd': '#FFFFFF',
         'theme-code': '#F5F5F5',
-        'theme-on-code': '#000000',
-      },
+        'theme-on-code': '#000000'
+      }
     },
     dark: {
       dark: true,
@@ -55,15 +55,15 @@ const defaultThemeOptions = {
         error: '#CF6679',
         info: '#2196F3',
         success: '#4CAF50',
-        warning: '#FB8C00',
+        warning: '#FB8C00'
       },
       variables: {
         'border-color': '#FFFFFF',
         'border-opacity': 0.12,
         'high-emphasis-opacity': 1,
-        'medium-emphasis-opacity': 0.70,
-        'disabled-opacity': 0.50,
-        'idle-opacity': 0.10,
+        'medium-emphasis-opacity': 0.7,
+        'disabled-opacity': 0.5,
+        'idle-opacity': 0.1,
         'hover-opacity': 0.04,
         'focus-opacity': 0.12,
         'selected-opacity': 0.08,
@@ -73,8 +73,8 @@ const defaultThemeOptions = {
         'theme-kbd': '#212529',
         'theme-on-kbd': '#FFFFFF',
         'theme-code': '#343434',
-        'theme-on-code': '#CCCCCC',
-      },
-    },
-  },
+        'theme-on-code': '#CCCCCC'
+      }
+    }
+  }
 }

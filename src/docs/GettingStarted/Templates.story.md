@@ -17,7 +17,7 @@ If you only need to make small changes like hiding certain variants, go check ou
 
 Templates interface:
 
-````typescript
+```typescript
 interface VuetifyTemplates {
   blueprint?: DisplayTemplate
   typography?: ClassTemplate
@@ -31,11 +31,11 @@ interface VuetifyTemplates {
   sizing?: ClassTemplate
   spacing?: ComponentTemplate
 }
-````
+```
 
 Each type of template is extended from the `BaseTemplate`
 
-````typescript
+```typescript
 interface BaseTemplate {
   /** Type VariantDiscriminator is a string of either class, color, display, component and is just a quick reference */
   discriminator: VariantDiscriminator
@@ -65,67 +65,67 @@ interface BaseTemplate {
   inline?: boolean
   /** Testing. */
   autoPropsDisabled?: boolean
-   /** Included variants that should be included and shown for this template */
+  /** Included variants that should be included and shown for this template */
   variants?: VariantClass[] | VariantColors[] | VariantDisplay[] | VariantComponent[]
 }
-````
+```
 
-----
+---
 
 ### ClassTemplate & ColorTemplate
 
 Both of these templates only extend the BaseTemplate for now. There are no additional attributes.
 
-----
+---
 
 ### ComponentTemplate
 
-````typescript
+```typescript
 export interface ComponentTemplate extends BaseTemplate {
   /** Puts all component variants into cascading containers */
   containerized?: boolean
 }
-````
+```
 
-----
+---
 
 ### DisplayTemplate
 
-````typescript
+```typescript
 export interface DisplayTemplate extends BaseTemplate {
   /** Variable to included from the Variables list */
   variable: string
   /** Link to be Displayed */
   link?: VariantLink
 }
-````
+```
 
-----
+---
 
 ### TemplateTitle
 
-````typescript
+```typescript
 export interface TemplateTitle {
   /** Styling classes to be included on this templates title */
   classes: string
   /** Text to be displayed for this templates title */
   text: string
 }
-````
+```
 
-----
+---
 
 ### VariantControl
 
-````typescript
+```typescript
 export interface VariantControl {
-    /** Component to be used as control */
+  /** Component to be used as control */
   component: string
   /** Which state variable should be used as it's model */
   model: string
-   /** Label to display on component */
+  /** Label to display on component */
   label: string
-  /** Variable name for how to pull items. If not found in state, will check variants array from the template */ 
+  /** Variable name for how to pull items. If not found in state, will check variants array from the template */
   items?: string
   /** Items attribute for displaying text  */
   itemsTitle?: string
@@ -134,47 +134,47 @@ export interface VariantControl {
   /** object attribute for value  */
   playground?: VariantControlPlayground
 }
-````
+```
 
-----
+---
 
 ### VariantControlPlayground
 
-````typescript
+```typescript
 export interface VariantControlPlayground {
-    /** Just a placeholder for now. */
+  /** Just a placeholder for now. */
   type: string
-   /** Where to pull sample text from for playground */
+  /** Where to pull sample text from for playground */
   sample?: string
-   /** Additional styling for Playground */
+  /** Additional styling for Playground */
   classes?: string
 }
-````
+```
 
-----
+---
 
 ### VariantLink
 
-````typescript
+```typescript
 export interface VariantLink {
-    /** Link url */
+  /** Link url */
   url: string
   /** Display text */
-  text: string 
+  text: string
   /** Classes to style link */
-  classes?: string 
+  classes?: string
   /** Set target to blank for new tab on click */
-  blank?: boolean 
+  blank?: boolean
 }
-````
+```
 
-----
+---
 
 ### VariantDescription
 
-````typescript
+```typescript
 export interface VariantDescription {
-    /** Text to be displayed in the description area */
+  /** Text to be displayed in the description area */
   text?: string
   /** Provide a link underneath the description */
   link?: VariantLink
@@ -183,17 +183,17 @@ export interface VariantDescription {
   /** Display a divider underneath the description */
   divider?: VariantDivider
 }
-````
+```
 
-----
+---
 
 ### VariantDivider
 
-````typescript
+```typescript
 export interface VariantDivider {
-    /** Styling classes for the divider */
+  /** Styling classes for the divider */
   classes?: string
   /** Should the divider be shown */
   show?: boolean
 }
-````
+```

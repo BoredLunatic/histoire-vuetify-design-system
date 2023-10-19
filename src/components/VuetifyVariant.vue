@@ -5,10 +5,19 @@ import ColorVariantLoader from './ColorVariantLoader.vue'
 import DisplayVariantLoader from './DisplayVariantLoader.vue'
 import ComponentVariantLoader from './ComponentVariantLoader.vue'
 import VariantDescription from './VariantDescription.vue'
-import { VariantControl, VariantClass, VariantColors, VariantDisplay, VariantComponent, VariantDescription as VariantDescriptionType, VariantLink, TemplateTitle } from '../contracts/variants';
-import type { VariantDiscriminator } from '../contracts/variants';
-import { computed, watchEffect, ref, Ref } from 'vue';
-import { PlaygroundOptions } from '../contracts/vuetifyDesignSystemOptions';
+import {
+  VariantControl,
+  VariantClass,
+  VariantColors,
+  VariantDisplay,
+  VariantComponent,
+  VariantDescription as VariantDescriptionType,
+  VariantLink,
+  TemplateTitle
+} from '../contracts/variants'
+import type { VariantDiscriminator } from '../contracts/variants'
+import { computed, watchEffect, ref, Ref } from 'vue'
+import { PlaygroundOptions } from '../contracts/vuetifyDesignSystemOptions'
 
 const props = defineProps<{
   discriminator: VariantDiscriminator
@@ -24,22 +33,20 @@ const props = defineProps<{
   containerized?: boolean
 }>()
 
-const stateObj: Ref<object> = ref(props.state ?? {});
-watchEffect(() => (stateObj.value = props.state ?? {}));
+const stateObj: Ref<object> = ref(props.state ?? {})
+watchEffect(() => (stateObj.value = props.state ?? {}))
 
-const hasPlayground = computed(() => (props.controls?.filter((c) => c.playground !== undefined)?.length ?? 0) > 0);
-
+const hasPlayground = computed(
+  () => (props.controls?.filter((c) => c.playground !== undefined)?.length ?? 0) > 0
+)
 </script>
 
 <template>
-  <div 
-    v-if="hasPlayground"
-    class="ma-4 pa-4"
-  >
+  <div v-if="hasPlayground" class="ma-4 pa-4">
     <div :class="props.playground.classes">
       {{ props.playground.title }}
     </div>
-    
+
     <variant-control-playground
       v-for="control of controls"
       v-show="control.playground ?? false"
@@ -50,7 +57,10 @@ const hasPlayground = computed(() => (props.controls?.filter((c) => c.playground
     >
     </variant-control-playground>
   </div>
-  <v-divider v-if="hasPlayground && props.playground.divider.show" :class="props.playground.divider.classes"/>
+  <v-divider
+    v-if="hasPlayground && props.playground.divider.show"
+    :class="props.playground.divider.classes"
+  />
   <div class="ma-4 pa-4">
     <div :class="props.title.classes">
       {{ props.title.text }}
@@ -60,7 +70,7 @@ const hasPlayground = computed(() => (props.controls?.filter((c) => c.playground
       :link="(props.description?.link as VariantLink) ?? undefined"
       :text="props.description?.text ?? ''"
       :classes="props.description?.classes ?? ''"
-      :divider="props.description?.divider ?? {show:false}"
+      :divider="props.description?.divider ?? { show: false }"
     >
     </variant-description>
     <color-variant-loader

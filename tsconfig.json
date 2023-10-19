@@ -39,7 +39,7 @@
       "dist",
       "sandbox",
       "src/**/*.spec.ts",
-      "*.build-dts.json",
+      "*.types.json",
       "*.config.ts"
     ]
   }

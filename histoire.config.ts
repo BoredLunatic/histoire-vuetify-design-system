@@ -2,6 +2,7 @@ import { defineConfig } from "histoire";
 import { HstVue } from "@histoire/plugin-vue";
 import { resolve } from "path";
 import { container } from "@mdit/plugin-container";
+import { vuetifyDesignSystem } from './src/design'
 
 export default defineConfig({
   outDir: resolve(__dirname, "docs"),
@@ -9,6 +10,12 @@ export default defineConfig({
   routerMode: "hash",
   plugins: [
     HstVue(), 
+    vuetifyDesignSystem({
+      configFile: __dirname + '/src/plugins/vuetify/options.ts',
+      display:{
+        title: "Demo"
+      }
+    }),
   ],
   vite: {
     base: "./"

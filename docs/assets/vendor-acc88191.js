@@ -1,4 +1,6 @@
 var _a2;
+const style$1 = "";
+const __resolved__virtual_$histoireTheme = "";
 function makeMap$1(str, expectsLowerCase) {
   const map2 = /* @__PURE__ */ Object.create(null);
   const list = str.split(",");
@@ -149,12 +151,12 @@ function normalizeClass$1(value) {
 function normalizeProps(props) {
   if (!props)
     return null;
-  let { class: klass, style } = props;
+  let { class: klass, style: style2 } = props;
   if (klass && !isString$2(klass)) {
     props.class = normalizeClass$1(klass);
   }
-  if (style) {
-    props.style = normalizeStyle$1(style);
+  if (style2) {
+    props.style = normalizeStyle$1(style2);
   }
   return props;
 }
@@ -2963,7 +2965,7 @@ function defineComponent$2(options, extraOptions) {
   ) : options;
 }
 const isAsyncWrapper$1 = (i2) => !!i2.type.__asyncLoader;
-function defineAsyncComponent(source) {
+function defineAsyncComponent$1(source) {
   if (isFunction$2(source)) {
     source = { loader: source };
   }
@@ -3026,7 +3028,7 @@ function defineAsyncComponent(source) {
     setup() {
       const instance = currentInstance$1;
       if (resolvedComp) {
-        return () => createInnerComp(resolvedComp, instance);
+        return () => createInnerComp$1(resolvedComp, instance);
       }
       const onError = (err) => {
         pendingRequest = null;
@@ -3040,7 +3042,7 @@ function defineAsyncComponent(source) {
       };
       if (suspensible && instance.suspense || isInSSRComponentSetup$1) {
         return load().then((comp) => {
-          return () => createInnerComp(comp, instance);
+          return () => createInnerComp$1(comp, instance);
         }).catch((err) => {
           onError(err);
           return () => errorComponent ? createVNode$1(errorComponent, {
@@ -3078,7 +3080,7 @@ function defineAsyncComponent(source) {
       });
       return () => {
         if (loaded2.value && resolvedComp) {
-          return createInnerComp(resolvedComp, instance);
+          return createInnerComp$1(resolvedComp, instance);
         } else if (error.value && errorComponent) {
           return createVNode$1(errorComponent, {
             error: error.value
@@ -3090,7 +3092,7 @@ function defineAsyncComponent(source) {
     }
   });
 }
-function createInnerComp(comp, parent) {
+function createInnerComp$1(comp, parent) {
   const { ref: ref2, props, children, ce } = parent.vnode;
   const vnode = createVNode$1(comp, props, children);
   vnode.ref = ref2;
@@ -3240,7 +3242,7 @@ If this is a native custom element, make sure to exclude it from component resol
 function resolve$1(registry, name) {
   return registry && (registry[name] || registry[camelize$1(name)] || registry[capitalize$1(camelize$1(name))]);
 }
-function renderList(source, renderItem, cache2, index) {
+function renderList$1(source, renderItem, cache2, index) {
   let ret;
   const cached = cache2 && cache2[index];
   if (isArray$2(source) || isString$2(source)) {
@@ -6318,7 +6320,7 @@ function setupBlock$1(vnode) {
   }
   return vnode;
 }
-function createElementBlock(type, props, children, patchFlag, dynamicProps, shapeFlag) {
+function createElementBlock$1(type, props, children, patchFlag, dynamicProps, shapeFlag) {
   return setupBlock$1(
     createBaseVNode$1(
       type,
@@ -6459,15 +6461,15 @@ function _createVNode$1(type, props = null, children = null, patchFlag = 0, dyna
   }
   if (props) {
     props = guardReactiveProps$1(props);
-    let { class: klass, style } = props;
+    let { class: klass, style: style2 } = props;
     if (klass && !isString$2(klass)) {
       props.class = normalizeClass$1(klass);
     }
-    if (isObject$2(style)) {
-      if (isProxy$1(style) && !isArray$2(style)) {
-        style = extend$1({}, style);
+    if (isObject$2(style2)) {
+      if (isProxy$1(style2) && !isArray$2(style2)) {
+        style2 = extend$1({}, style2);
       }
-      props.style = normalizeStyle$1(style);
+      props.style = normalizeStyle$1(style2);
     }
   }
   const shapeFlag = isString$2(type) ? 1 : isSuspense$1(type) ? 128 : isTeleport$1(type) ? 64 : isObject$2(type) ? 4 : isFunction$2(type) ? 2 : 0;
@@ -6558,7 +6560,7 @@ function createStaticVNode(content, numberOfNodes) {
   vnode.staticCount = numberOfNodes;
   return vnode;
 }
-function createCommentVNode(text = "", asBlock = false) {
+function createCommentVNode$1(text = "", asBlock = false) {
   return asBlock ? (openBlock$1(), createBlock$1(Comment$1, null, text)) : createVNode$1(Comment$1, null, text);
 }
 function normalizeVNode$1(child) {
@@ -7345,38 +7347,38 @@ function patchClass$1(el2, value, isSVG) {
   }
 }
 function patchStyle$1(el2, prev, next) {
-  const style = el2.style;
+  const style2 = el2.style;
   const isCssString = isString$2(next);
   if (next && !isCssString) {
     if (prev && !isString$2(prev)) {
       for (const key in prev) {
         if (next[key] == null) {
-          setStyle$1(style, key, "");
+          setStyle$1(style2, key, "");
         }
       }
     }
     for (const key in next) {
-      setStyle$1(style, key, next[key]);
+      setStyle$1(style2, key, next[key]);
     }
   } else {
-    const currentDisplay = style.display;
+    const currentDisplay = style2.display;
     if (isCssString) {
       if (prev !== next) {
-        style.cssText = next;
+        style2.cssText = next;
       }
     } else if (prev) {
       el2.removeAttribute("style");
     }
     if ("_vod" in el2) {
-      style.display = currentDisplay;
+      style2.display = currentDisplay;
     }
   }
 }
 const semicolonRE$1 = /[^\\];\s*$/;
 const importantRE$1 = /\s*!important$/;
-function setStyle$1(style, name, val) {
+function setStyle$1(style2, name, val) {
   if (isArray$2(val)) {
-    val.forEach((v2) => setStyle$1(style, name, v2));
+    val.forEach((v2) => setStyle$1(style2, name, v2));
   } else {
     if (val == null)
       val = "";
@@ -7388,36 +7390,36 @@ function setStyle$1(style, name, val) {
       }
     }
     if (name.startsWith("--")) {
-      style.setProperty(name, val);
+      style2.setProperty(name, val);
     } else {
-      const prefixed = autoPrefix$1(style, name);
+      const prefixed = autoPrefix$1(style2, name);
       if (importantRE$1.test(val)) {
-        style.setProperty(
+        style2.setProperty(
           hyphenate$1(prefixed),
           val.replace(importantRE$1, ""),
           "important"
         );
       } else {
-        style[prefixed] = val;
+        style2[prefixed] = val;
       }
     }
   }
 }
 const prefixes$1 = ["Webkit", "Moz", "ms"];
 const prefixCache$1 = {};
-function autoPrefix$1(style, rawName) {
+function autoPrefix$1(style2, rawName) {
   const cached = prefixCache$1[rawName];
   if (cached) {
     return cached;
   }
   let name = camelize$1(rawName);
-  if (name !== "filter" && name in style) {
+  if (name !== "filter" && name in style2) {
     return prefixCache$1[rawName] = name;
   }
   name = capitalize$1(name);
   for (let i2 = 0; i2 < prefixes$1.length; i2++) {
     const prefixed = prefixes$1[i2] + name;
-    if (prefixed in style) {
+    if (prefixed in style2) {
       return prefixCache$1[rawName] = prefixed;
     }
   }
@@ -7664,9 +7666,9 @@ function setVarsOnVNode(vnode, vars) {
 }
 function setVarsOnNode(el2, vars) {
   if (el2.nodeType === 1) {
-    const style = el2.style;
+    const style2 = el2.style;
     for (const key in vars) {
-      style.setProperty(`--${key}`, vars[key]);
+      style2.setProperty(`--${key}`, vars[key]);
     }
   }
 }
@@ -7966,9 +7968,9 @@ const TransitionGroupImpl$1 = {
       forceReflow$1();
       movedChildren.forEach((c2) => {
         const el2 = c2.el;
-        const style = el2.style;
+        const style2 = el2.style;
         addTransitionClass$1(el2, moveClass);
-        style.transform = style.webkitTransform = style.transitionDuration = "";
+        style2.transform = style2.webkitTransform = style2.transitionDuration = "";
         const cb = el2._moveCb = (e2) => {
           if (e2 && e2.target !== el2) {
             return;
@@ -11928,11 +11930,11 @@ var _export_sfc$1 = (sfc, props) => {
   }
   return target;
 };
-const _sfc_main$6 = {
+const _sfc_main$6$1 = {
   extends: PrivatePopper()
 };
-function _sfc_render$3(_ctx, _cache, $props, $setup, $data, $options) {
-  return openBlock$1(), createElementBlock("div", {
+function _sfc_render$3$1(_ctx, _cache, $props, $setup, $data, $options) {
+  return openBlock$1(), createElementBlock$1("div", {
     ref: "reference",
     class: normalizeClass$1(["v-popper", {
       "v-popper--shown": _ctx.slotData.isShown
@@ -11941,7 +11943,7 @@ function _sfc_render$3(_ctx, _cache, $props, $setup, $data, $options) {
     renderSlot$1(_ctx.$slots, "default", normalizeProps(guardReactiveProps$1(_ctx.slotData)))
   ], 2);
 }
-var Popper$1 = /* @__PURE__ */ _export_sfc$1(_sfc_main$6, [["render", _sfc_render$3]]);
+var Popper$1 = /* @__PURE__ */ _export_sfc$1(_sfc_main$6$1, [["render", _sfc_render$3$1]]);
 function getInternetExplorerVersion() {
   var ua2 = window.navigator.userAgent;
   var msie = ua2.indexOf("MSIE ");
@@ -12043,13 +12045,13 @@ var script = {
 };
 const _withId = /* @__PURE__ */ withScopeId();
 pushScopeId("data-v-b329ee4c");
-const _hoisted_1$2 = {
+const _hoisted_1$2$1 = {
   class: "resize-observer",
   tabindex: "-1"
 };
 popScopeId();
 const render$1 = /* @__PURE__ */ _withId((_ctx, _cache, $props, $setup, $data, $options) => {
-  return openBlock$1(), createBlock$1("div", _hoisted_1$2);
+  return openBlock$1(), createBlock$1("div", _hoisted_1$2$1);
 });
 script.render = render$1;
 script.__scopeId = "data-v-b329ee4c";
@@ -12061,7 +12063,7 @@ var PrivateThemeClass = (prop = "theme") => ({
     }
   }
 });
-const _sfc_main$5 = defineComponent$2({
+const _sfc_main$5$1 = defineComponent$2({
   name: "VPopperContent",
   components: {
     ResizeObserver: script
@@ -12093,8 +12095,8 @@ const _sfc_main$5 = defineComponent$2({
     }
   }
 });
-const _hoisted_1$1 = ["id", "aria-hidden", "tabindex", "data-popper-placement"];
-const _hoisted_2$1 = {
+const _hoisted_1$1$1 = ["id", "aria-hidden", "tabindex", "data-popper-placement"];
+const _hoisted_2$1$1 = {
   ref: "inner",
   class: "v-popper__inner"
 };
@@ -12104,9 +12106,9 @@ const _hoisted_5 = [
   _hoisted_3,
   _hoisted_4
 ];
-function _sfc_render$2(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2$1(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_ResizeObserver = resolveComponent$1("ResizeObserver");
-  return openBlock$1(), createElementBlock("div", {
+  return openBlock$1(), createElementBlock$1("div", {
     id: _ctx.popperId,
     ref: "popover",
     class: normalizeClass$1(["v-popper__popper", [
@@ -12143,16 +12145,16 @@ function _sfc_render$2(_ctx, _cache, $props, $setup, $data, $options) {
         transformOrigin: _ctx.result.transformOrigin
       } : void 0)
     }, [
-      createBaseVNode$1("div", _hoisted_2$1, [
-        _ctx.mounted ? (openBlock$1(), createElementBlock(Fragment$1, { key: 0 }, [
+      createBaseVNode$1("div", _hoisted_2$1$1, [
+        _ctx.mounted ? (openBlock$1(), createElementBlock$1(Fragment$1, { key: 0 }, [
           createBaseVNode$1("div", null, [
             renderSlot$1(_ctx.$slots, "default")
           ]),
           _ctx.handleResize ? (openBlock$1(), createBlock$1(_component_ResizeObserver, {
             key: 0,
             onNotify: _cache[1] || (_cache[1] = ($event) => _ctx.$emit("resize", $event))
-          })) : createCommentVNode("", true)
-        ], 64)) : createCommentVNode("", true)
+          })) : createCommentVNode$1("", true)
+        ], 64)) : createCommentVNode$1("", true)
       ], 512),
       createBaseVNode$1("div", {
         ref: "arrow",
@@ -12163,9 +12165,9 @@ function _sfc_render$2(_ctx, _cache, $props, $setup, $data, $options) {
         } : void 0)
       }, _hoisted_5, 4)
     ], 4)
-  ], 46, _hoisted_1$1);
+  ], 46, _hoisted_1$1$1);
 }
-var PrivatePopperContent = /* @__PURE__ */ _export_sfc$1(_sfc_main$5, [["render", _sfc_render$2]]);
+var PrivatePopperContent = /* @__PURE__ */ _export_sfc$1(_sfc_main$5$1, [["render", _sfc_render$2$1]]);
 var PrivatePopperMethods = {
   methods: {
     show(...args) {
@@ -12182,7 +12184,7 @@ var PrivatePopperMethods = {
     }
   }
 };
-const _sfc_main$4 = defineComponent$2({
+const _sfc_main$4$1 = defineComponent$2({
   name: "VPopperWrapper",
   components: {
     Popper: Popper$1,
@@ -12210,7 +12212,7 @@ const _sfc_main$4 = defineComponent$2({
     }
   }
 });
-function _sfc_render$1(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1$1(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_PopperContent = resolveComponent$1("PopperContent");
   const _component_Popper = resolveComponent$1("Popper");
   return openBlock$1(), createBlock$1(_component_Popper, {
@@ -12266,20 +12268,20 @@ function _sfc_render$1(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["theme", "target-nodes", "popper-node", "class"]);
 }
-var PrivatePopperWrapper = /* @__PURE__ */ _export_sfc$1(_sfc_main$4, [["render", _sfc_render$1]]);
-const _sfc_main$3 = defineComponent$2(__spreadProps(__spreadValues$1({}, PrivatePopperWrapper), {
+var PrivatePopperWrapper = /* @__PURE__ */ _export_sfc$1(_sfc_main$4$1, [["render", _sfc_render$1$1]]);
+const _sfc_main$3$1 = defineComponent$2(__spreadProps(__spreadValues$1({}, PrivatePopperWrapper), {
   name: "VDropdown",
   vPopperTheme: "dropdown"
 }));
-const _sfc_main$2 = defineComponent$2(__spreadProps(__spreadValues$1({}, PrivatePopperWrapper), {
+const _sfc_main$2$1 = defineComponent$2(__spreadProps(__spreadValues$1({}, PrivatePopperWrapper), {
   name: "VMenu",
   vPopperTheme: "menu"
 }));
-const _sfc_main$1 = defineComponent$2(__spreadProps(__spreadValues$1({}, PrivatePopperWrapper), {
+const _sfc_main$1$1 = defineComponent$2(__spreadProps(__spreadValues$1({}, PrivatePopperWrapper), {
   name: "VTooltip",
   vPopperTheme: "tooltip"
 }));
-const _sfc_main$7 = defineComponent$2({
+const _sfc_main$b = defineComponent$2({
   name: "VTooltipDirective",
   components: {
     Popper: PrivatePopper(),
@@ -12370,9 +12372,9 @@ const _sfc_main$7 = defineComponent$2({
     }
   }
 });
-const _hoisted_1 = ["innerHTML"];
-const _hoisted_2 = ["textContent"];
-function _sfc_render$4(_ctx, _cache, $props, $setup, $data, $options) {
+const _hoisted_1$7 = ["innerHTML"];
+const _hoisted_2$2 = ["textContent"];
+function _sfc_render$b(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_PopperContent = resolveComponent$1("PopperContent");
   const _component_Popper = resolveComponent$1("Popper");
   return openBlock$1(), createBlock$1(_component_Popper, mergeProps$1({ ref: "popper" }, _ctx.$attrs, {
@@ -12411,13 +12413,13 @@ function _sfc_render$4(_ctx, _cache, $props, $setup, $data, $options) {
         onResize
       }, {
         default: withCtx$1(() => [
-          _ctx.html ? (openBlock$1(), createElementBlock("div", {
+          _ctx.html ? (openBlock$1(), createElementBlock$1("div", {
             key: 0,
             innerHTML: _ctx.finalContent
-          }, null, 8, _hoisted_1)) : (openBlock$1(), createElementBlock("div", {
+          }, null, 8, _hoisted_1$7)) : (openBlock$1(), createElementBlock$1("div", {
             key: 1,
             textContent: toDisplayString$1(_ctx.finalContent)
-          }, null, 8, _hoisted_2))
+          }, null, 8, _hoisted_2$2))
         ]),
         _: 2
       }, 1032, ["class", "popper-id", "theme", "shown", "mounted", "skip-transition", "auto-hide", "handle-resize", "classes", "result", "onHide", "onResize"])
@@ -12425,7 +12427,7 @@ function _sfc_render$4(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 16, ["theme", "popper-node", "onApplyShow", "onApplyHide"]);
 }
-var PrivateTooltipDirective = /* @__PURE__ */ _export_sfc$1(_sfc_main$7, [["render", _sfc_render$4]]);
+var PrivateTooltipDirective = /* @__PURE__ */ _export_sfc$1(_sfc_main$b, [["render", _sfc_render$b]]);
 const TARGET_CLASS = "v-popper--has-tooltip";
 function getPlacement(options2, modifiers) {
   let result = options2.placement;
@@ -12612,7 +12614,7 @@ var PrivateVClosePopper = {
   }
 };
 const VTooltip$2 = PrivateVTooltip;
-const Dropdown = _sfc_main$3;
+const Dropdown = _sfc_main$3$1;
 function install(app, options2 = {}) {
   if (app.$_vTooltipInstalled)
     return;
@@ -12620,9 +12622,9 @@ function install(app, options2 = {}) {
   assign$1(config$1, options2);
   app.directive("tooltip", PrivateVTooltip);
   app.directive("close-popper", PrivateVClosePopper);
-  app.component("VTooltip", _sfc_main$1);
-  app.component("VDropdown", _sfc_main$3);
-  app.component("VMenu", _sfc_main$2);
+  app.component("VTooltip", _sfc_main$1$1);
+  app.component("VDropdown", _sfc_main$3$1);
+  app.component("VMenu", _sfc_main$2$1);
 }
 const plugin = {
   version: "2.0.0-beta.19",
@@ -16174,6 +16176,141 @@ function defineComponent$1(options, extraOptions) {
   ) : options;
 }
 const isAsyncWrapper = (i2) => !!i2.type.__asyncLoader;
+function defineAsyncComponent(source) {
+  if (isFunction$1(source)) {
+    source = { loader: source };
+  }
+  const {
+    loader,
+    loadingComponent,
+    errorComponent,
+    delay = 200,
+    timeout,
+    // undefined = never times out
+    suspensible = true,
+    onError: userOnError
+  } = source;
+  let pendingRequest = null;
+  let resolvedComp;
+  let retries = 0;
+  const retry = () => {
+    retries++;
+    pendingRequest = null;
+    return load();
+  };
+  const load = () => {
+    let thisRequest;
+    return pendingRequest || (thisRequest = pendingRequest = loader().catch((err) => {
+      err = err instanceof Error ? err : new Error(String(err));
+      if (userOnError) {
+        return new Promise((resolve2, reject) => {
+          const userRetry = () => resolve2(retry());
+          const userFail = () => reject(err);
+          userOnError(err, userRetry, userFail, retries + 1);
+        });
+      } else {
+        throw err;
+      }
+    }).then((comp) => {
+      if (thisRequest !== pendingRequest && pendingRequest) {
+        return pendingRequest;
+      }
+      if (!comp) {
+        warn$1(
+          `Async component loader resolved to undefined. If you are using retry(), make sure to return its return value.`
+        );
+      }
+      if (comp && (comp.__esModule || comp[Symbol.toStringTag] === "Module")) {
+        comp = comp.default;
+      }
+      if (comp && !isObject$1(comp) && !isFunction$1(comp)) {
+        throw new Error(`Invalid async component load result: ${comp}`);
+      }
+      resolvedComp = comp;
+      return comp;
+    }));
+  };
+  return defineComponent$1({
+    name: "AsyncComponentWrapper",
+    __asyncLoader: load,
+    get __asyncResolved() {
+      return resolvedComp;
+    },
+    setup() {
+      const instance = currentInstance;
+      if (resolvedComp) {
+        return () => createInnerComp(resolvedComp, instance);
+      }
+      const onError = (err) => {
+        pendingRequest = null;
+        handleError(
+          err,
+          instance,
+          13,
+          !errorComponent
+          /* do not throw in dev if user provided error component */
+        );
+      };
+      if (suspensible && instance.suspense || isInSSRComponentSetup) {
+        return load().then((comp) => {
+          return () => createInnerComp(comp, instance);
+        }).catch((err) => {
+          onError(err);
+          return () => errorComponent ? createVNode(errorComponent, {
+            error: err
+          }) : null;
+        });
+      }
+      const loaded2 = ref(false);
+      const error = ref();
+      const delayed = ref(!!delay);
+      if (delay) {
+        setTimeout(() => {
+          delayed.value = false;
+        }, delay);
+      }
+      if (timeout != null) {
+        setTimeout(() => {
+          if (!loaded2.value && !error.value) {
+            const err = new Error(
+              `Async component timed out after ${timeout}ms.`
+            );
+            onError(err);
+            error.value = err;
+          }
+        }, timeout);
+      }
+      load().then(() => {
+        loaded2.value = true;
+        if (instance.parent && isKeepAlive(instance.parent.vnode)) {
+          queueJob(instance.parent.update);
+        }
+      }).catch((err) => {
+        onError(err);
+        error.value = err;
+      });
+      return () => {
+        if (loaded2.value && resolvedComp) {
+          return createInnerComp(resolvedComp, instance);
+        } else if (error.value && errorComponent) {
+          return createVNode(errorComponent, {
+            error: error.value
+          });
+        } else if (loadingComponent && !delayed.value) {
+          return createVNode(loadingComponent);
+        }
+      };
+    }
+  });
+}
+function createInnerComp(comp, parent) {
+  const { ref: ref2, props, children, ce } = parent.vnode;
+  const vnode = createVNode(comp, props, children);
+  vnode.ref = ref2;
+  vnode.ce = ce;
+  delete parent.vnode.ce;
+  return vnode;
+}
 const isKeepAlive = (vnode) => vnode.type.__isKeepAlive;
 function onActivated(hook, target) {
   registerKeepAliveHook(hook, "a", target);
@@ -16315,6 +16452,44 @@ If this is a native custom element, make sure to exclude it from component resol
 }
 function resolve(registry, name) {
   return registry && (registry[name] || registry[camelize(name)] || registry[capitalize(camelize(name))]);
+}
+function renderList(source, renderItem, cache2, index) {
+  let ret;
+  const cached = cache2 && cache2[index];
+  if (isArray$1(source) || isString$1(source)) {
+    ret = new Array(source.length);
+    for (let i2 = 0, l = source.length; i2 < l; i2++) {
+      ret[i2] = renderItem(source[i2], i2, void 0, cached && cached[i2]);
+    }
+  } else if (typeof source === "number") {
+    if (!Number.isInteger(source)) {
+      warn$1(`The v-for range expect an integer value but got ${source}.`);
+    }
+    ret = new Array(source);
+    for (let i2 = 0; i2 < source; i2++) {
+      ret[i2] = renderItem(i2 + 1, i2, void 0, cached && cached[i2]);
+    }
+  } else if (isObject$1(source)) {
+    if (source[Symbol.iterator]) {
+      ret = Array.from(
+        source,
+        (item, i2) => renderItem(item, i2, void 0, cached && cached[i2])
+      );
+    } else {
+      const keys2 = Object.keys(source);
+      ret = new Array(keys2.length);
+      for (let i2 = 0, l = keys2.length; i2 < l; i2++) {
+        const key = keys2[i2];
+        ret[i2] = renderItem(source[key], key, i2, cached && cached[i2]);
+      }
+    }
+  } else {
+    ret = [];
+  }
+  if (cache2) {
+    cache2[index] = ret;
+  }
+  return ret;
 }
 function renderSlot(slots, name, props = {}, fallback, noSlotted) {
   if (currentRenderingInstance.isCE || currentRenderingInstance.parent && isAsyncWrapper(currentRenderingInstance.parent) && currentRenderingInstance.parent.isCE) {
@@ -19622,6 +19797,20 @@ function setupBlock(vnode) {
   }
   return vnode;
 }
+function createElementBlock(type, props, children, patchFlag, dynamicProps, shapeFlag) {
+  return setupBlock(
+    createBaseVNode(
+      type,
+      props,
+      children,
+      patchFlag,
+      dynamicProps,
+      shapeFlag,
+      true
+      /* isBlock */
+    )
+  );
+}
 function createBlock(type, props, children, patchFlag, dynamicProps) {
   return setupBlock(
     createVNode(
@@ -19749,15 +19938,15 @@ function _createVNode(type, props = null, children = null, patchFlag = 0, dynami
   }
   if (props) {
     props = guardReactiveProps(props);
-    let { class: klass, style } = props;
+    let { class: klass, style: style2 } = props;
     if (klass && !isString$1(klass)) {
       props.class = normalizeClass(klass);
     }
-    if (isObject$1(style)) {
-      if (isProxy(style) && !isArray$1(style)) {
-        style = extend({}, style);
+    if (isObject$1(style2)) {
+      if (isProxy(style2) && !isArray$1(style2)) {
+        style2 = extend({}, style2);
       }
-      props.style = normalizeStyle(style);
+      props.style = normalizeStyle(style2);
     }
   }
   const shapeFlag = isString$1(type) ? 1 : isSuspense(type) ? 128 : isTeleport(type) ? 64 : isObject$1(type) ? 4 : isFunction$1(type) ? 2 : 0;
@@ -19842,6 +20031,9 @@ function deepCloneVNode(vnode) {
 }
 function createTextVNode(text = " ", flag = 0) {
   return createVNode(Text, null, text, flag);
+}
+function createCommentVNode(text = "", asBlock = false) {
+  return asBlock ? (openBlock(), createBlock(Comment, null, text)) : createVNode(Comment, null, text);
 }
 function normalizeVNode(child) {
   if (child == null || typeof child === "boolean") {
@@ -20627,38 +20819,38 @@ function patchClass(el2, value, isSVG) {
   }
 }
 function patchStyle(el2, prev, next) {
-  const style = el2.style;
+  const style2 = el2.style;
   const isCssString = isString$1(next);
   if (next && !isCssString) {
     if (prev && !isString$1(prev)) {
       for (const key in prev) {
         if (next[key] == null) {
-          setStyle(style, key, "");
+          setStyle(style2, key, "");
         }
       }
     }
     for (const key in next) {
-      setStyle(style, key, next[key]);
+      setStyle(style2, key, next[key]);
     }
   } else {
-    const currentDisplay = style.display;
+    const currentDisplay = style2.display;
     if (isCssString) {
       if (prev !== next) {
-        style.cssText = next;
+        style2.cssText = next;
       }
     } else if (prev) {
       el2.removeAttribute("style");
     }
     if ("_vod" in el2) {
-      style.display = currentDisplay;
+      style2.display = currentDisplay;
     }
   }
 }
 const semicolonRE = /[^\\];\s*$/;
 const importantRE = /\s*!important$/;
-function setStyle(style, name, val) {
+function setStyle(style2, name, val) {
   if (isArray$1(val)) {
-    val.forEach((v2) => setStyle(style, name, v2));
+    val.forEach((v2) => setStyle(style2, name, v2));
   } else {
     if (val == null)
       val = "";
@@ -20670,36 +20862,36 @@ function setStyle(style, name, val) {
       }
     }
     if (name.startsWith("--")) {
-      style.setProperty(name, val);
+      style2.setProperty(name, val);
     } else {
-      const prefixed = autoPrefix(style, name);
+      const prefixed = autoPrefix(style2, name);
       if (importantRE.test(val)) {
-        style.setProperty(
+        style2.setProperty(
           hyphenate(prefixed),
           val.replace(importantRE, ""),
           "important"
         );
       } else {
-        style[prefixed] = val;
+        style2[prefixed] = val;
       }
     }
   }
 }
 const prefixes = ["Webkit", "Moz", "ms"];
 const prefixCache = {};
-function autoPrefix(style, rawName) {
+function autoPrefix(style2, rawName) {
   const cached = prefixCache[rawName];
   if (cached) {
     return cached;
   }
   let name = camelize(rawName);
-  if (name !== "filter" && name in style) {
+  if (name !== "filter" && name in style2) {
     return prefixCache[rawName] = name;
   }
   name = capitalize(name);
   for (let i2 = 0; i2 < prefixes.length; i2++) {
     const prefixed = prefixes[i2] + name;
-    if (prefixed in style) {
+    if (prefixed in style2) {
       return prefixCache[rawName] = prefixed;
     }
   }
@@ -21190,9 +21382,9 @@ const TransitionGroupImpl = {
       forceReflow();
       movedChildren.forEach((c2) => {
         const el2 = c2.el;
-        const style = el2.style;
+        const style2 = el2.style;
         addTransitionClass(el2, moveClass);
-        style.transform = style.webkitTransform = style.transitionDuration = "";
+        style2.transform = style2.webkitTransform = style2.transitionDuration = "";
         const cb = el2._moveCb = (e2) => {
           if (e2 && e2.target !== el2) {
             return;
@@ -23283,7 +23475,7 @@ let customisationAliases = {};
 const render = (icon, props) => {
   const customisations = mergeCustomisations(defaults, props);
   const componentProps = { ...svgDefaults };
-  let style = typeof props.style === "object" && !(props.style instanceof Array) ? { ...props.style } : {};
+  let style2 = typeof props.style === "object" && !(props.style instanceof Array) ? { ...props.style } : {};
   for (let key in props) {
     const value = props[key];
     if (value === void 0) {
@@ -23310,7 +23502,7 @@ const render = (icon, props) => {
         }
         break;
       case "color":
-        style.color = value;
+        style2.color = value;
         break;
       case "rotate":
         if (typeof value === "string") {
@@ -23341,8 +23533,8 @@ const render = (icon, props) => {
   for (let key in item.attributes) {
     componentProps[key] = item.attributes[key];
   }
-  if (item.inline && style.verticalAlign === void 0 && style["vertical-align"] === void 0) {
-    style.verticalAlign = "-0.125em";
+  if (item.inline && style2.verticalAlign === void 0 && style2["vertical-align"] === void 0) {
+    style2.verticalAlign = "-0.125em";
   }
   let localCounter = 0;
   let id2 = props.id;
@@ -23350,8 +23542,8 @@ const render = (icon, props) => {
     id2 = id2.replace(/-/g, "_");
   }
   componentProps["innerHTML"] = replaceIDs(item.body, id2 ? () => id2 + "ID" + localCounter++ : "iconifyVue");
-  if (Object.keys(style).length > 0) {
-    componentProps["style"] = style;
+  if (Object.keys(style2).length > 0) {
+    componentProps["style"] = style2;
   }
   return h$3("svg", componentProps);
 };
@@ -27224,6 +27416,516 @@ const omitInheritStoryProps = [
   "slots",
   "lastSelectedVariant"
 ];
+const style = "";
+const _export_sfc = (sfc, props) => {
+  const target = sfc.__vccOpts || sfc;
+  for (const [key, val] of props) {
+    target[key] = val;
+  }
+  return target;
+};
+const _sfc_main$a = /* @__PURE__ */ defineComponent$1({
+  __name: "Vuetify.story",
+  setup(__props, { expose: __expose }) {
+    __expose();
+    const config2 = markRaw({
+      "blueprint": {
+        "defaults": {
+          "VAppBar": {
+            "flat": true
+          },
+          "VAutocomplete": {
+            "variant": "filled"
+          },
+          "VBanner": {
+            "color": "primary"
+          },
+          "VBottomSheet": {
+            "contentClass": "rounded-t-xl overflow-hidden"
+          },
+          "VBtn": {
+            "color": "primary",
+            "rounded": "xl"
+          },
+          "VBtnGroup": {
+            "rounded": "xl",
+            "VBtn": {
+              "rounded": null
+            }
+          },
+          "VCard": {
+            "rounded": "lg"
+          },
+          "VCheckbox": {
+            "color": "secondary",
+            "inset": true
+          },
+          "VChip": {
+            "rounded": "sm"
+          },
+          "VCombobox": {
+            "variant": "filled"
+          },
+          "VNavigationDrawer": {},
+          "VSelect": {
+            "variant": "filled"
+          },
+          "VSlider": {
+            "color": "primary"
+          },
+          "VTabs": {
+            "color": "primary"
+          },
+          "VTextarea": {
+            "variant": "filled"
+          },
+          "VTextField": {
+            "variant": "filled"
+          },
+          "VToolbar": {
+            "VBtn": {
+              "color": null
+            }
+          }
+        },
+        "icons": {
+          "defaultSet": "mdi",
+          "sets": {
+            "mdi": {}
+          }
+        },
+        "theme": {
+          "themes": {
+            "light": {
+              "colors": {
+                "primary": "#6750a4",
+                "secondary": "#b4b0bb",
+                "tertiary": "#7d5260",
+                "error": "#b3261e",
+                "surface": "#fffbfe"
+              }
+            }
+          }
+        }
+      },
+      "theme": {
+        "defaultTheme": "vuetifyTheme",
+        "themes": {
+          "vuetifyTheme": {
+            "dark": false
+          }
+        }
+      }
+    });
+    const state = reactive({
+      sample: "This is some sample text.",
+      materialColors: "red",
+      typography: "text-h1",
+      borderRadius: "rounded-0",
+      content: "rounded-0",
+      elevation: "elevation-1",
+      display: "d-inline-block",
+      float: "float-left",
+      overflow: "overflow-auto",
+      overflowSample: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis facilis dicta esse molestias vero hic laudantium provident nisi eos quasi iusto alias sequi, aut aliquid voluptatibus commodi! Minima, eum voluptates?",
+      sizing: "h-auto",
+      padding: "a",
+      paddingSize: 6,
+      margin: "a",
+      marginSize: 2
+    });
+    const MaterialColorsData = markRaw([{ "name": "primary", "darken": 1, "lighten": 0, "accent": 0 }, { "name": "secondary", "darken": 1, "lighten": 0, "accent": 0 }, { "name": "success", "darken": 0, "lighten": 0, "accent": 0 }, { "name": "error", "darken": 0, "lighten": 0, "accent": 0 }, { "name": "warning", "darken": 0, "lighten": 0, "accent": 0 }, { "name": "info", "darken": 0, "lighten": 0, "accent": 0 }, { "name": "red", "darken": 4, "lighten": 5, "accent": 4 }, { "name": "pink", "darken": 4, "lighten": 5, "accent": 4 }, { "name": "purple", "darken": 4, "lighten": 5, "accent": 4 }, { "name": "deep-purple", "darken": 4, "lighten": 5, "accent": 4 }, { "name": "indigo", "darken": 4, "lighten": 5, "accent": 4 }, { "name": "blue", "darken": 4, "lighten": 5, "accent": 4 }, { "name": "light-blue", "darken": 4, "lighten": 5, "accent": 4 }, { "name": "cyan", "darken": 4, "lighten": 5, "accent": 4 }, { "name": "teal", "darken": 4, "lighten": 5, "accent": 4 }, { "name": "green", "darken": 4, "lighten": 5, "accent": 4 }, { "name": "light-green", "darken": 4, "lighten": 5, "accent": 4 }, { "name": "lime", "darken": 4, "lighten": 5, "accent": 4 }, { "name": "yellow", "darken": 4, "lighten": 5, "accent": 4 }, { "name": "amber", "darken": 4, "lighten": 5, "accent": 4 }, { "name": "orange", "darken": 4, "lighten": 5, "accent": 4 }, { "name": "deep-orange", "darken": 4, "lighten": 5, "accent": 4 }, { "name": "brown", "darken": 4, "lighten": 5, "accent": 0 }, { "name": "blue-grey", "darken": 4, "lighten": 5, "accent": 0 }, { "name": "grey", "darken": 4, "lighten": 5, "accent": 0 }]);
+    const TypographyData = markRaw([{ "title": "Heading 1", "classes": "text-h1" }, { "title": "Heading 2", "classes": "text-h2" }, { "title": "Heading 3", "classes": "text-h3" }, { "title": "Heading 4", "classes": "text-h4" }, { "title": "Heading 5", "classes": "text-h5" }, { "title": "Heading 6", "classes": "text-h6" }, { "title": "Subtitle 1", "classes": "text-subtitle-1" }, { "title": "Subtitle 2", "classes": "text-subtitle-2" }, { "title": "Body 1", "classes": "text-body-1" }, { "title": "Body 2", "classes": "text-body-2" }, { "title": "Button", "classes": "text-button" }, { "title": "Caption", "classes": "text-caption" }, { "title": "Overline", "classes": "text-overline" }, { "title": "Font Weight Black", "classes": "font-weight-black" }, { "title": "Font Weight Bold", "classes": "font-weight-bold" }, { "title": "Font Weight Medium", "classes": "font-weight-medium" }, { "title": "Font Weight Regular", "classes": "font-weight-regular" }, { "title": "Font Weight Light", "classes": "font-weight-light" }, { "title": "Font Weight Thin", "classes": "font-weight-thin" }, { "title": "Font Italic", "classes": "font-italic" }, { "title": "Text Left", "classes": "text-left" }, { "title": "Text Right", "classes": "text-right" }, { "title": "Text Center", "classes": "text-center" }, { "title": "Text Justify", "classes": "text-justify" }, { "title": "Text Start", "classes": "text-start" }, { "title": "Text End", "classes": "text-end" }, { "title": "Text Decoration None", "classes": "text-decoration-none" }, { "title": "Text Decoration Line Through", "classes": "text-decoration-line-through" }, { "title": "Text Decoration Overline", "classes": "text-decoration-overline" }, { "title": "Text Decoration Underline", "classes": "text-decoration-underline" }, { "title": "Text High Emphasis", "classes": "text-high-emphasis" }, { "title": "Text Medium Emphasis", "classes": "text-medium-emphasis" }, { "title": "Text Disabled", "classes": "text-disabled" }, { "title": "Text Lowercase", "classes": "text-lowercase" }, { "title": "Text Uppercase", "classes": "text-uppercase" }, { "title": "Text Capitalize", "classes": "text-capitalize" }, { "title": "Text No Wrap", "classes": "text-no-wrap" }, { "title": "Text Truncate", "classes": "text-truncate" }]);
+    const BorderRadiusData = markRaw([{ "title": "Rounded 0", "classes": "rounded-0" }, { "title": "Rounded SM", "classes": "rounded-sm" }, { "title": "Rounded", "classes": "rounded" }, { "title": "Rounded LG", "classes": "rounded-lg" }, { "title": "Rounded XL", "classes": "rounded-xl" }, { "title": "Rounded Pill", "classes": "rounded-pill" }, { "title": "Rounded Circle", "classes": "rounded-circle" }, { "title": "Rounded Shaped", "classes": "rounded-shaped" }]);
+    const ContentData = markRaw([{ "title": "Block Quote", "component": "blockquote", "classes": "", "content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit." }, { "title": "Paragraph", "component": "p", "classes": "", "content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum maiores modi quidem veniam, expedita quis laboriosam, ullam facere adipisci, iusto, voluptate sapiente corrupti asperiores rem nemo numquam fuga ab at." }, { "title": "Code", "component": "code", "classes": "", "content": "<div>This is a code example.</div>" }, { "title": "Variable", "component": "var", "classes": "", "content": "v" }]);
+    const ElevationData = markRaw([{ "title": "Elevation 0", "classes": "elevation-0" }, { "title": "Elevation 1", "classes": "elevation-1" }, { "title": "Elevation 2", "classes": "elevation-2" }, { "title": "Elevation 3", "classes": "elevation-3" }, { "title": "Elevation 4", "classes": "elevation-4" }, { "title": "Elevation 5", "classes": "elevation-5" }, { "title": "Elevation 6", "classes": "elevation-6" }, { "title": "Elevation 7", "classes": "elevation-7" }, { "title": "Elevation 8", "classes": "elevation-8" }, { "title": "Elevation 9", "classes": "elevation-9" }, { "title": "Elevation 10", "classes": "elevation-10" }, { "title": "Elevation 11", "classes": "elevation-11" }, { "title": "Elevation 12", "classes": "elevation-12" }, { "title": "Elevation 13", "classes": "elevation-13" }, { "title": "Elevation 14", "classes": "elevation-14" }, { "title": "Elevation 15", "classes": "elevation-15" }, { "title": "Elevation 16", "classes": "elevation-16" }, { "title": "Elevation 17", "classes": "elevation-17" }, { "title": "Elevation 18", "classes": "elevation-18" }, { "title": "Elevation 19", "classes": "elevation-19" }, { "title": "Elevation 20", "classes": "elevation-20" }, { "title": "Elevation 21", "classes": "elevation-21" }, { "title": "Elevation 22", "classes": "elevation-22" }, { "title": "Elevation 23", "classes": "elevation-23" }, { "title": "Elevation 24", "classes": "elevation-24" }]);
+    const DisplayData = markRaw([{ "title": "Display Inline Block", "classes": "d-inline-block", "duplicate": 3 }, { "title": "Display Inline", "classes": "d-inline" }, { "title": "Display Block", "classes": "d-block" }, { "title": "Display Block Breakpoint SM", "classes": "d-block d-sm-inline-block" }, { "title": "Display Block Breakpoint MD", "classes": "d-block d-md-inline-block" }, { "title": "Display Block Breakpoint LG", "classes": "d-block d-lg-inline-block" }, { "title": "Display Block Breakpoint XL", "classes": "d-block d-xl-inline-block" }, { "title": "Display Block Breakpoint XXL", "classes": "d-block d-xxl-inline-block" }, { "title": "Hidden On All", "classes": "d-none" }, { "title": "Hidden Only On XS", "classes": "d-none d-sm-block" }, { "title": "Hidden Only On SM", "classes": "d-none d-md-block" }, { "title": "Hidden Only On MD", "classes": "d-none d-lg-block" }, { "title": "Hidden Only On LG", "classes": "d-none d-xl-block" }, { "title": "Hidden Only On XL", "classes": "d-none d-xxl-block" }, { "title": "Hidden Only On XXL", "classes": "d-none" }, { "title": "Visible On All", "classes": "d-block" }, { "title": "Visible Only On XS", "classes": "d-block d-sm-none" }, { "title": "Visible Only On SM", "classes": "d-none d-sm-block d-md-none" }, { "title": "Visible Only On MD", "classes": "d-none d-md-block d-lg-none" }, { "title": "Visible Only On LG", "classes": "d-none d-lg-block d-xl-none" }, { "title": "Visible Only On XL", "classes": "d-none d-xl-block d-xxl-none" }, { "title": "Visible Only On XXL", "classes": "d-none d-xxl-block" }]);
+    const FloatData = markRaw([{ "title": "Float Left", "classes": "float-left" }, { "title": "Float Right", "classes": "float-right" }, { "title": "Float Start", "classes": "float-start" }, { "title": "Float End", "classes": "float-end" }, { "title": "Float None", "classes": "float-none" }, { "title": "Float SM Left", "classes": "float-sm-left" }, { "title": "Float SM Right", "classes": "float-sm-right" }, { "title": "Float SM Start", "classes": "float-sm-start" }, { "title": "Float SM End", "classes": "float-sm-end" }, { "title": "Float SM None", "classes": "float-sm-none" }, { "title": "Float MD Left", "classes": "float-md-left" }, { "title": "Float MD Right", "classes": "float-md-right" }, { "title": "Float MD Start", "classes": "float-md-start" }, { "title": "Float MD End", "classes": "float-md-end" }, { "title": "Float MD None", "classes": "float-md-none" }, { "title": "Float LG Left", "classes": "float-lg-left" }, { "title": "Float LG Right", "classes": "float-lg-right" }, { "title": "Float LG Start", "classes": "float-lg-start" }, { "title": "Float LG End", "classes": "float-lg-end" }, { "title": "Float LG None", "classes": "float-lg-none" }, { "title": "Float XL Left", "classes": "float-xl-left" }, { "title": "Float XL Right", "classes": "float-xl-right" }, { "title": "Float XL Start", "classes": "float-xl-start" }, { "title": "Float XL End", "classes": "float-xl-end" }, { "title": "Float XL None", "classes": "float-xl-none" }]);
+    const OverflowData = markRaw([{ "title": "Overflow Auto", "classes": "overflow-auto" }, { "title": "Overflow Hidden", "classes": "overflow-hidden" }, { "title": "Overflow Visible", "classes": "overflow-visible" }, { "title": "Overflow X Auto", "classes": "overflow-x-auto force-nowrap" }, { "title": "Overflow X Hidden", "classes": "overflow-x-hidden force-nowrap" }, { "title": "Overflow X Visible", "classes": "overflow-x-visible force-nowrap" }, { "title": "Overflow Y Auto", "classes": "overflow-y-auto" }, { "title": "Overflow Y Hidden", "classes": "overflow-y-hidden" }, { "title": "Overflow Y Visible", "classes": "overflow-y-visible" }]);
+    const SizingData = markRaw([{ "title": "Height Auto", "classes": "h-auto" }, { "title": "Height Screen", "classes": "h-screen" }, { "title": "Height 0", "classes": "h-0" }, { "title": "Height 25", "classes": "h-25" }, { "title": "Height 50", "classes": "h-50" }, { "title": "Height 75", "classes": "h-75" }, { "title": "Height 100", "classes": "h-100" }, { "title": "Width Auto", "classes": "w-auto" }, { "title": "Width 0", "classes": "w-0" }, { "title": "Width 25", "classes": "w-25" }, { "title": "Width 50", "classes": "w-50" }, { "title": "Width 75", "classes": "w-75" }, { "title": "Width 100", "classes": "w-100" }]);
+    const SpacingData = markRaw([{ "title": "Container", "component": "div", "states": ["margin", "marginSize"], "classes": "bg-orange-lighten-3 pa-0 ma-4 overflow-auto", "children": [{ "title": "Parent", "component": "div", "states": ["margin", "marginSize"], "builder": { "args": ["direction", "size"], "body": "return `m${direction}-${size}`" }, "classes": "elevation-4", "children": [{ "title": "Child", "component": "div", "states": ["padding", "paddingSize"], "builder": { "args": ["direction", "size"], "body": "return `p${direction}-${size}`" }, "classes": "bg-light-green-lighten-3 elevation-4", "children": [{ "title": "Content", "component": "div", "classes": "bg-white text-center py-6", "content": "Use the controls on the right to try out the different spacing helpers." }] }] }] }]);
+    const spacingDirections = ["t", "b", "l", "r", "s", "e", "x", "y", "a"];
+    const spacingAmounts = Array.from({ length: 17 }, (val, i2) => `${i2}`);
+    const spacingNegativeAmounts = Array.from({ length: 16 }, (val, i2) => `n${i2 + 1}`);
+    const spacingDefaults = ["auto", ...spacingAmounts];
+    const spacingMarginAmounts = [...spacingDefaults, ...spacingNegativeAmounts];
+    const __returned__ = { config: config2, state, MaterialColorsData, TypographyData, BorderRadiusData, ContentData, ElevationData, DisplayData, FloatData, OverflowData, SizingData, SpacingData, spacingDirections, spacingAmounts, spacingNegativeAmounts, spacingDefaults, spacingMarginAmounts };
+    Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
+    return __returned__;
+  }
+});
+function _sfc_render$a(_ctx, _cache, $props, $setup, $data, $options) {
+  const _component_VuetifyVariant = resolveComponent("VuetifyVariant");
+  const _component_Variant = resolveComponent("Variant");
+  const _component_v_autocomplete = resolveComponent("v-autocomplete");
+  const _component_Story = resolveComponent("Story");
+  return openBlock(), createBlock(_component_Story, {
+    id: "vuetify",
+    title: "Demo",
+    group: "design-system",
+    icon: "mdi:vuetify",
+    layout: { "type": "single", "iframe": true },
+    responsiveDisabled: false
+  }, {
+    default: withCtx(() => [
+      createVNode(_component_Variant, {
+        icon: "mdi:palette",
+        title: "Material Colors",
+        autoPropsDisabled: true
+      }, {
+        default: withCtx(() => [
+          createVNode(_component_VuetifyVariant, {
+            discriminator: "color",
+            classes: "pa-4 display-block",
+            text: "name",
+            title: { "classes": "mb-2 text-h4 htw-text-gray-900 dark:htw-text-gray-100", "text": "Material Colors" },
+            inline: true,
+            description: { "classes": "my-4 htw-text-gray-900 dark:htw-text-gray-100", "divider": { "show": true, "classes": "my-4" }, "text": "Each color from the specification gets converted to a background and text variant for styling within your application through a class, e.g. bg-red or text-red", "link": { "url": "https://vuetifyjs.com/en/styles/colors/", "text": "More information", "blank": true, "classes": "my-4 htw-text-gray-900 dark:htw-text-gray-100 font-weight-bold" } },
+            controls: [],
+            variants: [{ "name": "primary", "darken": 1, "lighten": 0, "accent": 0 }, { "name": "secondary", "darken": 1, "lighten": 0, "accent": 0 }, { "name": "success", "darken": 0, "lighten": 0, "accent": 0 }, { "name": "error", "darken": 0, "lighten": 0, "accent": 0 }, { "name": "warning", "darken": 0, "lighten": 0, "accent": 0 }, { "name": "info", "darken": 0, "lighten": 0, "accent": 0 }, { "name": "red", "darken": 4, "lighten": 5, "accent": 4 }, { "name": "pink", "darken": 4, "lighten": 5, "accent": 4 }, { "name": "purple", "darken": 4, "lighten": 5, "accent": 4 }, { "name": "deep-purple", "darken": 4, "lighten": 5, "accent": 4 }, { "name": "indigo", "darken": 4, "lighten": 5, "accent": 4 }, { "name": "blue", "darken": 4, "lighten": 5, "accent": 4 }, { "name": "light-blue", "darken": 4, "lighten": 5, "accent": 4 }, { "name": "cyan", "darken": 4, "lighten": 5, "accent": 4 }, { "name": "teal", "darken": 4, "lighten": 5, "accent": 4 }, { "name": "green", "darken": 4, "lighten": 5, "accent": 4 }, { "name": "light-green", "darken": 4, "lighten": 5, "accent": 4 }, { "name": "lime", "darken": 4, "lighten": 5, "accent": 4 }, { "name": "yellow", "darken": 4, "lighten": 5, "accent": 4 }, { "name": "amber", "darken": 4, "lighten": 5, "accent": 4 }, { "name": "orange", "darken": 4, "lighten": 5, "accent": 4 }, { "name": "deep-orange", "darken": 4, "lighten": 5, "accent": 4 }, { "name": "brown", "darken": 4, "lighten": 5, "accent": 0 }, { "name": "blue-grey", "darken": 4, "lighten": 5, "accent": 0 }, { "name": "grey", "darken": 4, "lighten": 5, "accent": 0 }],
+            playground: { "title": "Playground", "classes": "mb-2 text-h4 htw-text-gray-900 dark:htw-text-gray-100", "divider": { "show": true, "classes": "ma-4" } },
+            state: $setup.state,
+            containerized: false
+          }, null, 8, ["description", "state"])
+        ]),
+        _: 1
+        /* STABLE */
+      }),
+      createVNode(_component_Variant, {
+        icon: "mdi:format-font",
+        title: "Text And Typography",
+        autoPropsDisabled: true
+      }, {
+        controls: withCtx(() => [
+          createBaseVNode("div", null, [
+            createVNode(_component_v_autocomplete, {
+              modelValue: $setup.state.typography,
+              "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => $setup.state.typography = $event),
+              label: "Typography Classes",
+              items: $setup.TypographyData,
+              "item-title": "title",
+              "item-value": "classes"
+            }, null, 8, ["modelValue", "items"])
+          ])
+        ]),
+        default: withCtx(() => [
+          createVNode(_component_VuetifyVariant, {
+            discriminator: "class",
+            classes: "bg-grey-darken-4 pa-4 display-block rounded-lg",
+            text: "title",
+            title: { "classes": "mb-2 text-h4 htw-text-gray-900 dark:htw-text-gray-100", "text": "Text and Typography" },
+            inline: false,
+            description: { "classes": "my-4 htw-text-gray-900 dark:htw-text-gray-100", "divider": { "show": true, "classes": "my-4" }, "text": "Text size, alignment, wrapping, overflow, transforms and more. By default, Vuetify uses the Material Design specification Roboto Font", "link": { "url": "https://vuetifyjs.com/en/styles/text-and-typography/", "text": "More information", "blank": true, "classes": "my-4 htw-text-gray-900 dark:htw-text-gray-100 font-weight-bold" } },
+            controls: [{ "component": "v-autocomplete", "model": "typography", "label": "Typography Classes", "itemsTitle": "title", "itemsValue": "classes", "playground": { "type": "class", "sample": "sample", "classes": "bg-grey-darken-4 pa-4 display-block rounded-lg" } }],
+            variants: [{ "title": "Heading 1", "classes": "text-h1" }, { "title": "Heading 2", "classes": "text-h2" }, { "title": "Heading 3", "classes": "text-h3" }, { "title": "Heading 4", "classes": "text-h4" }, { "title": "Heading 5", "classes": "text-h5" }, { "title": "Heading 6", "classes": "text-h6" }, { "title": "Subtitle 1", "classes": "text-subtitle-1" }, { "title": "Subtitle 2", "classes": "text-subtitle-2" }, { "title": "Body 1", "classes": "text-body-1" }, { "title": "Body 2", "classes": "text-body-2" }, { "title": "Button", "classes": "text-button" }, { "title": "Caption", "classes": "text-caption" }, { "title": "Overline", "classes": "text-overline" }, { "title": "Font Weight Black", "classes": "font-weight-black" }, { "title": "Font Weight Bold", "classes": "font-weight-bold" }, { "title": "Font Weight Medium", "classes": "font-weight-medium" }, { "title": "Font Weight Regular", "classes": "font-weight-regular" }, { "title": "Font Weight Light", "classes": "font-weight-light" }, { "title": "Font Weight Thin", "classes": "font-weight-thin" }, { "title": "Font Italic", "classes": "font-italic" }, { "title": "Text Left", "classes": "text-left" }, { "title": "Text Right", "classes": "text-right" }, { "title": "Text Center", "classes": "text-center" }, { "title": "Text Justify", "classes": "text-justify" }, { "title": "Text Start", "classes": "text-start" }, { "title": "Text End", "classes": "text-end" }, { "title": "Text Decoration None", "classes": "text-decoration-none" }, { "title": "Text Decoration Line Through", "classes": "text-decoration-line-through" }, { "title": "Text Decoration Overline", "classes": "text-decoration-overline" }, { "title": "Text Decoration Underline", "classes": "text-decoration-underline" }, { "title": "Text High Emphasis", "classes": "text-high-emphasis" }, { "title": "Text Medium Emphasis", "classes": "text-medium-emphasis" }, { "title": "Text Disabled", "classes": "text-disabled" }, { "title": "Text Lowercase", "classes": "text-lowercase" }, { "title": "Text Uppercase", "classes": "text-uppercase" }, { "title": "Text Capitalize", "classes": "text-capitalize" }, { "title": "Text No Wrap", "classes": "text-no-wrap" }, { "title": "Text Truncate", "classes": "text-truncate" }],
+            playground: { "title": "Playground", "classes": "mb-2 text-h4 htw-text-gray-900 dark:htw-text-gray-100", "divider": { "show": true, "classes": "ma-4" } },
+            state: $setup.state,
+            containerized: false
+          }, null, 8, ["description", "state"])
+        ]),
+        _: 1
+        /* STABLE */
+      }),
+      createVNode(_component_Variant, {
+        icon: "mdi:border-all",
+        title: "Border Radius",
+        autoPropsDisabled: true
+      }, {
+        controls: withCtx(() => [
+          createBaseVNode("div", null, [
+            createVNode(_component_v_autocomplete, {
+              modelValue: $setup.state.borderRadius,
+              "onUpdate:modelValue": _cache[1] || (_cache[1] = ($event) => $setup.state.borderRadius = $event),
+              label: "Border Radius Classes",
+              items: $setup.BorderRadiusData,
+              "item-title": "title",
+              "item-value": "classes"
+            }, null, 8, ["modelValue", "items"])
+          ])
+        ]),
+        default: withCtx(() => [
+          createVNode(_component_VuetifyVariant, {
+            discriminator: "class",
+            classes: "bg-grey-darken-4 pa-4 display-square pt-10 text-center",
+            text: "title",
+            title: { "classes": "mb-2 text-h4 htw-text-gray-900 dark:htw-text-gray-100", "text": "Border Radius" },
+            inline: true,
+            description: { "classes": "my-4 htw-text-gray-900 dark:htw-text-gray-100", "divider": { "show": true, "classes": "my-4" }, "text": "Use border utilities to quickly style the border-radius of any element.", "link": { "url": "https://vuetifyjs.com/en/styles/border-radius/", "text": "More information", "blank": true, "classes": "my-4 htw-text-gray-900 dark:htw-text-gray-100 font-weight-bold" } },
+            controls: [{ "component": "v-autocomplete", "model": "borderRadius", "label": "Border Radius Classes", "itemsTitle": "title", "itemsValue": "classes", "playground": { "type": "class", "classes": "bg-grey-darken-4 pa-4 display-block" } }],
+            variants: [{ "title": "Rounded 0", "classes": "rounded-0" }, { "title": "Rounded SM", "classes": "rounded-sm" }, { "title": "Rounded", "classes": "rounded" }, { "title": "Rounded LG", "classes": "rounded-lg" }, { "title": "Rounded XL", "classes": "rounded-xl" }, { "title": "Rounded Pill", "classes": "rounded-pill" }, { "title": "Rounded Circle", "classes": "rounded-circle" }, { "title": "Rounded Shaped", "classes": "rounded-shaped" }],
+            playground: { "title": "Playground", "classes": "mb-2 text-h4 htw-text-gray-900 dark:htw-text-gray-100", "divider": { "show": true, "classes": "ma-4" } },
+            state: $setup.state,
+            containerized: false
+          }, null, 8, ["description", "state"])
+        ]),
+        _: 1
+        /* STABLE */
+      }),
+      createVNode(_component_Variant, {
+        icon: "mdi:view-grid-plus",
+        title: "Content",
+        autoPropsDisabled: true
+      }, {
+        default: withCtx(() => [
+          createVNode(_component_VuetifyVariant, {
+            discriminator: "component",
+            classes: "bg-grey-darken-4 pa-4 display-block rounded-lg",
+            text: "",
+            title: { "classes": "mb-2 text-h4 htw-text-gray-900 dark:htw-text-gray-100", "text": "Content" },
+            inline: false,
+            description: { "classes": "my-4 htw-text-gray-900 dark:htw-text-gray-100", "divider": { "show": true, "classes": "my-4" }, "text": "Vuetify has custom styling for multiple standard elements.", "link": { "url": "https://vuetifyjs.com/en/styles/content/", "text": "More information", "blank": true, "classes": "my-4 htw-text-gray-900 dark:htw-text-gray-100 font-weight-bold" } },
+            controls: [],
+            variants: [{ "title": "Block Quote", "component": "blockquote", "classes": "", "content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit." }, { "title": "Paragraph", "component": "p", "classes": "", "content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum maiores modi quidem veniam, expedita quis laboriosam, ullam facere adipisci, iusto, voluptate sapiente corrupti asperiores rem nemo numquam fuga ab at." }, { "title": "Code", "component": "code", "classes": "", "content": "<div>This is a code example.</div>" }, { "title": "Variable", "component": "var", "classes": "", "content": "v" }],
+            playground: { "title": "Playground", "classes": "mb-2 text-h4 htw-text-gray-900 dark:htw-text-gray-100", "divider": { "show": true, "classes": "ma-4" } },
+            state: $setup.state,
+            containerized: false
+          }, null, 8, ["description", "variants", "state"])
+        ]),
+        _: 1
+        /* STABLE */
+      }),
+      createVNode(_component_Variant, {
+        icon: "mdi:box-shadow",
+        title: "Elevation",
+        autoPropsDisabled: true
+      }, {
+        controls: withCtx(() => [
+          createBaseVNode("div", null, [
+            createVNode(_component_v_autocomplete, {
+              modelValue: $setup.state.elevation,
+              "onUpdate:modelValue": _cache[2] || (_cache[2] = ($event) => $setup.state.elevation = $event),
+              label: "Elevation",
+              items: $setup.ElevationData,
+              "item-title": "title",
+              "item-value": "classes"
+            }, null, 8, ["modelValue", "items"])
+          ])
+        ]),
+        default: withCtx(() => [
+          createVNode(_component_VuetifyVariant, {
+            discriminator: "class",
+            classes: "bg-grey-darken-4 pa-4 display-square d-line-block rounded-lg text-center",
+            text: "item.title",
+            title: { "classes": "mb-2 text-h4 htw-text-gray-900 dark:htw-text-gray-100", "text": "Elevation" },
+            inline: true,
+            description: { "classes": "my-4 htw-text-gray-900 dark:htw-text-gray-100", "divider": { "show": true, "classes": "my-4" }, "text": "The elevation helpers allow you to control relative depth, or distance, between two surfaces along the z-axis.", "link": { "url": "https://vuetifyjs.com/en/styles/elevation/", "text": "More information", "blank": true, "classes": "my-4 htw-text-gray-900 dark:htw-text-gray-100 font-weight-bold" } },
+            controls: [{ "component": "v-autocomplete", "model": "elevation", "label": "Elevation", "itemsTitle": "title", "itemsValue": "classes", "playground": { "type": "class", "sample": "sample", "classes": "bg-grey-darken-4 pa-4 rounded-lg" } }],
+            variants: [{ "title": "Elevation 0", "classes": "elevation-0" }, { "title": "Elevation 1", "classes": "elevation-1" }, { "title": "Elevation 2", "classes": "elevation-2" }, { "title": "Elevation 3", "classes": "elevation-3" }, { "title": "Elevation 4", "classes": "elevation-4" }, { "title": "Elevation 5", "classes": "elevation-5" }, { "title": "Elevation 6", "classes": "elevation-6" }, { "title": "Elevation 7", "classes": "elevation-7" }, { "title": "Elevation 8", "classes": "elevation-8" }, { "title": "Elevation 9", "classes": "elevation-9" }, { "title": "Elevation 10", "classes": "elevation-10" }, { "title": "Elevation 11", "classes": "elevation-11" }, { "title": "Elevation 12", "classes": "elevation-12" }, { "title": "Elevation 13", "classes": "elevation-13" }, { "title": "Elevation 14", "classes": "elevation-14" }, { "title": "Elevation 15", "classes": "elevation-15" }, { "title": "Elevation 16", "classes": "elevation-16" }, { "title": "Elevation 17", "classes": "elevation-17" }, { "title": "Elevation 18", "classes": "elevation-18" }, { "title": "Elevation 19", "classes": "elevation-19" }, { "title": "Elevation 20", "classes": "elevation-20" }, { "title": "Elevation 21", "classes": "elevation-21" }, { "title": "Elevation 22", "classes": "elevation-22" }, { "title": "Elevation 23", "classes": "elevation-23" }, { "title": "Elevation 24", "classes": "elevation-24" }],
+            playground: { "title": "Playground", "classes": "mb-2 text-h4 htw-text-gray-900 dark:htw-text-gray-100", "divider": { "show": true, "classes": "ma-4" } },
+            state: $setup.state,
+            containerized: false
+          }, null, 8, ["description", "state"])
+        ]),
+        _: 1
+        /* STABLE */
+      }),
+      createVNode(_component_Variant, {
+        icon: "mdi:monitor-screenshot",
+        title: "Display",
+        autoPropsDisabled: true
+      }, {
+        controls: withCtx(() => [
+          createBaseVNode("div", null, [
+            createVNode(_component_v_autocomplete, {
+              modelValue: $setup.state.display,
+              "onUpdate:modelValue": _cache[3] || (_cache[3] = ($event) => $setup.state.display = $event),
+              label: "Display",
+              items: $setup.DisplayData,
+              "item-title": "title",
+              "item-value": "classes"
+            }, null, 8, ["modelValue", "items"])
+          ])
+        ]),
+        default: withCtx(() => [
+          createVNode(_component_VuetifyVariant, {
+            discriminator: "class",
+            classes: "bg-grey-darken-4 pa-4 display-square rounded-lg text-center",
+            text: "title",
+            title: { "classes": "mb-2 text-h4 htw-text-gray-900 dark:htw-text-gray-100", "text": "Display" },
+            inline: true,
+            description: { "classes": "my-4 htw-text-gray-900 dark:htw-text-gray-100", "divider": { "show": true, "classes": "my-4" }, "text": "The display helpers allow you to control the display of content.", "link": { "url": "https://vuetifyjs.com/en/styles/display/", "text": "More information", "blank": true, "classes": "my-4 htw-text-gray-900 dark:htw-text-gray-100 font-weight-bold" } },
+            controls: [{ "component": "v-autocomplete", "model": "display", "label": "Display", "itemsTitle": "title", "itemsValue": "classes", "playground": { "type": "class", "sample": "sample", "classes": "bg-grey-darken-4 pa-4 rounded-lg" } }],
+            variants: [{ "title": "Display Inline Block", "classes": "d-inline-block", "duplicate": 3 }, { "title": "Display Inline", "classes": "d-inline" }, { "title": "Display Block", "classes": "d-block" }, { "title": "Display Block Breakpoint SM", "classes": "d-block d-sm-inline-block" }, { "title": "Display Block Breakpoint MD", "classes": "d-block d-md-inline-block" }, { "title": "Display Block Breakpoint LG", "classes": "d-block d-lg-inline-block" }, { "title": "Display Block Breakpoint XL", "classes": "d-block d-xl-inline-block" }, { "title": "Display Block Breakpoint XXL", "classes": "d-block d-xxl-inline-block" }, { "title": "Hidden On All", "classes": "d-none" }, { "title": "Hidden Only On XS", "classes": "d-none d-sm-block" }, { "title": "Hidden Only On SM", "classes": "d-none d-md-block" }, { "title": "Hidden Only On MD", "classes": "d-none d-lg-block" }, { "title": "Hidden Only On LG", "classes": "d-none d-xl-block" }, { "title": "Hidden Only On XL", "classes": "d-none d-xxl-block" }, { "title": "Hidden Only On XXL", "classes": "d-none" }, { "title": "Visible On All", "classes": "d-block" }, { "title": "Visible Only On XS", "classes": "d-block d-sm-none" }, { "title": "Visible Only On SM", "classes": "d-none d-sm-block d-md-none" }, { "title": "Visible Only On MD", "classes": "d-none d-md-block d-lg-none" }, { "title": "Visible Only On LG", "classes": "d-none d-lg-block d-xl-none" }, { "title": "Visible Only On XL", "classes": "d-none d-xl-block d-xxl-none" }, { "title": "Visible Only On XXL", "classes": "d-none d-xxl-block" }],
+            playground: { "title": "Playground", "classes": "mb-2 text-h4 htw-text-gray-900 dark:htw-text-gray-100", "divider": { "show": true, "classes": "ma-4" } },
+            state: $setup.state,
+            containerized: false
+          }, null, 8, ["description", "state"])
+        ]),
+        _: 1
+        /* STABLE */
+      }),
+      createVNode(_component_Variant, {
+        icon: "mdi:format-float-left",
+        title: "Float",
+        autoPropsDisabled: true
+      }, {
+        controls: withCtx(() => [
+          createBaseVNode("div", null, [
+            createVNode(_component_v_autocomplete, {
+              modelValue: $setup.state.float,
+              "onUpdate:modelValue": _cache[4] || (_cache[4] = ($event) => $setup.state.float = $event),
+              label: "Float",
+              items: $setup.FloatData,
+              "item-title": "title",
+              "item-value": "classes"
+            }, null, 8, ["modelValue", "items"])
+          ])
+        ]),
+        default: withCtx(() => [
+          createVNode(_component_VuetifyVariant, {
+            discriminator: "class",
+            classes: "bg-grey-darken-4 pa-4 display-square rounded-lg text-center",
+            text: "item.title",
+            title: { "classes": "mb-2 text-h4 htw-text-gray-900 dark:htw-text-gray-100", "text": "Float" },
+            inline: false,
+            description: { "classes": "my-4 htw-text-gray-900 dark:htw-text-gray-100", "divider": { "show": true, "classes": "my-4" }, "text": "Applies a custom float across any breakpoint with responsive float utilities.", "link": { "url": "https://vuetifyjs.com/en/styles/float/", "text": "More information", "blank": true, "classes": "my-4 htw-text-gray-900 dark:htw-text-gray-100 font-weight-bold" } },
+            controls: [{ "component": "v-autocomplete", "model": "float", "label": "Float", "itemsTitle": "title", "itemsValue": "classes", "playground": { "type": "class", "sample": "sample", "classes": "bg-grey-darken-4 pa-4 rounded-lg display-square " } }],
+            variants: [{ "title": "Float Left", "classes": "float-left" }, { "title": "Float Right", "classes": "float-right" }, { "title": "Float Start", "classes": "float-start" }, { "title": "Float End", "classes": "float-end" }, { "title": "Float None", "classes": "float-none" }, { "title": "Float SM Left", "classes": "float-sm-left" }, { "title": "Float SM Right", "classes": "float-sm-right" }, { "title": "Float SM Start", "classes": "float-sm-start" }, { "title": "Float SM End", "classes": "float-sm-end" }, { "title": "Float SM None", "classes": "float-sm-none" }, { "title": "Float MD Left", "classes": "float-md-left" }, { "title": "Float MD Right", "classes": "float-md-right" }, { "title": "Float MD Start", "classes": "float-md-start" }, { "title": "Float MD End", "classes": "float-md-end" }, { "title": "Float MD None", "classes": "float-md-none" }, { "title": "Float LG Left", "classes": "float-lg-left" }, { "title": "Float LG Right", "classes": "float-lg-right" }, { "title": "Float LG Start", "classes": "float-lg-start" }, { "title": "Float LG End", "classes": "float-lg-end" }, { "title": "Float LG None", "classes": "float-lg-none" }, { "title": "Float XL Left", "classes": "float-xl-left" }, { "title": "Float XL Right", "classes": "float-xl-right" }, { "title": "Float XL Start", "classes": "float-xl-start" }, { "title": "Float XL End", "classes": "float-xl-end" }, { "title": "Float XL None", "classes": "float-xl-none" }],
+            playground: { "title": "Playground", "classes": "mb-2 text-h4 htw-text-gray-900 dark:htw-text-gray-100", "divider": { "show": true, "classes": "ma-4" } },
+            state: $setup.state,
+            containerized: false
+          }, null, 8, ["description", "state"])
+        ]),
+        _: 1
+        /* STABLE */
+      }),
+      createVNode(_component_Variant, {
+        icon: "mdi:format-text-wrapping-overflow",
+        title: "Overflow",
+        autoPropsDisabled: true
+      }, {
+        controls: withCtx(() => [
+          createBaseVNode("div", null, [
+            createVNode(_component_v_autocomplete, {
+              modelValue: $setup.state.overflow,
+              "onUpdate:modelValue": _cache[5] || (_cache[5] = ($event) => $setup.state.overflow = $event),
+              label: "Overflow",
+              items: $setup.OverflowData,
+              "item-title": "title",
+              "item-value": "classes"
+            }, null, 8, ["modelValue", "items"])
+          ])
+        ]),
+        default: withCtx(() => [
+          createVNode(_component_VuetifyVariant, {
+            discriminator: "class",
+            classes: "bg-grey-darken-4 pa-4 display-square rounded-lg text-center",
+            text: "overflowSample",
+            title: { "classes": "mb-2 text-h4 htw-text-gray-900 dark:htw-text-gray-100", "text": "Overflow" },
+            inline: true,
+            description: { "classes": "my-4 htw-text-gray-900 dark:htw-text-gray-100", "divider": { "show": true, "classes": "my-4" }, "text": "Configure how content overflows when it becomes out of container bounds.", "link": { "url": "https://vuetifyjs.com/en/styles/overflow/", "text": "More information", "blank": true, "classes": "my-4 htw-text-gray-900 dark:htw-text-gray-100 font-weight-bold" } },
+            controls: [{ "component": "v-autocomplete", "model": "overflow", "label": "Overflow", "itemsTitle": "title", "itemsValue": "classes", "playground": { "type": "class", "sample": "overflowSample", "classes": "bg-grey-darken-4 pa-4 rounded-lg display-square " } }],
+            variants: [{ "title": "Overflow Auto", "classes": "overflow-auto" }, { "title": "Overflow Hidden", "classes": "overflow-hidden" }, { "title": "Overflow Visible", "classes": "overflow-visible" }, { "title": "Overflow X Auto", "classes": "overflow-x-auto force-nowrap" }, { "title": "Overflow X Hidden", "classes": "overflow-x-hidden force-nowrap" }, { "title": "Overflow X Visible", "classes": "overflow-x-visible force-nowrap" }, { "title": "Overflow Y Auto", "classes": "overflow-y-auto" }, { "title": "Overflow Y Hidden", "classes": "overflow-y-hidden" }, { "title": "Overflow Y Visible", "classes": "overflow-y-visible" }],
+            playground: { "title": "Playground", "classes": "mb-2 text-h4 htw-text-gray-900 dark:htw-text-gray-100", "divider": { "show": true, "classes": "ma-4" } },
+            state: $setup.state,
+            containerized: false
+          }, null, 8, ["description", "state"])
+        ]),
+        _: 1
+        /* STABLE */
+      }),
+      createVNode(_component_Variant, {
+        icon: "mdi:image-size-select-small",
+        title: "Sizing",
+        autoPropsDisabled: true
+      }, {
+        controls: withCtx(() => [
+          createBaseVNode("div", null, [
+            createVNode(_component_v_autocomplete, {
+              modelValue: $setup.state.sizing,
+              "onUpdate:modelValue": _cache[6] || (_cache[6] = ($event) => $setup.state.sizing = $event),
+              label: "Sizing",
+              items: $setup.SizingData,
+              "item-title": "title",
+              "item-value": "classes"
+            }, null, 8, ["modelValue", "items"])
+          ])
+        ]),
+        default: withCtx(() => [
+          createVNode(_component_VuetifyVariant, {
+            discriminator: "class",
+            classes: "bg-grey-darken-4 pa-4 display-square rounded-lg text-center",
+            text: "title",
+            title: { "classes": "mb-2 text-h4 htw-text-gray-900 dark:htw-text-gray-100", "text": "Sizing" },
+            inline: true,
+            description: { "classes": "my-4 htw-text-gray-900 dark:htw-text-gray-100", "divider": { "show": true, "classes": "my-4" }, "text": "Sizing utility classes are used to modify the dimensions of an element.", "link": { "url": "https://vuetifyjs.com/en/styles/sizing/", "text": "More information", "blank": true, "classes": "my-4 htw-text-gray-900 dark:htw-text-gray-100 font-weight-bold" } },
+            controls: [{ "component": "v-autocomplete", "model": "sizing", "label": "Sizing", "itemsTitle": "title", "itemsValue": "classes", "playground": { "type": "class", "sample": "sample", "classes": "bg-grey-darken-4 pa-4 rounded-lg display-square " } }],
+            variants: [{ "title": "Height Auto", "classes": "h-auto" }, { "title": "Height Screen", "classes": "h-screen" }, { "title": "Height 0", "classes": "h-0" }, { "title": "Height 25", "classes": "h-25" }, { "title": "Height 50", "classes": "h-50" }, { "title": "Height 75", "classes": "h-75" }, { "title": "Height 100", "classes": "h-100" }, { "title": "Width Auto", "classes": "w-auto" }, { "title": "Width 0", "classes": "w-0" }, { "title": "Width 25", "classes": "w-25" }, { "title": "Width 50", "classes": "w-50" }, { "title": "Width 75", "classes": "w-75" }, { "title": "Width 100", "classes": "w-100" }],
+            playground: { "title": "Playground", "classes": "mb-2 text-h4 htw-text-gray-900 dark:htw-text-gray-100", "divider": { "show": true, "classes": "ma-4" } },
+            state: $setup.state,
+            containerized: false
+          }, null, 8, ["description", "state"])
+        ]),
+        _: 1
+        /* STABLE */
+      }),
+      createVNode(_component_Variant, {
+        icon: "mdi:space-invaders",
+        title: "Spacing",
+        autoPropsDisabled: true
+      }, {
+        controls: withCtx(() => [
+          createBaseVNode("div", null, [
+            createVNode(_component_v_autocomplete, {
+              modelValue: $setup.state.padding,
+              "onUpdate:modelValue": _cache[7] || (_cache[7] = ($event) => $setup.state.padding = $event),
+              label: "Padding",
+              items: $setup.spacingDirections
+            }, null, 8, ["modelValue"])
+          ]),
+          createBaseVNode("div", null, [
+            createVNode(_component_v_autocomplete, {
+              modelValue: $setup.state.paddingSize,
+              "onUpdate:modelValue": _cache[8] || (_cache[8] = ($event) => $setup.state.paddingSize = $event),
+              label: "Padding Size",
+              items: $setup.spacingDefaults
+            }, null, 8, ["modelValue"])
+          ]),
+          createBaseVNode("div", null, [
+            createVNode(_component_v_autocomplete, {
+              modelValue: $setup.state.margin,
+              "onUpdate:modelValue": _cache[9] || (_cache[9] = ($event) => $setup.state.margin = $event),
+              label: "Margin",
+              items: $setup.spacingDirections
+            }, null, 8, ["modelValue"])
+          ]),
+          createBaseVNode("div", null, [
+            createVNode(_component_v_autocomplete, {
+              modelValue: $setup.state.marginSize,
+              "onUpdate:modelValue": _cache[10] || (_cache[10] = ($event) => $setup.state.marginSize = $event),
+              label: "Margin Size",
+              items: $setup.spacingMarginAmounts
+            }, null, 8, ["modelValue"])
+          ])
+        ]),
+        default: withCtx(() => [
+          createVNode(_component_VuetifyVariant, {
+            discriminator: "component",
+            classes: "bg-orange-lighten-3",
+            text: "title",
+            title: { "classes": "mb-2 text-h4 htw-text-gray-900 dark:htw-text-gray-100", "text": "Spacing" },
+            inline: false,
+            description: { "classes": "my-4 htw-text-gray-900 dark:htw-text-gray-100", "divider": { "show": true, "classes": "my-4" }, "text": "Update your layout without creating new classes.", "link": { "url": "https://vuetifyjs.com/en/styles/spacing/", "text": "More information", "blank": true, "classes": "my-4 htw-text-gray-900 dark:htw-text-gray-100 font-weight-bold" } },
+            controls: [{ "component": "v-autocomplete", "model": "padding", "label": "Padding", "items": "spacingDirections" }, { "component": "v-autocomplete", "model": "paddingSize", "label": "Padding Size", "items": "spacingDefaults" }, { "component": "v-autocomplete", "model": "margin", "label": "Margin", "items": "spacingDirections" }, { "component": "v-autocomplete", "model": "marginSize", "label": "Margin Size", "items": "spacingMarginAmounts" }],
+            variants: [{ "title": "Container", "component": "div", "states": ["margin", "marginSize"], "classes": "bg-orange-lighten-3 pa-0 ma-4 overflow-auto", "children": [{ "title": "Parent", "component": "div", "states": ["margin", "marginSize"], "builder": { "args": ["direction", "size"], "body": "return `m${direction}-${size}`" }, "classes": "elevation-4", "children": [{ "title": "Child", "component": "div", "states": ["padding", "paddingSize"], "builder": { "args": ["direction", "size"], "body": "return `p${direction}-${size}`" }, "classes": "bg-light-green-lighten-3 elevation-4", "children": [{ "title": "Content", "component": "div", "classes": "bg-white text-center py-6", "content": "Use the controls on the right to try out the different spacing helpers." }] }] }] }],
+            playground: { "title": "Playground", "classes": "mb-2 text-h4 htw-text-gray-900 dark:htw-text-gray-100", "divider": { "show": true, "classes": "ma-4" } },
+            state: $setup.state,
+            containerized: true
+          }, null, 8, ["description", "variants", "state"])
+        ]),
+        _: 1
+        /* STABLE */
+      })
+    ]),
+    _: 1
+    /* STABLE */
+  });
+}
+const Vuetify_story = /* @__PURE__ */ _export_sfc(_sfc_main$a, [["render", _sfc_render$a], ["__file", "/development/plustime/histoire-vuetify-tokens/node_modules/.histoire/plugins/vuetify-design-system/Vuetify.story.vue"]]);
+const Vuetify_story$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: Vuetify_story
+}, Symbol.toStringTag, { value: "Module" }));
 const ga = {
   name: "HstButton"
 }, Uo = /* @__PURE__ */ defineComponent$2({
@@ -27237,7 +27939,7 @@ const ga = {
       primary: "htw-bg-primary-500 hover:htw-bg-primary-600 htw-text-white dark:htw-text-black",
       flat: "htw-bg-transparent hover:htw-bg-gray-500/20 htw-text-gray-900 dark:htw-text-gray-100"
     };
-    return (e2, i2) => (openBlock$1(), createElementBlock("button", {
+    return (e2, i2) => (openBlock$1(), createElementBlock$1("button", {
       class: normalizeClass$1(["histoire-button htw-cursor-pointer htw-rounded-sm", t2[e2.color ?? "default"]])
     }, [
       renderSlot$1(e2.$slots, "default")
@@ -27254,7 +27956,7 @@ const ga = {
   setup(n2) {
     return (t2, e2) => (openBlock$1(), createBlock$1(resolveDynamicComponent$1(t2.tag), { class: "histoire-wrapper htw-p-2 hover:htw-bg-primary-100 dark:hover:htw-bg-primary-800 htw-flex htw-gap-2 htw-flex-wrap" }, {
       default: withCtx$1(() => [
-        withDirectives$1((openBlock$1(), createElementBlock("span", ma, [
+        withDirectives$1((openBlock$1(), createElementBlock$1("span", ma, [
           createTextVNode$1(toDisplayString$1(t2.title), 1)
         ])), [
           [unref$1(VTooltip$2), {
@@ -27302,7 +28004,7 @@ const ga = {
       ]),
       default: withCtx$1(() => [
         createBaseVNode$1("div", ka, [
-          (openBlock$1(true), createElementBlock(Fragment$1, null, renderList(i2.value, ({ label: l, value: h2 }) => (openBlock$1(), createBlock$1(Uo, {
+          (openBlock$1(true), createElementBlock$1(Fragment$1, null, renderList$1(i2.value, ({ label: l, value: h2 }) => (openBlock$1(), createBlock$1(Uo, {
             key: h2,
             class: "htw-px-1 htw-h-[22px] htw-flex-1 !htw-rounded-[3px]",
             color: h2 === r2.modelValue ? "primary" : "flat",
@@ -27347,7 +28049,7 @@ const ga = {
     return watch$1(s, () => {
       var a2, c2;
       r2.value = ((c2 = (a2 = s.value).getTotalLength) == null ? void 0 : c2.call(a2)) ?? 21.21;
-    }), (a2, c2) => (openBlock$1(), createElementBlock("div", {
+    }), (a2, c2) => (openBlock$1(), createElementBlock$1("div", {
       class: normalizeClass$1(["histoire-simple-checkbox htw-group htw-text-white htw-w-[16px] htw-h-[16px] htw-relative", { "htw-cursor-pointer": a2.withToggle }]),
       onClick: i2
     }, [
@@ -27356,7 +28058,7 @@ const ga = {
           a2.modelValue ? "htw-border-primary-500 htw-border-8" : "htw-border-black/25 dark:htw-border-white/25 htw-delay-150"
         ]])
       }, null, 2),
-      (openBlock$1(), createElementBlock("svg", Sa, [
+      (openBlock$1(), createElementBlock$1("svg", Sa, [
         createBaseVNode$1("path", {
           ref_key: "path",
           ref: s,
@@ -27441,7 +28143,7 @@ const ga = {
       ]),
       default: withCtx$1(() => [
         createBaseVNode$1("div", Da, [
-          (openBlock$1(true), createElementBlock(Fragment$1, null, renderList(i2.value, (l, h2) => (openBlock$1(), createElementBlock("label", {
+          (openBlock$1(true), createElementBlock$1(Fragment$1, null, renderList$1(i2.value, (l, h2) => (openBlock$1(), createElementBlock$1("label", {
             key: h2,
             tabindex: "0",
             for: `${h2}-radio`,
@@ -27620,13 +28322,13 @@ const ga = {
               { number: true }
             ]
           ]),
-          i2.value ? withDirectives$1((openBlock$1(), createElementBlock("div", {
+          i2.value ? withDirectives$1((openBlock$1(), createElementBlock$1("div", {
             key: 0,
             class: "htw-absolute",
             style: normalizeStyle$1(l.value)
           }, null, 4)), [
             [unref$1(VTooltip$2), { content: h2.modelValue.toString(), shown: true, distance: 16, delay: 0 }]
-          ]) : createCommentVNode("", true)
+          ]) : createCommentVNode$1("", true)
         ])
       ]),
       _: 1
@@ -27692,7 +28394,7 @@ const Fa = ["value"], za = {
     }, {
       popper: withCtx$1(({ hide: h2 }) => [
         createBaseVNode$1("div", qa, [
-          (openBlock$1(true), createElementBlock(Fragment$1, null, renderList(i2.value, ([a2, c2]) => (openBlock$1(), createElementBlock("div", mergeProps$1({ ...o2.$attrs, class: null, style: null }, {
+          (openBlock$1(true), createElementBlock$1(Fragment$1, null, renderList$1(i2.value, ([a2, c2]) => (openBlock$1(), createElementBlock$1("div", mergeProps$1({ ...o2.$attrs, class: null, style: null }, {
             key: c2,
             class: ["htw-px-2 htw-py-1 htw-cursor-pointer hover:htw-bg-primary-100 dark:hover:htw-bg-primary-700", {
               "htw-bg-primary-200 dark:htw-bg-primary-800": e2.modelValue === a2
@@ -27807,8 +28509,8 @@ const Ja = {
       }
       return o2;
     }), r2 = ref$1(null);
-    return (o2, l) => s.value.length ? (openBlock$1(), createElementBlock("div", Za, [
-      (openBlock$1(true), createElementBlock(Fragment$1, null, renderList(s.value, (h2) => (openBlock$1(), createElementBlock("div", {
+    return (o2, l) => s.value.length ? (openBlock$1(), createElementBlock$1("div", Za, [
+      (openBlock$1(true), createElementBlock$1(Fragment$1, null, renderList$1(s.value, (h2) => (openBlock$1(), createElementBlock$1("div", {
         key: h2.key,
         class: "htw-flex htw-flex-col htw-gap-2",
         onMouseenter: (a2) => r2.value = h2.key,
@@ -27826,7 +28528,7 @@ const Ja = {
         ]),
         createBaseVNode$1("div", null, [
           createBaseVNode$1("div", ec, [
-            withDirectives$1((openBlock$1(), createElementBlock("pre", ic, [
+            withDirectives$1((openBlock$1(), createElementBlock$1("pre", ic, [
               createTextVNode$1(toDisplayString$1(h2.name), 1)
             ])), [
               [unref$1(VTooltip$2), h2.name.length > 23 ? h2.name : ""]
@@ -27835,10 +28537,10 @@ const Ja = {
               key: 0,
               content: h2.name,
               class: "htw-flex-none"
-            }, null, 8, ["content"])) : createCommentVNode("", true)
+            }, null, 8, ["content"])) : createCommentVNode$1("", true)
           ]),
           createBaseVNode$1("div", sc, [
-            withDirectives$1((openBlock$1(), createElementBlock("pre", nc, [
+            withDirectives$1((openBlock$1(), createElementBlock$1("pre", nc, [
               createTextVNode$1(toDisplayString$1(h2.color), 1)
             ])), [
               [unref$1(VTooltip$2), h2.color.length > 23 ? h2.color : ""]
@@ -27847,11 +28549,11 @@ const Ja = {
               key: 0,
               content: h2.color,
               class: "htw-flex-none"
-            }, null, 8, ["content"])) : createCommentVNode("", true)
+            }, null, 8, ["content"])) : createCommentVNode$1("", true)
           ])
         ])
       ], 40, tc))), 128))
-    ])) : createCommentVNode("", true);
+    ])) : createCommentVNode$1("", true);
   }
 }), lc = ["onMouseenter"], hc = { class: "htw-mx-4" }, ac = { class: "htw-flex htw-gap-1" }, cc = { class: "htw-my-0 htw-truncate htw-shrink" }, fc = { class: "htw-flex htw-gap-1" }, uc = { class: "htw-my-0 htw-opacity-50 htw-truncate htw-shrink" }, dc = {
   name: "HstTokenList"
@@ -27873,7 +28575,7 @@ const Ja = {
         };
       });
     }), i2 = ref$1(null);
-    return (s, r2) => (openBlock$1(true), createElementBlock(Fragment$1, null, renderList(e2.value, (o2) => (openBlock$1(), createElementBlock("div", {
+    return (s, r2) => (openBlock$1(true), createElementBlock$1(Fragment$1, null, renderList$1(e2.value, (o2) => (openBlock$1(), createElementBlock$1("div", {
       key: o2.key,
       class: "histoire-token-list htw-flex htw-flex-col htw-gap-2 htw-my-8",
       onMouseenter: (l) => i2.value = o2.key,
@@ -27887,7 +28589,7 @@ const Ja = {
             key: 0,
             content: o2.name,
             class: "htw-flex-none"
-          }, null, 8, ["content"])) : createCommentVNode("", true)
+          }, null, 8, ["content"])) : createCommentVNode$1("", true)
         ]),
         createBaseVNode$1("div", fc, [
           createBaseVNode$1("pre", uc, toDisplayString$1(o2.value), 1),
@@ -27895,7 +28597,7 @@ const Ja = {
             key: 0,
             content: typeof o2.value == "string" ? o2.value : JSON.stringify(o2.value),
             class: "htw-flex-none"
-          }, null, 8, ["content"])) : createCommentVNode("", true)
+          }, null, 8, ["content"])) : createCommentVNode$1("", true)
         ])
       ])
     ], 40, lc))), 128));
@@ -27921,13 +28623,13 @@ const Ja = {
         };
       });
     }), i2 = computed$2(() => `${t2.colSize}px`), s = ref$1(null);
-    return (r2, o2) => (openBlock$1(), createElementBlock("div", {
+    return (r2, o2) => (openBlock$1(), createElementBlock$1("div", {
       class: "histoire-token-grid htw-bind-col-size htw-grid htw-gap-4 htw-m-4",
       style: normalizeStyle$1({
         "--histoire-col-size": i2.value
       })
     }, [
-      (openBlock$1(true), createElementBlock(Fragment$1, null, renderList(e2.value, (l) => (openBlock$1(), createElementBlock("div", {
+      (openBlock$1(true), createElementBlock$1(Fragment$1, null, renderList$1(e2.value, (l) => (openBlock$1(), createElementBlock$1("div", {
         key: l.key,
         class: "htw-flex htw-flex-col htw-gap-2",
         onMouseenter: (h2) => s.value = l.key,
@@ -27936,7 +28638,7 @@ const Ja = {
         renderSlot$1(r2.$slots, "default", { token: l }),
         createBaseVNode$1("div", null, [
           createBaseVNode$1("div", mc, [
-            withDirectives$1((openBlock$1(), createElementBlock("pre", wc, [
+            withDirectives$1((openBlock$1(), createElementBlock$1("pre", wc, [
               createTextVNode$1(toDisplayString$1(l.name), 1)
             ])), [
               [unref$1(VTooltip$2), l.name.length > r2.colSize / 8 ? l.name : ""]
@@ -27945,10 +28647,10 @@ const Ja = {
               key: 0,
               content: l.name,
               class: "htw-flex-none"
-            }, null, 8, ["content"])) : createCommentVNode("", true)
+            }, null, 8, ["content"])) : createCommentVNode$1("", true)
           ]),
           createBaseVNode$1("div", yc, [
-            withDirectives$1((openBlock$1(), createElementBlock("pre", bc, [
+            withDirectives$1((openBlock$1(), createElementBlock$1("pre", bc, [
               createTextVNode$1(toDisplayString$1(l.value), 1)
             ])), [
               [unref$1(VTooltip$2), l.value.length > r2.colSize / 8 ? l.value : ""]
@@ -27957,7 +28659,7 @@ const Ja = {
               key: 0,
               content: typeof l.value == "string" ? l.value : JSON.stringify(l.value),
               class: "htw-flex-none"
-            }, null, 8, ["content"])) : createCommentVNode("", true)
+            }, null, 8, ["content"])) : createCommentVNode$1("", true)
           ])
         ])
       ], 40, gc))), 128))
@@ -27991,7 +28693,7 @@ const vc = { class: "-htw-my-1" }, Sc = ["id", "name", "value", "checked", "onCh
       ]),
       default: withCtx$1(() => [
         createBaseVNode$1("div", vc, [
-          (openBlock$1(true), createElementBlock(Fragment$1, null, renderList(i2.value, (h2, a2) => (openBlock$1(), createElementBlock(Fragment$1, { key: a2 }, [
+          (openBlock$1(true), createElementBlock$1(Fragment$1, null, renderList$1(i2.value, (h2, a2) => (openBlock$1(), createElementBlock$1(Fragment$1, { key: a2 }, [
             createBaseVNode$1("input", {
               id: `${a2}-radio_${o2.title}`,
               type: "radio",
@@ -28010,7 +28712,7 @@ const vc = { class: "-htw-my-1" }, Sc = ["id", "name", "value", "checked", "onCh
                 withKeys(withModifiers$1((c2) => s(a2), ["prevent"]), ["space"])
               ]
             }, [
-              (openBlock$1(), createElementBlock("svg", {
+              (openBlock$1(), createElementBlock$1("svg", {
                 width: "16",
                 height: "16",
                 viewBox: "-12 -12 24 24",
@@ -42060,7 +42762,7 @@ const Hg = {
           class: "htw-text-orange-500"
         }, null, 512)), [
           [unref$1(VTooltip$2), "JSON error"]
-        ]) : createCommentVNode("", true),
+        ]) : createCommentVNode$1("", true),
         renderSlot$1(c2.$slots, "actions", {}, void 0, true)
       ]),
       default: withCtx$1(() => [
@@ -42581,7 +43283,7 @@ var main$1 = {
   });
 })(main$1);
 var mainExports = {};
-var main = {
+var main$2 = {
   get exports() {
     return mainExports;
   },
@@ -44666,7 +45368,7 @@ var main = {
       }(787);
     })();
   });
-})(main);
+})(main$2);
 const languages = [
   {
     id: "abap",
@@ -46729,8 +47431,8 @@ function explainThemeScope(theme, scope, parentScopes) {
   return result;
 }
 const defaultElements = {
-  pre({ className, style, children }) {
-    return `<pre class="${className}" style="${style}">${children}</pre>`;
+  pre({ className, style: style2, children }) {
+    return `<pre class="${className}" style="${style2}">${children}</pre>`;
   },
   code({ children }) {
     return `<code>${children}</code>`;
@@ -46738,8 +47440,8 @@ const defaultElements = {
   line({ className, children }) {
     return `<span class="${className}">${children}</span>`;
   },
-  token({ style, children }) {
-    return `<span style="${style}">${children}</span>`;
+  token({ style: style2, children }) {
+    return `<span style="${style2}">${children}</span>`;
   }
 };
 function renderToHtml(lines, options = {}) {
@@ -48512,8 +49214,8 @@ function getOverflow(a2, b2) {
 }
 function nullifyTransforms(el2) {
   const rect = el2.getBoundingClientRect();
-  const style = getComputedStyle(el2);
-  const tx = style.transform;
+  const style2 = getComputedStyle(el2);
+  const tx = style2.transform;
   if (tx) {
     let ta2, sx, sy, dx, dy;
     if (tx.startsWith("matrix3d(")) {
@@ -48531,7 +49233,7 @@ function nullifyTransforms(el2) {
     } else {
       return new Box(rect);
     }
-    const to2 = style.transformOrigin;
+    const to2 = style2.transformOrigin;
     const x2 = rect.x - dx - (1 - sx) * parseFloat(to2);
     const y = rect.y - dy - (1 - sy) * parseFloat(to2.slice(to2.indexOf(" ") + 1));
     const w = sx ? rect.width / sx : el2.offsetWidth + 1;
@@ -49139,14 +49841,14 @@ function getScrollParents(el2, stopAt) {
 function hasScrollbar(el2) {
   if (!el2 || el2.nodeType !== Node.ELEMENT_NODE)
     return false;
-  const style = window.getComputedStyle(el2);
-  return style.overflowY === "scroll" || style.overflowY === "auto" && el2.scrollHeight > el2.clientHeight;
+  const style2 = window.getComputedStyle(el2);
+  return style2.overflowY === "scroll" || style2.overflowY === "auto" && el2.scrollHeight > el2.clientHeight;
 }
 function isPotentiallyScrollable(el2) {
   if (!el2 || el2.nodeType !== Node.ELEMENT_NODE)
     return false;
-  const style = window.getComputedStyle(el2);
-  return ["scroll", "auto"].includes(style.overflowY);
+  const style2 = window.getComputedStyle(el2);
+  return ["scroll", "auto"].includes(style2.overflowY);
 }
 function injectSelf(key) {
   let vm = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : getCurrentInstance("injectSelf");
@@ -58897,9 +59599,9 @@ const VField = genericComponent()({
           const width = Math.abs(targetWidth - rect.width) > 1 ? {
             maxWidth: convertToUnit(targetWidth)
           } : void 0;
-          const style = getComputedStyle(el2);
+          const style2 = getComputedStyle(el2);
           const targetStyle = getComputedStyle(targetEl);
-          const duration = parseFloat(style.transitionDuration) * 1e3 || 150;
+          const duration = parseFloat(style2.transitionDuration) * 1e3 || 150;
           const scale = parseFloat(targetStyle.getPropertyValue("--v-field-label-scale"));
           const color = targetStyle.getPropertyValue("color");
           el2.style.visibility = "visible";
@@ -71722,11 +72424,11 @@ const VTextarea = genericComponent()({
       nextTick(() => {
         if (!sizerRef.value || !vFieldRef.value)
           return;
-        const style = getComputedStyle(sizerRef.value);
+        const style2 = getComputedStyle(sizerRef.value);
         const fieldStyle = getComputedStyle(vFieldRef.value.$el);
-        const padding = parseFloat(style.getPropertyValue("--v-field-padding-top")) + parseFloat(style.getPropertyValue("--v-input-padding-top")) + parseFloat(style.getPropertyValue("--v-field-padding-bottom"));
+        const padding = parseFloat(style2.getPropertyValue("--v-field-padding-top")) + parseFloat(style2.getPropertyValue("--v-input-padding-top")) + parseFloat(style2.getPropertyValue("--v-field-padding-bottom"));
         const height = sizerRef.value.scrollHeight;
-        const lineHeight = parseFloat(style.lineHeight);
+        const lineHeight = parseFloat(style2.lineHeight);
         const minHeight = Math.max(parseFloat(props.rows) * lineHeight + padding, parseFloat(fieldStyle.getPropertyValue("--v-input-control-height")));
         const maxHeight = parseFloat(props.maxRows) * lineHeight + padding || Infinity;
         const newHeight = clamp(height ?? 0, minHeight, maxHeight);
@@ -72630,15 +73332,8 @@ const vuetify = createVuetify({
   directives,
   ...Vuetify3Options
 });
-const _export_sfc = (sfc, props) => {
-  const target = sfc.__vccOpts || sfc;
-  for (const [key, val] of props) {
-    target[key] = val;
-  }
-  return target;
-};
-const _sfc_main = {};
-function _sfc_render(_ctx, _cache) {
+const _sfc_main$9 = {};
+function _sfc_render$9(_ctx, _cache) {
   const _component_v_col = resolveComponent("v-col");
   const _component_v_row = resolveComponent("v-row");
   const _component_v_container = resolveComponent("v-container");
@@ -72662,11 +73357,681 @@ function _sfc_render(_ctx, _cache) {
     /* FORWARDED */
   });
 }
-_sfc_main.__file = "src/docs/HistoireWrapper.vue";
-const HistoireWrapper = /* @__PURE__ */ _export_sfc(_sfc_main, [["render", _sfc_render], ["__file", "/development/plustime/histoire-vuetify-tokens/src/docs/HistoireWrapper.vue"]]);
+_sfc_main$9.__file = "src/docs/HistoireWrapper.vue";
+const HistoireWrapper = /* @__PURE__ */ _export_sfc(_sfc_main$9, [["render", _sfc_render$9], ["__file", "/development/plustime/histoire-vuetify-tokens/src/docs/HistoireWrapper.vue"]]);
+const toUpperCaseFirst = (s) => s && s[0].toUpperCase() + s.slice(1);
+const _sfc_main$8 = /* @__PURE__ */ defineComponent$1({
+  __name: "VariantControlPlayground",
+  props: {
+    type: { type: String, required: true },
+    model: { type: String, required: true },
+    sample: { type: String, required: false },
+    classes: { type: String, required: false }
+  },
+  setup(__props, { expose: __expose }) {
+    __expose();
+    const props = __props;
+    const classString = computed(() => {
+      let objectClass = {};
+      if (typeof props.classes == "string") {
+        objectClass[props.classes] = true;
+      }
+      if (props.type === "class" && typeof props.model == "string") {
+        objectClass[props.model] = true;
+      }
+      return objectClass;
+    });
+    const __returned__ = { props, classString, get toUpperCaseFirst() {
+      return toUpperCaseFirst;
+    } };
+    Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
+    return __returned__;
+  }
+});
+const _hoisted_1$6 = { class: "mt-2 info" };
+function _sfc_render$8(_ctx, _cache, $props, $setup, $data, $options) {
+  return openBlock(), createElementBlock(
+    Fragment,
+    null,
+    [
+      createBaseVNode(
+        "div",
+        {
+          class: normalizeClass($setup.classString)
+        },
+        toDisplayString($setup.props.sample),
+        3
+        /* TEXT, CLASS */
+      ),
+      createBaseVNode(
+        "div",
+        _hoisted_1$6,
+        toDisplayString($setup.toUpperCaseFirst($setup.props.type)) + ": " + toDisplayString($setup.props.model),
+        1
+        /* TEXT */
+      )
+    ],
+    64
+    /* STABLE_FRAGMENT */
+  );
+}
+_sfc_main$8.__file = "src/components/VariantControlPlayground.vue";
+const VariantControlPlayground = /* @__PURE__ */ _export_sfc(_sfc_main$8, [["render", _sfc_render$8], ["__file", "/development/plustime/histoire-vuetify-tokens/src/components/VariantControlPlayground.vue"]]);
+const _sfc_main$7 = /* @__PURE__ */ defineComponent$1({
+  __name: "ClassVariantLoader",
+  props: {
+    variants: { type: Array, required: true },
+    text: { type: String, required: true },
+    classes: { type: String, required: true },
+    inline: { type: Boolean, required: true },
+    state: { type: Object, required: true }
+  },
+  setup(__props, { expose: __expose }) {
+    __expose();
+    const props = __props;
+    const stateObj = ref(props.state ?? {});
+    watchEffect(() => stateObj.value = props.state ?? {});
+    const __returned__ = { props, stateObj };
+    Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
+    return __returned__;
+  }
+});
+const _hoisted_1$5 = { class: "mt-2 info" };
+function _sfc_render$7(_ctx, _cache, $props, $setup, $data, $options) {
+  return openBlock(true), createElementBlock(
+    Fragment,
+    null,
+    renderList($props.variants, (variant, x2) => {
+      return openBlock(), createElementBlock(
+        "div",
+        {
+          key: x2,
+          class: normalizeClass(["ma-4 pa-4", $props.inline ? "d-inline-block" : ""])
+        },
+        [
+          (openBlock(true), createElementBlock(
+            Fragment,
+            null,
+            renderList(variant.duplicate ?? 1, (i2) => {
+              return openBlock(), createElementBlock(
+                "div",
+                {
+                  key: i2,
+                  class: normalizeClass(["ma-4", $props.inline ? "d-inline-block" : ""])
+                },
+                [
+                  createBaseVNode(
+                    "div",
+                    {
+                      class: normalizeClass(variant.classes + " " + $props.classes)
+                    },
+                    toDisplayString(variant[$props.text] ?? $setup.stateObj[$props.text]),
+                    3
+                    /* TEXT, CLASS */
+                  ),
+                  createBaseVNode(
+                    "div",
+                    _hoisted_1$5,
+                    "Class: " + toDisplayString(variant.classes),
+                    1
+                    /* TEXT */
+                  )
+                ],
+                2
+                /* CLASS */
+              );
+            }),
+            128
+            /* KEYED_FRAGMENT */
+          ))
+        ],
+        2
+        /* CLASS */
+      );
+    }),
+    128
+    /* KEYED_FRAGMENT */
+  );
+}
+_sfc_main$7.__file = "src/components/ClassVariantLoader.vue";
+const ClassVariantLoader = /* @__PURE__ */ _export_sfc(_sfc_main$7, [["render", _sfc_render$7], ["__file", "/development/plustime/histoire-vuetify-tokens/src/components/ClassVariantLoader.vue"]]);
+const _sfc_main$6 = /* @__PURE__ */ defineComponent$1({
+  __name: "ColorVariantLoader",
+  props: {
+    variants: { type: Array, required: true },
+    text: { type: String, required: true },
+    classes: { type: String, required: true },
+    state: { type: Object, required: true }
+  },
+  setup(__props, { expose: __expose }) {
+    __expose();
+    const props = __props;
+    const stateObj = ref(props.state ?? {});
+    watchEffect(() => stateObj.value = props.state ?? {});
+    const __returned__ = { props, stateObj };
+    Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
+    return __returned__;
+  }
+});
+const _hoisted_1$4 = /* @__PURE__ */ createBaseVNode(
+  "div",
+  { class: "text-caption" },
+  "Base Color",
+  -1
+  /* HOISTED */
+);
+const _hoisted_2$1 = { class: "font-italic" };
+function _sfc_render$6(_ctx, _cache, $props, $setup, $data, $options) {
+  return openBlock(true), createElementBlock(
+    Fragment,
+    null,
+    renderList($props.variants, (variant, i2) => {
+      return openBlock(), createElementBlock("div", {
+        key: i2,
+        class: "pa-4 w-50 d-inline-block"
+      }, [
+        createBaseVNode(
+          "div",
+          {
+            class: normalizeClass($props.classes + " bg-" + variant.name)
+          },
+          [
+            _hoisted_1$4,
+            createBaseVNode(
+              "div",
+              _hoisted_2$1,
+              toDisplayString(variant[$props.text]),
+              1
+              /* TEXT */
+            )
+          ],
+          2
+          /* CLASS */
+        ),
+        (openBlock(true), createElementBlock(
+          Fragment,
+          null,
+          renderList(variant.lighten === false ? 0 : variant.lighten, (i22) => {
+            return openBlock(), createElementBlock(
+              "div",
+              {
+                key: "l" + i22,
+                class: normalizeClass(["${variant.classes ? `${variant.classes}` : ``}", $props.classes + " bg-" + variant.name + "-lighten-" + i22.toString()])
+              },
+              toDisplayString(variant.name + "-lighten-" + i22.toString()),
+              3
+              /* TEXT, CLASS */
+            );
+          }),
+          128
+          /* KEYED_FRAGMENT */
+        )),
+        (openBlock(true), createElementBlock(
+          Fragment,
+          null,
+          renderList(variant.darken === false ? 0 : variant.darken, (i22) => {
+            return openBlock(), createElementBlock(
+              "div",
+              {
+                key: "d" + i22,
+                class: normalizeClass($props.classes + " bg-" + variant.name + "-darken-" + i22.toString())
+              },
+              toDisplayString(variant.name + "-darken-" + i22.toString()),
+              3
+              /* TEXT, CLASS */
+            );
+          }),
+          128
+          /* KEYED_FRAGMENT */
+        )),
+        (openBlock(true), createElementBlock(
+          Fragment,
+          null,
+          renderList(variant.accent === false ? 0 : variant.accent, (i22) => {
+            return openBlock(), createElementBlock(
+              "div",
+              {
+                key: "a" + i22,
+                class: normalizeClass($props.classes + " bg-" + variant.name + "-accent-" + i22.toString())
+              },
+              toDisplayString(variant.name + "-accent-" + i22.toString()),
+              3
+              /* TEXT, CLASS */
+            );
+          }),
+          128
+          /* KEYED_FRAGMENT */
+        ))
+      ]);
+    }),
+    128
+    /* KEYED_FRAGMENT */
+  );
+}
+_sfc_main$6.__file = "src/components/ColorVariantLoader.vue";
+const ColorVariantLoader = /* @__PURE__ */ _export_sfc(_sfc_main$6, [["render", _sfc_render$6], ["__file", "/development/plustime/histoire-vuetify-tokens/src/components/ColorVariantLoader.vue"]]);
+const _sfc_main$5 = /* @__PURE__ */ defineComponent$1({
+  __name: "VariantLink",
+  props: {
+    text: { type: String, required: true },
+    blank: { type: Boolean, required: true },
+    url: { type: String, required: true },
+    classes: { type: String, required: true }
+  },
+  setup(__props, { expose: __expose }) {
+    __expose();
+    const props = __props;
+    const target = computed(() => props.blank ? "_blank" : "");
+    const __returned__ = { props, target };
+    Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
+    return __returned__;
+  }
+});
+const _hoisted_1$3 = ["target", "href"];
+function _sfc_render$5(_ctx, _cache, $props, $setup, $data, $options) {
+  return openBlock(), createElementBlock("a", {
+    class: normalizeClass($setup.props.classes),
+    target: $setup.target,
+    href: $setup.props.url
+  }, toDisplayString($setup.props.text), 11, _hoisted_1$3);
+}
+_sfc_main$5.__file = "src/components/VariantLink.vue";
+const VariantLink = /* @__PURE__ */ _export_sfc(_sfc_main$5, [["render", _sfc_render$5], ["__file", "/development/plustime/histoire-vuetify-tokens/src/components/VariantLink.vue"]]);
+const _sfc_main$4 = /* @__PURE__ */ defineComponent$1({
+  __name: "DisplayVariantLoader",
+  props: {
+    variants: { type: Array, required: true },
+    classes: { type: String, required: true },
+    link: { type: Object, required: false }
+  },
+  setup(__props, { expose: __expose }) {
+    __expose();
+    const props = __props;
+    const __returned__ = { props, VariantLink };
+    Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
+    return __returned__;
+  }
+});
+function _sfc_render$4(_ctx, _cache, $props, $setup, $data, $options) {
+  return openBlock(), createElementBlock(
+    "div",
+    {
+      class: normalizeClass($props.classes)
+    },
+    [
+      $setup.props.link !== void 0 ? (openBlock(), createBlock($setup["VariantLink"], {
+        key: 0,
+        text: $setup.props.link.text,
+        url: $setup.props.link.url,
+        blank: $setup.props.link.blank ?? false,
+        classes: $setup.props.link.classes ?? ""
+      }, null, 8, ["text", "url", "blank", "classes"])) : createCommentVNode("v-if", true),
+      (openBlock(true), createElementBlock(
+        Fragment,
+        null,
+        renderList($setup.props.variants, (variant, i2) => {
+          return openBlock(), createElementBlock(
+            "div",
+            {
+              key: i2,
+              class: "mt-2 info"
+            },
+            toDisplayString(variant),
+            1
+            /* TEXT */
+          );
+        }),
+        128
+        /* KEYED_FRAGMENT */
+      ))
+    ],
+    2
+    /* CLASS */
+  );
+}
+_sfc_main$4.__file = "src/components/DisplayVariantLoader.vue";
+const DisplayVariantLoader = /* @__PURE__ */ _export_sfc(_sfc_main$4, [["render", _sfc_render$4], ["__file", "/development/plustime/histoire-vuetify-tokens/src/components/DisplayVariantLoader.vue"]]);
+const _sfc_main$3 = /* @__PURE__ */ defineComponent$1({
+  __name: "ContainerizedLoader",
+  props: {
+    component: { type: Object, required: true },
+    states: { type: Array, required: true },
+    state: { type: Object, required: true },
+    builder: { type: null, required: false }
+  },
+  setup(__props, { expose: __expose }) {
+    __expose();
+    const props = __props;
+    const stateObj = ref(props.state ?? {});
+    const component = ref(props.component);
+    watchEffect(() => stateObj.value = props.state ?? {});
+    const stateValues = computed(() => props.states.map((s) => stateObj.value[s]));
+    const builderFunction = computed(() => {
+      if (props.builder === void 0) {
+        return null;
+      }
+      const callback = new Function(...props.builder.args, props.builder.body);
+      return callback(...stateValues.value);
+    });
+    const classString = computed(() => {
+      let objectClass = {};
+      if (builderFunction.value !== null) {
+        objectClass[builderFunction.value] = true;
+      }
+      if (component.value.classes !== void 0 && component.value.classes !== "") {
+        objectClass[component.value.classes ?? ""] = true;
+      }
+      return objectClass;
+    });
+    const __returned__ = { props, stateObj, component, stateValues, builderFunction, classString };
+    Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
+    return __returned__;
+  }
+});
+function _sfc_render$3(_ctx, _cache, $props, $setup, $data, $options) {
+  const _component_containerized_loader = resolveComponent("containerized-loader", true);
+  return openBlock(), createBlock(resolveDynamicComponent($setup.component.component), {
+    class: normalizeClass($setup.classString)
+  }, {
+    default: withCtx(() => [
+      $setup.component.children && $setup.component.children.length > 0 ? (openBlock(true), createElementBlock(
+        Fragment,
+        { key: 0 },
+        renderList($setup.component.children, (container, i2) => {
+          return openBlock(), createBlock(_component_containerized_loader, {
+            key: i2,
+            component: container,
+            states: container.states ?? [],
+            builder: container.builder,
+            state: $setup.stateObj
+          }, null, 8, ["component", "states", "builder", "state"]);
+        }),
+        128
+        /* KEYED_FRAGMENT */
+      )) : (openBlock(), createElementBlock(
+        Fragment,
+        { key: 1 },
+        [
+          createTextVNode(
+            toDisplayString($setup.component.content ?? ""),
+            1
+            /* TEXT */
+          )
+        ],
+        64
+        /* STABLE_FRAGMENT */
+      ))
+    ]),
+    _: 1
+    /* STABLE */
+  }, 8, ["class"]);
+}
+_sfc_main$3.__file = "src/components/ContainerizedLoader.vue";
+const ContainerizedLoader = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["render", _sfc_render$3], ["__file", "/development/plustime/histoire-vuetify-tokens/src/components/ContainerizedLoader.vue"]]);
+const _sfc_main$2 = /* @__PURE__ */ defineComponent$1({
+  __name: "ComponentVariantLoader",
+  props: {
+    variants: { type: Array, required: true },
+    text: { type: String, required: true },
+    classes: { type: String, required: true },
+    inline: { type: Boolean, required: true },
+    containerized: { type: Boolean, required: true },
+    state: { type: Object, required: true }
+  },
+  setup(__props, { expose: __expose }) {
+    __expose();
+    const props = __props;
+    const stateObj = ref(props.state ?? {});
+    watchEffect(() => stateObj.value = props.state ?? {});
+    const __returned__ = { props, stateObj, ContainerizedLoader };
+    Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
+    return __returned__;
+  }
+});
+const _hoisted_1$2 = { class: "mt-2 info" };
+function _sfc_render$2(_ctx, _cache, $props, $setup, $data, $options) {
+  return openBlock(), createElementBlock("div", null, [
+    $props.containerized ? (openBlock(), createBlock($setup["ContainerizedLoader"], {
+      key: 0,
+      component: $props.variants[0],
+      states: $props.variants[0].states ?? [],
+      builder: $props.variants[0].builder,
+      state: $setup.stateObj
+    }, null, 8, ["component", "states", "builder", "state"])) : (openBlock(true), createElementBlock(
+      Fragment,
+      { key: 1 },
+      renderList($props.variants, (variant, i2) => {
+        return openBlock(), createElementBlock("div", {
+          key: i2,
+          class: "ma-4 pa-4"
+        }, [
+          createBaseVNode(
+            "div",
+            {
+              class: normalizeClass($props.classes)
+            },
+            [
+              (openBlock(), createBlock(resolveDynamicComponent(variant.component), {
+                class: normalizeClass($props.classes + " " + variant.classes)
+              }, {
+                default: withCtx(() => [
+                  createTextVNode(
+                    toDisplayString(variant.content),
+                    1
+                    /* TEXT */
+                  )
+                ]),
+                _: 2
+                /* DYNAMIC */
+              }, 1032, ["class"]))
+            ],
+            2
+            /* CLASS */
+          ),
+          createBaseVNode(
+            "div",
+            _hoisted_1$2,
+            "Component: " + toDisplayString(variant.title),
+            1
+            /* TEXT */
+          )
+        ]);
+      }),
+      128
+      /* KEYED_FRAGMENT */
+    ))
+  ]);
+}
+_sfc_main$2.__file = "src/components/ComponentVariantLoader.vue";
+const ComponentVariantLoader = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["render", _sfc_render$2], ["__file", "/development/plustime/histoire-vuetify-tokens/src/components/ComponentVariantLoader.vue"]]);
+const _sfc_main$1 = /* @__PURE__ */ defineComponent$1({
+  __name: "VariantDescription",
+  props: {
+    text: { type: String, required: true },
+    classes: { type: String, required: true },
+    divider: { type: Object, required: true },
+    link: { type: Object, required: true }
+  },
+  setup(__props, { expose: __expose }) {
+    __expose();
+    const props = __props;
+    const __returned__ = { props, VariantLink };
+    Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
+    return __returned__;
+  }
+});
+const _hoisted_1$1 = { key: 0 };
+function _sfc_render$1(_ctx, _cache, $props, $setup, $data, $options) {
+  const _component_v_divider = resolveComponent("v-divider");
+  return $setup.props.text !== "" || $setup.props.link !== void 0 ? (openBlock(), createElementBlock("div", _hoisted_1$1, [
+    $setup.props.text ? (openBlock(), createElementBlock(
+      "div",
+      {
+        key: 0,
+        class: normalizeClass($setup.props.classes)
+      },
+      toDisplayString($setup.props.text),
+      3
+      /* TEXT, CLASS */
+    )) : createCommentVNode("v-if", true),
+    createVNode($setup["VariantLink"], {
+      text: $setup.props.link.text,
+      url: $setup.props.link.url,
+      blank: $setup.props.link.blank ?? false,
+      classes: $setup.props.link.classes ?? ""
+    }, null, 8, ["text", "url", "blank", "classes"]),
+    $setup.props.divider.show ? (openBlock(), createBlock(_component_v_divider, {
+      key: 1,
+      class: normalizeClass($setup.props.divider.classes)
+    }, null, 8, ["class"])) : createCommentVNode("v-if", true)
+  ])) : createCommentVNode("v-if", true);
+}
+_sfc_main$1.__file = "src/components/VariantDescription.vue";
+const VariantDescription = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["render", _sfc_render$1], ["__file", "/development/plustime/histoire-vuetify-tokens/src/components/VariantDescription.vue"]]);
+const _sfc_main = /* @__PURE__ */ defineComponent$1({
+  __name: "VuetifyVariant",
+  props: {
+    discriminator: { type: String, required: true },
+    title: { type: Object, required: true },
+    classes: { type: String, required: true },
+    text: { type: String, required: true },
+    inline: { type: Boolean, required: true },
+    state: { type: Object, required: true },
+    playground: { type: Object, required: true },
+    description: { type: Object, required: false },
+    controls: { type: Array, required: false },
+    variants: { type: null, required: false },
+    containerized: { type: Boolean, required: false }
+  },
+  setup(__props, { expose: __expose }) {
+    __expose();
+    const props = __props;
+    const stateObj = ref(props.state ?? {});
+    watchEffect(() => stateObj.value = props.state ?? {});
+    const hasPlayground = computed(
+      () => {
+        var _a3, _b;
+        return (((_b = (_a3 = props.controls) == null ? void 0 : _a3.filter((c2) => c2.playground !== void 0)) == null ? void 0 : _b.length) ?? 0) > 0;
+      }
+    );
+    const __returned__ = { props, stateObj, hasPlayground, VariantControlPlayground, ClassVariantLoader, ColorVariantLoader, DisplayVariantLoader, ComponentVariantLoader, VariantDescription };
+    Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
+    return __returned__;
+  }
+});
+const _hoisted_1 = {
+  key: 0,
+  class: "ma-4 pa-4"
+};
+const _hoisted_2 = { class: "ma-4 pa-4" };
+function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
+  var _a3, _b, _c2, _d2, _e2, _f2, _g2, _h2, _i2, _j, _k, _l2, _m, _n2, _o2, _p2, _q, _r2, _s2, _t2, _u2;
+  const _component_v_divider = resolveComponent("v-divider");
+  return openBlock(), createElementBlock(
+    Fragment,
+    null,
+    [
+      $setup.hasPlayground ? (openBlock(), createElementBlock("div", _hoisted_1, [
+        createBaseVNode(
+          "div",
+          {
+            class: normalizeClass($setup.props.playground.classes)
+          },
+          toDisplayString($setup.props.playground.title),
+          3
+          /* TEXT, CLASS */
+        ),
+        (openBlock(true), createElementBlock(
+          Fragment,
+          null,
+          renderList($props.controls, (control, i2) => {
+            var _a4, _b2, _c3;
+            return withDirectives((openBlock(), createBlock($setup["VariantControlPlayground"], {
+              key: i2,
+              type: ((_a4 = control == null ? void 0 : control.playground) == null ? void 0 : _a4.type) ?? "",
+              sample: $setup.stateObj[((_b2 = control == null ? void 0 : control.playground) == null ? void 0 : _b2.sample) ?? "sample"],
+              classes: (_c3 = control == null ? void 0 : control.playground) == null ? void 0 : _c3.classes,
+              model: $setup.stateObj[control == null ? void 0 : control.model]
+            }, null, 8, ["type", "sample", "classes", "model"])), [
+              [vShow, control.playground ?? false]
+            ]);
+          }),
+          128
+          /* KEYED_FRAGMENT */
+        ))
+      ])) : createCommentVNode("v-if", true),
+      $setup.hasPlayground && $setup.props.playground.divider.show ? (openBlock(), createBlock(_component_v_divider, {
+        key: 1,
+        class: normalizeClass($setup.props.playground.divider.classes)
+      }, null, 8, ["class"])) : createCommentVNode("v-if", true),
+      createBaseVNode("div", _hoisted_2, [
+        createBaseVNode(
+          "div",
+          {
+            class: normalizeClass($setup.props.title.classes)
+          },
+          toDisplayString($setup.props.title.text),
+          3
+          /* TEXT, CLASS */
+        ),
+        $setup.props.description !== void 0 ? (openBlock(), createBlock($setup["VariantDescription"], {
+          key: 0,
+          link: ((_a3 = $setup.props.description) == null ? void 0 : _a3.link) ?? void 0,
+          text: ((_b = $setup.props.description) == null ? void 0 : _b.text) ?? "",
+          classes: ((_c2 = $setup.props.description) == null ? void 0 : _c2.classes) ?? "",
+          divider: ((_d2 = $setup.props.description) == null ? void 0 : _d2.divider) ?? { show: false }
+        }, null, 8, ["link", "text", "classes", "divider"])) : createCommentVNode("v-if", true),
+        $props.discriminator === "color" ? (openBlock(), createBlock($setup["ColorVariantLoader"], {
+          key: 1,
+          text: ((_e2 = $setup.props) == null ? void 0 : _e2.text) ?? "name",
+          variants: ((_f2 = $setup.props) == null ? void 0 : _f2.variants) ?? [],
+          classes: ((_g2 = $setup.props) == null ? void 0 : _g2.classes) ?? "",
+          inline: ((_h2 = $setup.props) == null ? void 0 : _h2.inline) ?? false,
+          state: $setup.stateObj
+        }, null, 8, ["text", "variants", "classes", "inline", "state"])) : createCommentVNode("v-if", true),
+        $props.discriminator === "class" ? (openBlock(), createBlock($setup["ClassVariantLoader"], {
+          key: 2,
+          variants: ((_i2 = $setup.props) == null ? void 0 : _i2.variants) ?? [],
+          text: ((_j = $setup.props) == null ? void 0 : _j.text) ?? "title",
+          classes: ((_k = $setup.props) == null ? void 0 : _k.classes) ?? "",
+          inline: ((_l2 = $setup.props) == null ? void 0 : _l2.inline) ?? false,
+          state: $setup.stateObj
+        }, null, 8, ["variants", "text", "classes", "inline", "state"])) : createCommentVNode("v-if", true),
+        $props.discriminator === "display" ? (openBlock(), createBlock($setup["DisplayVariantLoader"], {
+          key: 3,
+          variants: ((_m = $setup.props) == null ? void 0 : _m.variants) ?? [],
+          text: ((_n2 = $setup.props) == null ? void 0 : _n2.text) ?? "title",
+          classes: ((_o2 = $setup.props) == null ? void 0 : _o2.classes) ?? "",
+          inline: ((_p2 = $setup.props) == null ? void 0 : _p2.inline) ?? false,
+          state: $setup.stateObj
+        }, null, 8, ["variants", "text", "classes", "inline", "state"])) : createCommentVNode("v-if", true),
+        $props.discriminator === "component" ? (openBlock(), createBlock($setup["ComponentVariantLoader"], {
+          key: 4,
+          variants: ((_q = $setup.props) == null ? void 0 : _q.variants) ?? [],
+          text: ((_r2 = $setup.props) == null ? void 0 : _r2.text) ?? "title",
+          containerized: ((_s2 = $setup.props) == null ? void 0 : _s2.containerized) ?? false,
+          classes: ((_t2 = $setup.props) == null ? void 0 : _t2.classes) ?? "",
+          inline: ((_u2 = $setup.props) == null ? void 0 : _u2.inline) ?? false,
+          state: $setup.stateObj
+        }, null, 8, ["variants", "text", "containerized", "classes", "inline", "state"])) : createCommentVNode("v-if", true)
+      ])
+    ],
+    64
+    /* STABLE_FRAGMENT */
+  );
+}
+_sfc_main.__file = "src/components/VuetifyVariant.vue";
+const VuetifyVariant = /* @__PURE__ */ _export_sfc(_sfc_main, [["render", _sfc_render], ["__file", "/development/plustime/histoire-vuetify-tokens/src/components/VuetifyVariant.vue"]]);
+const HistoireVuetifyDS = {
+  install(app) {
+    app.component("VuetifyVariant", VuetifyVariant);
+  }
+};
 const histoire = "";
+const main = "";
 const setupVue3 = defineSetupVue3(({ app, addWrapper }) => {
   app.use(vuetify);
+  app.use(HistoireVuetifyDS);
   addWrapper(HistoireWrapper);
 });
 const m$2 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
@@ -73559,10 +74924,10 @@ const client = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProper
   getTagName: Q
 }, Symbol.toStringTag, { value: "Module" }));
 export {
-  unindent as $,
+  toRefs$1 as $,
   pushScopeId as A,
   popScopeId as B,
-  defineAsyncComponent as C,
+  defineAsyncComponent$1 as C,
   vShow$1 as D,
   reactive$1 as E,
   Fragment$1 as F,
@@ -73576,55 +74941,57 @@ export {
   parseQuery as N,
   h$3 as O,
   applyState as P,
-  createRouter as Q,
-  createWebHistory as R,
-  createWebHashHistory as S,
+  defineAsyncComponent as Q,
+  createRouter as R,
+  createWebHistory as S,
   Transition$1 as T,
-  useDark as U,
-  useToggle as V,
-  markRaw$1 as W,
-  watchEffect$1 as X,
-  mergeProps$1 as Y,
-  resolveDynamicComponent$1 as Z,
-  toRefs$1 as _,
+  createWebHashHistory as U,
+  useDark as V,
+  useToggle as W,
+  markRaw$1 as X,
+  watchEffect$1 as Y,
+  mergeProps$1 as Z,
+  resolveDynamicComponent$1 as _,
   useRoute as a,
-  useRouter$1 as a0,
-  useResizeObserver$1 as a1,
-  nm as a2,
-  withModifiers$1 as a3,
-  renderSlot$1 as a4,
-  vModelText$1 as a5,
-  onUnmounted$1 as a6,
-  VTooltip$2 as a7,
-  createStaticVNode as a8,
-  toRaw$1 as a9,
-  Dropdown as aa,
-  clone as ab,
-  omit$1 as ac,
-  useTimeoutFn as ad,
-  onClickOutside as ae,
-  nextTick$1 as af,
-  om as ag,
-  Ug as ah,
-  Yg as ai,
-  Jg as aj,
-  shallowRef$1 as ak,
-  getHighlighter as al,
-  onBeforeUnmount$1 as am,
-  scrollIntoView as an,
-  useMediaQuery as ao,
-  useFocus$1 as ap,
-  refDebounced as aq,
-  flexsearch_bundleExports as ar,
-  client$1 as as,
-  client as at,
-  createElementBlock as b,
+  unindent as a0,
+  useRouter$1 as a1,
+  useResizeObserver$1 as a2,
+  nm as a3,
+  withModifiers$1 as a4,
+  renderSlot$1 as a5,
+  vModelText$1 as a6,
+  onUnmounted$1 as a7,
+  VTooltip$2 as a8,
+  createStaticVNode as a9,
+  toRaw$1 as aa,
+  Dropdown as ab,
+  clone as ac,
+  omit$1 as ad,
+  useTimeoutFn as ae,
+  onClickOutside as af,
+  nextTick$1 as ag,
+  om as ah,
+  Ug as ai,
+  Yg as aj,
+  Jg as ak,
+  shallowRef$1 as al,
+  getHighlighter as am,
+  onBeforeUnmount$1 as an,
+  scrollIntoView as ao,
+  useMediaQuery as ap,
+  useFocus$1 as aq,
+  refDebounced as ar,
+  flexsearch_bundleExports as as,
+  Vuetify_story$1 as at,
+  client$1 as au,
+  client as av,
+  createElementBlock$1 as b,
   computed$2 as c,
   defineComponent$2 as d,
   createVNode$1 as e,
   createBaseVNode$1 as f,
   unref$1 as g,
-  createCommentVNode as h,
+  createCommentVNode$1 as h,
   defineStore as i,
   useStorage as j,
   watch$1 as k,
@@ -73632,7 +74999,7 @@ export {
   withKeys as m,
   normalizeClass$1 as n,
   openBlock$1 as o,
-  renderList as p,
+  renderList$1 as p,
   createBlock$1 as q,
   ref$1 as r,
   useEventListener as s,

@@ -1,1 +1,1 @@
-{"version":3,"file":"options.d.ts","sourceRoot":"","sources":["../../../src/plugins/vuetify/options.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,cAAc,EAAE,MAAM,SAAS,CAAA;AAoBxC,QAAA,MAAM,eAAe,EAAE,cAQtB,CAAA;AAED,eAAe,eAAe,CAAA"}
+{"version":3,"file":"options.d.ts","sourceRoot":"","sources":["../../../src/plugins/vuetify/options.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,cAAc,EAAE,MAAM,SAAS,CAAA;AAQxC,QAAA,MAAM,eAAe,EAAE,cAQtB,CAAA;AAED,eAAe,eAAe,CAAA"}

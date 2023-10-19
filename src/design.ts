@@ -14,10 +14,12 @@ export function vuetifyDesignSystem(options: VuetifyDesignSystemOptions = {}): P
       await api.fs.emptyDir(api.pluginTempDir)
       api.moduleLoader.clearCache()
       await api.fs.writeFile(api.path.resolve(api.pluginTempDir, 'style.css'), css)
+      let resolveConfig = {};
       if (fs.existsSync(finalOptions.configFile)) {
-        console.log('CONFIG FILE FOUND YO!')
+        resolveConfig = await import(finalOptions.configFile)
+        console.log('RESOLVED CONFIG', resolveConfig)
       }
-      const { default: resolveConfig } = await import(finalOptions.configFile)
+      
       const storyFile = api.path.resolve(api.pluginTempDir, 'Vuetify.story.vue')
       await api.fs.writeFile(storyFile, generateStory(finalOptions, resolveConfig))
       api.addStoryFile(storyFile)

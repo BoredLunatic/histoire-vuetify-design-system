@@ -20,8 +20,6 @@ export default defineConfig({
       output: {
         globals: {
           vue: 'Vue',
-          // vuetify: 'vuetify',
-          // histoire: 'histoire'
         }
       }
     }

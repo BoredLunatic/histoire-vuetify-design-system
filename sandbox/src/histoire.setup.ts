@@ -10,7 +10,8 @@ import '@mdi/font/css/materialdesignicons.css'
 import 'vuetify/styles'
 
 export const setupVue3 = defineSetupVue3(({ app }) => {
-  app.use(createVuetify({
+  app
+    .use(createVuetify({
     components: {
       ...components,
       ...labs,
@@ -18,6 +19,5 @@ export const setupVue3 = defineSetupVue3(({ app }) => {
     directives,
     ...Vuetify3Options
   }))
-  
-  app.use(HistoireVuetifyDS)
+    .use(HistoireVuetifyDS)
 })

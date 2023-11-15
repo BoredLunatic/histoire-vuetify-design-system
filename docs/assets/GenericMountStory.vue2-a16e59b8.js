@@ -1,4 +1,4 @@
-import { Q as defineAsyncComponent, R as createRouter, S as createWebHistory, U as createWebHashHistory, V as useDark, W as useToggle, k as watch, X as markRaw, E as reactive, d as defineComponent, r as ref, Y as watchEffect, o as openBlock, q as createBlock, Z as mergeProps, _ as resolveDynamicComponent, h as createCommentVNode } from "./vendor-1b70a19a.js";
+import { Q as defineAsyncComponent, R as createRouter, S as createWebHistory, U as createWebHashHistory, V as useDark, W as useToggle, k as watch, X as markRaw, E as reactive, d as defineComponent, r as ref, Y as watchEffect, o as openBlock, q as createBlock, Z as mergeProps, _ as resolveDynamicComponent, h as createCommentVNode } from "./vendor-3e06fa48.js";
 const scriptRel = "modulepreload";
 const assetsURL = function(dep, importerUrl) {
   return new URL(dep, importerUrl).href;
@@ -60,7 +60,7 @@ const Comp6 = { "title": "Option Defaults", "icon": "carbon:floorplan", "group":
 const Comp7 = { "title": "Options Interfaces", "icon": "carbon:floorplan", "group": "getting-started", "docsOnly": true, "variants": [] };
 const Comp8 = { "title": "Templates", "icon": "carbon:template", "group": "getting-started", "docsOnly": true, "variants": [] };
 const Comp9 = { "title": "Variants", "icon": "carbon:settings-adjust", "group": "getting-started", "docsOnly": true, "variants": [] };
-const Comp10 = defineAsyncComponent(() => __vitePreload(() => import("./vendor-1b70a19a.js").then((n) => n.at), true ? [] : void 0, import.meta.url));
+const Comp10 = defineAsyncComponent(() => __vitePreload(() => import("./vendor-3e06fa48.js").then((n) => n.av), true ? [] : void 0, import.meta.url));
 let files = [
   { "id": "src-docs-introduction-story-js", "path": ["Introduction"], "filePath": "src/docs/Introduction.story.js", "story": { "id": "src-docs-introduction-story-js", "title": "Introduction", "group": "top", "layout": { "type": "single", "iframe": true }, "icon": "carbon:monster", "docsOnly": true, "variants": [] }, "supportPluginId": "vanilla", "docsFilePath": "src/docs/Introduction.story.md", "index": 0, component: Comp0, source: () => __vitePreload(() => import("./__resolved__virtual_story-source_src-docs-introduction-story-js-41c3478b.js"), true ? [] : void 0, import.meta.url) },
   { "id": "src-docs-templatelist-story-js", "path": ["List of Templates"], "filePath": "src/docs/TemplateList.story.js", "story": { "id": "src-docs-templatelist-story-js", "title": "List of Templates", "group": "top", "layout": { "type": "single", "iframe": true }, "icon": "carbon:list-boxes", "docsOnly": true, "variants": [] }, "supportPluginId": "vanilla", "docsFilePath": "src/docs/TemplateList.story.md", "index": 1, component: Comp1, source: () => __vitePreload(() => import("./__resolved__virtual_story-source_src-docs-templatelist-story-js-7627db35.js"), true ? [] : void 0, import.meta.url) },
@@ -97,12 +97,12 @@ const router = createRouter({
     {
       path: "/",
       name: "home",
-      component: () => __vitePreload(() => import("./HomeView.vue-1fbaf77f.js"), true ? ["./HomeView.vue-1fbaf77f.js","./vendor-1b70a19a.js"] : void 0, import.meta.url)
+      component: () => __vitePreload(() => import("./HomeView.vue-4c7ebaef.js"), true ? ["./HomeView.vue-4c7ebaef.js","./story-3de9458d.js","./vendor-3e06fa48.js"] : void 0, import.meta.url)
     },
     {
       path: "/story/:storyId",
       name: "story",
-      component: () => __vitePreload(() => import("./StoryView.vue-4188ed26.js"), true ? ["./StoryView.vue-4188ed26.js","./vendor-1b70a19a.js","./MobileOverlay.vue2-302de7d1.js","./BaseEmpty.vue-fcac2364.js","./state-42b49eaf.js"] : void 0, import.meta.url)
+      component: () => __vitePreload(() => import("./StoryView.vue-e6a9005c.js"), true ? ["./StoryView.vue-e6a9005c.js","./vendor-3e06fa48.js","./story-3de9458d.js","./MobileOverlay.vue2-7acc3747.js","./BaseEmpty.vue-029e98ac.js","./state-29ea8e32.js"] : void 0, import.meta.url)
     }
   ]
 });
@@ -192,8 +192,8 @@ function mapVariant(variant, existingVariant) {
   return result;
 }
 const clientSupportPlugins = {
-  "vanilla": () => __vitePreload(() => import("./vendor-1b70a19a.js").then((n) => n.au), true ? [] : void 0, import.meta.url),
-  "vue3": () => __vitePreload(() => import("./vendor-1b70a19a.js").then((n) => n.av), true ? [] : void 0, import.meta.url)
+  "vanilla": () => __vitePreload(() => import("./vendor-3e06fa48.js").then((n) => n.aw), true ? [] : void 0, import.meta.url),
+  "vue3": () => __vitePreload(() => import("./vendor-3e06fa48.js").then((n) => n.ax), true ? [] : void 0, import.meta.url)
 };
 const __default__ = {
   inheritAttrs: false

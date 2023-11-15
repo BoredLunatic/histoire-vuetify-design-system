@@ -53,7 +53,8 @@ export function vuetifyDesignSystem(options: VuetifyDesignSystemOptions = {}): P
       }
     },
 
-    onDev(api, onCleanup) {
+    async onDev(api, onCleanup) {
+      await generate(api)
       const watcher = api.watcher
         .watch(finalOptions.configFile)
         .on('change', () => generate(api))

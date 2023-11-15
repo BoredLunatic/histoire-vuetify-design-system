@@ -1,37 +1,22 @@
-declare const _default: import("vue").DefineComponent<{
-    text: {
-        type: import("vue").PropType<string>;
-        required: true;
-    };
-    blank: {
-        type: import("vue").PropType<boolean>;
-        required: true;
-    };
-    url: {
-        type: import("vue").PropType<string>;
-        required: true;
-    };
-    classes: {
-        type: import("vue").PropType<string>;
-        required: true;
-    };
-}, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
-    text: {
-        type: import("vue").PropType<string>;
-        required: true;
-    };
-    blank: {
-        type: import("vue").PropType<boolean>;
-        required: true;
-    };
-    url: {
-        type: import("vue").PropType<string>;
-        required: true;
-    };
-    classes: {
-        type: import("vue").PropType<string>;
-        required: true;
-    };
-}>>, {}, {}>;
+declare const _default: import("vue").DefineComponent<__VLS_TypePropsToRuntimeProps<{
+    text: string;
+    blank: boolean;
+    url: string;
+    classes: string;
+}>, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<__VLS_TypePropsToRuntimeProps<{
+    text: string;
+    blank: boolean;
+    url: string;
+    classes: string;
+}>>>, {}, {}>;
 export default _default;
+type __VLS_NonUndefinedable<T> = T extends undefined ? never : T;
+type __VLS_TypePropsToRuntimeProps<T> = {
+    [K in keyof T]-?: {} extends Pick<T, K> ? {
+        type: import('vue').PropType<__VLS_NonUndefinedable<T[K]>>;
+    } : {
+        type: import('vue').PropType<T[K]>;
+        required: true;
+    };
+};
 //# sourceMappingURL=VariantLink.vue.d.ts.map

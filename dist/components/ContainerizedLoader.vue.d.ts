@@ -1,36 +1,23 @@
 import { VariantComponent, BuilderFunction } from '../contracts/variants';
-declare const _default: import("vue").DefineComponent<{
-    component: {
-        type: import("vue").PropType<VariantComponent>;
-        required: true;
-    };
-    states: {
-        type: import("vue").PropType<string[]>;
-        required: true;
-    };
-    state: {
-        type: import("vue").PropType<object>;
-        required: true;
-    };
-    builder: {
-        type: import("vue").PropType<BuilderFunction>;
-    };
-}, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
-    component: {
-        type: import("vue").PropType<VariantComponent>;
-        required: true;
-    };
-    states: {
-        type: import("vue").PropType<string[]>;
-        required: true;
-    };
-    state: {
-        type: import("vue").PropType<object>;
-        required: true;
-    };
-    builder: {
-        type: import("vue").PropType<BuilderFunction>;
-    };
-}>>, {}, {}>;
+declare const _default: import("vue").DefineComponent<__VLS_TypePropsToRuntimeProps<{
+    component: VariantComponent;
+    states: string[];
+    state: object;
+    builder?: BuilderFunction | undefined;
+}>, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<__VLS_TypePropsToRuntimeProps<{
+    component: VariantComponent;
+    states: string[];
+    state: object;
+    builder?: BuilderFunction | undefined;
+}>>>, {}, {}>;
 export default _default;
+type __VLS_NonUndefinedable<T> = T extends undefined ? never : T;
+type __VLS_TypePropsToRuntimeProps<T> = {
+    [K in keyof T]-?: {} extends Pick<T, K> ? {
+        type: import('vue').PropType<__VLS_NonUndefinedable<T[K]>>;
+    } : {
+        type: import('vue').PropType<T[K]>;
+        required: true;
+    };
+};
 //# sourceMappingURL=ContainerizedLoader.vue.d.ts.map

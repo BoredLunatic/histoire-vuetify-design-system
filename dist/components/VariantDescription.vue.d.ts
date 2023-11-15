@@ -1,38 +1,23 @@
 import { VariantLink as VariantLinkType, VariantDivider } from '../contracts/variants';
-declare const _default: import("vue").DefineComponent<{
-    text: {
-        type: import("vue").PropType<string>;
-        required: true;
-    };
-    classes: {
-        type: import("vue").PropType<string>;
-        required: true;
-    };
-    divider: {
-        type: import("vue").PropType<VariantDivider>;
-        required: true;
-    };
-    link: {
-        type: import("vue").PropType<VariantLinkType>;
-        required: true;
-    };
-}, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
-    text: {
-        type: import("vue").PropType<string>;
-        required: true;
-    };
-    classes: {
-        type: import("vue").PropType<string>;
-        required: true;
-    };
-    divider: {
-        type: import("vue").PropType<VariantDivider>;
-        required: true;
-    };
-    link: {
-        type: import("vue").PropType<VariantLinkType>;
-        required: true;
-    };
-}>>, {}, {}>;
+declare const _default: import("vue").DefineComponent<__VLS_TypePropsToRuntimeProps<{
+    text: string;
+    classes: string;
+    divider: VariantDivider;
+    link: VariantLinkType;
+}>, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<__VLS_TypePropsToRuntimeProps<{
+    text: string;
+    classes: string;
+    divider: VariantDivider;
+    link: VariantLinkType;
+}>>>, {}, {}>;
 export default _default;
+type __VLS_NonUndefinedable<T> = T extends undefined ? never : T;
+type __VLS_TypePropsToRuntimeProps<T> = {
+    [K in keyof T]-?: {} extends Pick<T, K> ? {
+        type: import('vue').PropType<__VLS_NonUndefinedable<T[K]>>;
+    } : {
+        type: import('vue').PropType<T[K]>;
+        required: true;
+    };
+};
 //# sourceMappingURL=VariantDescription.vue.d.ts.map

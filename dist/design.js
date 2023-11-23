@@ -1,4 +1,4 @@
-import m from "fs";
+import u from "fs";
 import { a as d } from "./helper-3cde6550.js";
 function c(s, a, t = ".", e) {
   if (!r(a))
@@ -804,10 +804,10 @@ function b(s, a) {
     const g = d(o).replaceAll(" ", "").replaceAll("-", ""), n = s.templates[o];
     if (!(n === void 0 || !n.show)) {
       if (n.variants !== void 0) {
-        const u = `
+        const m = `
       const ${g}Data = markRaw(${JSON.stringify(n.variants)})
       `;
-        l.push(u);
+        l.push(m);
       }
       e = [...e, ...n.imports ?? []], l = [...l, ...n.variables ?? []], t = [...t, ...n.state ?? []], i.push(w(g, s.playground, n));
     }
@@ -853,20 +853,18 @@ function b(s, a) {
     </Story>
   </template>`;
 }
-function O(s = {}) {
+function S(s = {}) {
   const a = y(s, f);
   async function t(e) {
-    console.log("Before try GENERATING VUETIFY STORY");
     try {
-      console.log("GENERATING VUETIFY STORY"), await e.fs.ensureDir(e.pluginTempDir), await e.fs.emptyDir(e.pluginTempDir), console.log("After ensure"), e.moduleLoader.clearCache(), console.log("clear cache"), await e.fs.writeFile(e.path.resolve(e.pluginTempDir, "style.css"), v);
+      await e.fs.ensureDir(e.pluginTempDir), await e.fs.emptyDir(e.pluginTempDir), e.moduleLoader.clearCache(), await e.fs.writeFile(e.path.resolve(e.pluginTempDir, "style.css"), v);
       let l = {};
-      a.configFile !== "" && m.existsSync(a.configFile) && (l = await import(a.configFile));
+      a.configFile !== "" && u.existsSync(a.configFile) && (l = await import(a.configFile));
       const i = e.path.resolve(e.pluginTempDir, "Vuetify.story.vue");
       await e.fs.writeFile(i, b(a, l)), e.addStoryFile(i);
     } catch (l) {
-      console.log("ERROR GENERATING VUETIFY STORY"), e.error(l.stack ?? l.message);
+      e.error(l.stack ?? l.message);
     }
-    console.log("after try GENERATING VUETIFY STORY");
   }
   return {
     name: "vuetify-design-system",
@@ -913,5 +911,5 @@ const v = `
 }
 `;
 export {
-  O as vuetifyDesignSystem
+  S as vuetifyDesignSystem
 };
